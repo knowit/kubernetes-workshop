@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: k8sdocs
+  namespace: monitoring
+  labels:
+    k8s-app: k8sdocs
+spec:
+  template:
+    metadata:
+      labels:
+        k8s-app: k8sdocs
+    spec:
+      terminationGracePeriodSeconds: 30
+      containers:
+      - name: k8sdocs
+        image: gcr.io/google-samples/k8sdocs:1.1

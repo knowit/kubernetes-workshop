@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: dockerdocs
+  namespace: monitoring
+  labels:
+    k8s-app: dockerdocs
+spec:
+  template:
+    metadata:
+      labels:
+        k8s-app: dockerdocs
+    spec:
+      terminationGracePeriodSeconds: 30
+      containers:
+      - name: dockerdocs
+        image: docs/docker.github.io:latest
