@@ -41,3 +41,26 @@ kubectl config view
 Get the binary from `tools/k8s/helm` in this repo.
 
 Make it executable, place it somewhere, and add that somewhere to `PATH`.
+
+## Enable our local docker registry
+
+### Linux
+
+```bash
+sudo nano /etc/docker/daemon.json
+```
+
+Insert this content:
+
+```
+{
+  "insecure-registries" : ["ubuntu-k8s-1:30603"]
+}
+
+```
+
+Then:
+
+```bash
+systemctl restart docker
+```
