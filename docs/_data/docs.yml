@@ -1,11 +1,13 @@
-- title: Getting Started
+- title: 1 Preparations
   docs:
   - home
-  - themes
-  - customization
-
-- title: Examples
+  - install
+- title: 2 Workshop
   docs:
-  - cheatsheet
-  - font-awesome
+  - setup
+- title: Contribute to site
+  docs:
+  - contribute
   - bootstrap
+  - cheatsheet
+  - fontawesome
