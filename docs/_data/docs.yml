@@ -1,10 +1,13 @@
-- title: 1 Preparations
+- title: Preparations
   docs:
   - home
-  - install
-- title: 2 Workshop
+  - requirements
+- title: Workshop
   docs:
-  - setup
+  - 01-intro
+  - 02-kubectl
+  - 03-nodes
+  - 04-pods
 - title: Contribute to site
   docs:
   - contribute
