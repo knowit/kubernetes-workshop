@@ -3,12 +3,14 @@ kind: Ingress
 metadata:
   name: k8sdocs-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    #ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
   - http:
       paths:
       - path: /k8sdocs
         backend:
-          serviceName: k8sdocs
+          serviceName: k8sdocs-svc
           servicePort: 80
