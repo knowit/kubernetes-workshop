@@ -14,4 +14,8 @@ spec:
       terminationGracePeriodSeconds: 30
       containers:
       - name: k8sdocs
-        image: gcr.io/google-samples/k8sdocs:1.1
+        image: ubuntu-k8s-1:30603/kubernetes-website
+        ports:
+        - containerPort: 80
+          name: web
+          protocol: TCP
