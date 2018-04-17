@@ -35,3 +35,9 @@ Check with kubectl that the configuration works
 ```bash
 kubectl config view
 ```
+
+## (Optional) Install helm binary
+
+Get the binary from `tools/k8s/helm` in this repo.
+
+Make it executable, place it somewhere, and add that somewhere to `PATH`.
