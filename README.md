@@ -18,6 +18,19 @@ helm install stable/nginx-ingress --set rbac.create=true --set controller.servic
 
 ## For students
 
+### Access our fileshare
+
+It is hosted at `ubuntu-k8s-1` and uses FTP.
+
+- Username: ftpuser
+- Password: same as Wifi
+
+### Install kubectl
+
+Get the kubectl binary for your platform from our fileshare. It is located under `tools/k8s/kubectl/<platform>/kubectl`.
+
+Make it executable, place it somewhere, and add that somewhere to `PATH`.
+
 ### Install kubectl configuration
 
 Someone will supply you with a configuration file.
