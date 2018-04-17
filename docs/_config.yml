@@ -7,7 +7,7 @@ description: >
 baseurl: "/kubernetes-workshop" # the subpath of your site, e.g. /blog/
 url: https://knowit.github.io/kubernetes-workshop # the base hostname & protocol for your site
 git_address: https://github.com/knowit/kubernetes-workshop
-git_edit_address: https://github.com/knowit/kubernetes-workshop/edit/master/docs/
+git_edit_address: https://github.com/knowit/kubernetes-workshop/edit/master/docs
 
 # theme options from https://bootswatch.com/
 # comment out this to use default Bootstrap
