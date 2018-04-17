@@ -36,13 +36,15 @@ Check with kubectl that the configuration works
 kubectl config view
 ```
 
-## (Optional) Install helm binary
+### (Optional) Install helm binary
 
 Get the binary from `tools/k8s/helm` in this repo.
 
 Make it executable, place it somewhere, and add that somewhere to `PATH`.
 
-## Enable our local docker registry
+### Enable insecure registries for Docker
+
+Add `http://ubuntu-k8s-1:30603` as an insecure registry, as described below.
 
 ### Linux
 
@@ -56,7 +58,6 @@ Insert this content:
 {
   "insecure-registries" : ["ubuntu-k8s-1:30603"]
 }
-
 ```
 
 Then:
@@ -64,3 +65,7 @@ Then:
 ```bash
 systemctl restart docker
 ```
+
+#### On macOS
+
+![hello](img/docker_insecure_registry_mac.png)
