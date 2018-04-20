@@ -6,8 +6,19 @@
   docs:
   - 01-intro
   - 02-kubectl
-  - 03-nodes
-  - 04-pods
+  - 03-node
+  - 04-pod
+  - 05-probe
+  - 06-deploy
+  - 07-service
+  - 08-service-discovery
+  - 09-ingress
+  - 10-configmap
+  - 11-secret
+  - 12-persistentvolume
+  - 13-persistentvolumeclaim
+  - 14-namespace
+  - 15-label
 - title: Contribute to site
   docs:
   - contribute
