@@ -1,4 +1,4 @@
 ---
 title: 13 - PersistentVolumeClaim
-permalink: /docs/13-persistenvolumeclaim/
+permalink: /docs/13-persistentvolumeclaim/
 ---
