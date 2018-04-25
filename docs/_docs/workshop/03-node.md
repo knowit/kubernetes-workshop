@@ -24,10 +24,6 @@ nodes.
 
 Find out the IP of the kubernetes master and one of the kubernetes nodes.
 
-Hey guys, I just this problem with Node v4.1.1.
-Apparently you can't `require` files that don't exist!
-plz fix.
-
 <details>
  <summary>Solution</summary>
 
