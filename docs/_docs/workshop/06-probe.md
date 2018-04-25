@@ -21,7 +21,7 @@ Both readiness and liveness probes are optional. Without them, the kubelet will 
 
 ## Task
 
-Extend your deployment to include readiness and liveness probes. The sample application has endpoints at **__/healthy__** and **__/nonhealthy__**, that return HTTP 200 and HTTP 418, respectively. Use these endpoints to either make your container seem to be in a good state or bad state.
+Extend your deployment to include readiness and liveness probes. The sample application has endpoints at ***/healthy*** and ***/nonhealthy***, that return HTTP 200 and HTTP 418, respectively. Use these endpoints to either make your container seem to be in a good state or bad state.
 
 <details>
   <summary>Solution</summary>
