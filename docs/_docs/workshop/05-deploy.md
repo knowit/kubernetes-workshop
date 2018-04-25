@@ -1,4 +1,4 @@
 ---
-title: 06 - Deployment
-permalink: /docs/06-deployment/
+title: 05 - Deployment
+permalink: /docs/05-deployment/
 ---
