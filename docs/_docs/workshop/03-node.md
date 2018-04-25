@@ -26,6 +26,7 @@ Find out the IP of the kubernetes master and one of the kubernetes nodes.
 
 <details>
  <summary>Solution</summary>
+ <div markdown="1">
 
 ### Solution 1: kubectl get node
 
@@ -55,4 +56,5 @@ that `kubectl describe` can provide info about a node (or any resource, like `ku
 `kubectl describe` is usually gathers information from more sources (like the events) than just the YAML
 description.
 
+ </div>
 </details>
