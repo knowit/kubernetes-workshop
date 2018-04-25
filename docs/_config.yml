@@ -51,6 +51,17 @@ defaults:
     seo:
       type: "WebPage"
 
+- scope:
+    path: "assets/img"
+  values:
+    image: true
+
+- scope:
+    path: "assets/pdf"
+  values:
+    image: false
+
+
 collections:
   docs:
     permalink: /:collection/:path/
