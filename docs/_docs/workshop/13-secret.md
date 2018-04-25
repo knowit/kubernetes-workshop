@@ -52,6 +52,10 @@ spec:
         ports:
         - containerPort: 8080
         volumeMounts:
+        - name: greatestconfig
+          mountPath: /config/greatestconfig.yml
+          readOnly: true
+          subPath: greatestconfig.yml
         - name: supersecret
           mountPath: "/secrets"
           readOnly: true
@@ -59,6 +63,10 @@ spec:
       - name: supersecret
         secret:
           secretName: mysecret
+      - name: greatestconfig
+        configMap:
+          defaultMode: 0600
+          name: myconfigmap
 ```
 
   </div>
