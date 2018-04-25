@@ -3,6 +3,10 @@ title: 07 - Deployment
 permalink: /docs/07-deployment/
 ---
 
+See http://192.168.1.71:30827/docs/concepts/workloads/controllers/deployment/#use-case
+
+![text](../../img/deployment.png)
+
 A Deployment is the result of someone deploying a Pod to the cluster. 
 
 A couple of useful features of a Deployment is:
@@ -13,14 +17,100 @@ to 3. Then Kubernetes will create 3 copies of your pod (and ensure that they're 
 balance every request between those 3 pods.
 * You can rollback a deployment to a previous version.
 
-## Task
+## YAML
+
+A deployment looks like this:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-app-deployment
+  labels:
+    app: sample-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample-app
+  template:
+    metadata:
+      labels:
+        app: sample-app
+    spec:
+      containers:
+      - name: sample-app
+        image: ubuntu-k8s-1.local:30603/sample-app
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+```
+
+## Task: Create deployment
 
 Create a deployment of our sample app.
 
-## Solution
+```
+# Watch results
+watch kubectl get deployment
 
-## Extra task if you have a lot of time
+# In a new terminal, run
+cd kubernetes-workshop/apps/sample-apps/sample-app/k8s
+kubectl apply -f deployment.yaml
+```
+Switch back to first terminal, and observe that the deployment is created.
 
-Do the following uses cases described in Kubernetes documentation of Deployments (title "Use Case"):
 
-http://192.168.1.71:30827/docs/concepts/workloads/controllers/deployment/
+## Task: Delete a pod in the deployment
+
+Stop the `watch` command from above, and instead run
+
+```
+watch kubectl get po
+```
+
+Now, this command should output something like:
+
+
+```
+NAME                                     READY     STATUS    RESTARTS   AGE
+sample-app-deployment-7776c6b654-sshv8   1/1       Running   0          1m
+```
+
+Delete the listed pod. In this example, the command is:
+
+```
+kubectl delete po sample-app-deployment-7776c6b654-sshv8
+```
+
+and watch the `watch` output.
+
+You should see something like this:
+
+```
+NAME                                    READY     STATUS              RESTARTS   AGE
+sample-app-deployment-864bcb76f-9c7gn   0/1       Terminating         0          1m
+sample-app-deployment-864bcb76f-pg9jk   0/1       ContainerCreating   0          <invalid>
+```
+
+Awesome, Kubernetes is auto creating a new pod since the first was killed.
+
+## Task: Create 3 replicas
+
+In `deployment.yaml`, modify `replicas: 1` to `replicas: 3`. Then do:
+
+```
+kubectl apply -f deployment.yaml
+```
+
+Watch the `watch` output, and enjoy watching Kubernetes scaling up our app!
+
+## Task: Clean up
+
+... so we don't mess up the rest of our tutorial.
+
+Change replicas back 1. Then
+
+```
+kubectl delete -f deployment.yaml
+```
