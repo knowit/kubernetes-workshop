@@ -81,4 +81,6 @@ systemctl restart docker
 
 #### On macOS
 
+Click on the Docker icon in the menu bar (the bar on the top of your screen), choose Preferences... and make the Daemon tab look like the image below
+
 ![hello](img/docker_insecure_registry_mac.png)
