@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: sample-app
-        image: ubuntu-k8s-1:30603/sample-app
+        image: ubuntu-k8s-1.local:30603/sample-app
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
