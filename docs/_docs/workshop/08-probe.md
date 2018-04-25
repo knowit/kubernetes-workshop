@@ -21,13 +21,46 @@ Both readiness and liveness probes are optional. Without them, the kubelet will 
 
 ## Task
 
+Extend your deployment to include readiness and liveness probes. The sample application has endpoints at ***/healthy*** and ***/nonhealthy***, that return HTTP 200 and HTTP 418, respectively. Use these endpoints to either make your container seem to be in a good state or bad state.
+
 <details>
   <summary>Solution</summary>
   <div markdown="1">
 
-### markdown owkr?
+### Solution
 
-**hopefully**
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-app-deployment
+  labels:
+    app: sample-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample-app
+  template:
+    metadata:
+      labels:
+        app: sample-app
+    spec:
+      containers:
+      - name: sample-app
+        image: ubuntu-k8s-1.local:30603/sample-app
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        livenessProbe:
+          httpGet:
+            path: /healthy
+            port: 8080
+        readinessProbe:
+          httpGet:
+            path: /healthy
+            port: 8080
+```
 
-  </div>
+  </div>
 </details>
