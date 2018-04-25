@@ -3,6 +3,8 @@ title: 13 - Secret
 permalink: /docs/13-secret/
 ---
 
+# Secret
+
 Objects of type secret are intended to hold sensitive information, such as passwords, OAuth tokens, and ssh keys.
 
 Secrets can be mounted into files in the container or used as environment variables.
