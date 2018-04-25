@@ -23,28 +23,42 @@ Create a secret and mount it into a file in the container at ***/secrets/superse
 ### Solution, Creating the secret from a file
 
 ```bash
-kubectl create secret generic mysecret --from-file=./supersecret.txt
+kubectl --namespace=mynamespace create secret generic mysecret --from-file=./supersecret.txt
 ```
 
 ### Solution, Mounting the secret into a file in the container
 
 ```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: mypod
-spec:
-  containers:
-  - name: mypod
-    image: redis
-    volumeMounts:
-    - name: supersecret
-      mountPath: "/secrets/supersecret.txt"
-      readOnly: true
-  volumes:
-  - name: supersecret
-    secret:
-      secretName: mysecret
+apiVersion: apps/v1
+ kind: Deployment
+ metadata:
+   name: sample-app-deployment
+   labels:
+     app: sample-app
+ spec:
+   replicas: 1
+   selector:
+     matchLabels:
+       app: sample-app
+   template:
+     metadata:
+       labels:
+         app: sample-app
+     spec:
+       containers:
+       - name: sample-app
+         image: ubuntu-k8s-1.local:30603/sample-app
+         imagePullPolicy: Always
+         ports:
+         - containerPort: 8080
+         volumeMounts:
+         - name: supersecret
+           mountPath: "/secrets/supersecret.txt"
+           readOnly: true
+       volumes:
+       - name: supersecret
+         secret:
+           secretName: mysecret
 ```
 
   </div>
