@@ -1,0 +1,14 @@
+# Site settings
+baseurl: "" # the subpath of your site, e.g. /blog/
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - .idea/
+  - .gitignore
+  - README.md
+  - Dockerfile
+  - build-standalone.sh
+  - _config.yml
+  - _config-standalone.yml
+  - run.sh

@@ -16,7 +16,7 @@ bootwatch: cerulean
 # Build settings
 markdown: kramdown
 highlighter: rouge
-gems:
+plugins:
   - jekyll-feed
   - jekyll-redirect-from
   - jekyll-seo-tag
@@ -28,6 +28,11 @@ exclude:
   - .idea/
   - .gitignore
   - README.md
+  - Dockerfile
+  - build-standalone.sh
+  - _config-standalone.yml
+  - run.sh
+
 timezone: Europe/Berlin
 defaults:
 - scope:
