@@ -18,3 +18,16 @@ The readiness probe indicates that the container is ready to service requests. B
 The liveness probe indicates that the container is running healthy. When the liveness probe fails, the kubelet will restart the container (or just kill it, if the containers restartPolicy is configured in such a way).
 
 Both readiness and liveness probes are optional. Without them, the kubelet will consider that the container is in a good state at all times.
+
+## Task
+
+<details>
+  <summary>Solution</summary>
+  <div markdown="1">
+
+### markdown owkr?
+
+**hopefully**
+    
+  </div>
+</details>
