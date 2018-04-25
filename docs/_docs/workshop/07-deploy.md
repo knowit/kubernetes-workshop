@@ -5,6 +5,7 @@ permalink: /docs/07-deployment/
 
 See http://192.168.1.71:30827/docs/concepts/workloads/controllers/deployment/#use-case
 
+![text](../../assets/img/deployment.png)
 
 A Deployment is the result of someone deploying a Pod to the cluster. 
 
