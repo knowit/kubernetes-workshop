@@ -21,32 +21,50 @@ Create a configuration file inside the container using a ConfigMap. Mount the fi
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: metricbeat-daemonset-modules
-  namespace: monitoring
+  name: myconfigmap
   labels:
-    k8s-app: metricbeat
-    kubernetes.io/cluster-service: "true"
+    app: sample-app
 data:
   greatestconfig.yml: |-
-    - module: kubernetes
-      metricsets:
-        - event
-      period: 10s
+    - module: myawesomemodule
+      start_at_boot: true
 ```
 
 ### Solution, Mounting the ConfigMap to a file inside the container
 
 ```yaml
-  volumeMounts:
-  - name: metricbeat-config
-    mountPath: /etc/metricbeat.yml
-    readOnly: true
-    subPath: metricbeat.yml
-volumes:
-- name: metricbeat-config
-  configMap:
-    defaultMode: 0600
-    name: metricbeat-config
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-app-deployment
+  labels:
+    app: sample-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample-app
+  template:
+    metadata:
+      labels:
+        app: sample-app
+    spec:
+      containers:
+      - name: sample-app
+        image: ubuntu-k8s-1.local:30603/sample-app
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - name: greatestconfig
+          mountPath: /config/greatestconfig.yml
+          readOnly: true
+          subPath: greatestconfig.yml
+      volumes:
+      - name: greatestconfig
+        configMap:
+          defaultMode: 0600
+          name: myconfigmap
 ```
   </div>
 </details>
