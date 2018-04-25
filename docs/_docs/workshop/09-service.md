@@ -30,13 +30,13 @@ not applicable in this scenario.
 
 ## Task 1
 
-Deploy a new version of your application, and expose it with a service.
+Expose your deployment (pods) with a service.
 
 <details>
  <summary>Solution</summary>
  <div markdown="1">
 
-### Solution 2: kubectl describe node
+### Solution 1: Just do it
 
 - Change the version labels in the deployment file
 - kubectl deploy ..
@@ -46,9 +46,10 @@ Deploy a new version of your application, and expose it with a service.
 </details>
 
 ## Task 2
-
-Edit the service so that pods it defines are of both the old and the new version.
+Deploy a new version of your application, and expose it with a sercvice.
+Edit the service so that the pods it defines are of both the old and the new version.
 By doing multiple curl call to the service, the response should vary between v1 and v2.
+
 <details>
  <summary>Solution</summary>
  <div markdown="1">
