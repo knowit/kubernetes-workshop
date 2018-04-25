@@ -6,7 +6,8 @@ permalink: /docs/03-node/
 # Node
 
 A node is a machine. It runs the docker containers (within
-[podss]({{ site.baseurl }}{% link _docs/workshop/02-pod.md %}))
+[pods]({{ site.baseurl }}{% link _docs/workshop/04-pod.md %})
+)
 
 To list nodes in the cluster:
 
