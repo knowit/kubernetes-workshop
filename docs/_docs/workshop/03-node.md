@@ -5,7 +5,7 @@ permalink: /docs/03-node/
 
 # Node
 
-A node is a machine. It runs the docker containers (within [pods](02-pod.md)).
+A node is a machine. It runs the docker containers (within [pods](04-pod.md)).
 
 To list nodes in the cluster:
 
