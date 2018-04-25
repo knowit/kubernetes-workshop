@@ -16,7 +16,7 @@ Containers within a pod share an IP address and port space, and can find each ot
 
 So in your app, your Java code could connect to MySQL on "jdbc:mysql://localhost:3306/db".
 
-# YAML
+## YAML
 
 Pods and other resources in Kubernetes can be described in YAML. Here is the YAML for a Pod:
 
@@ -24,9 +24,9 @@ Pods and other resources in Kubernetes can be described in YAML. Here is the YAM
 apiVersion: v1
 kind: Pod
 metadata:
-name: myapp-pod
-labels:
-  app: myapp
+  name: myapp-pod
+  labels:
+    app: myapp
 spec:
   containers:
   - name: myapp-container
@@ -34,5 +34,44 @@ spec:
     command: ['sh', '-c', 'echo Hello Kubernetes! && sleep 3600']
 ```
 
-After we have shown you [Deployments]({{ site.baseurl }}{% link _docs/workshop/07-deploy.md %}), we're ready
-to deploy pods to our cluster!
+Now, let's finally deploy this pod to our cluster, so we can get something up and running!
+
+## Task: Deploy the pod
+
+```
+# Watch running pods
+watch kubectl get po
+
+# Open a new terminal and run the pod
+git clone git@github.com:knowit/kubernetes-workshop.git
+cd kubernetes-workshop/apps/sample-apps/sample-app/k8s
+kubectl apply -f pod.yaml
+```
+
+Switch to the watch terminal, and you should see your pod running! It should like this:
+
+```
+NAME         READY     STATUS    RESTARTS   AGE
+sample-app   1/1       Running   0          48s
+```
+
+## Task: Access the app
+
+OK, it's deployed, so let's access our app, i.e. open it in a web browser.
+
+We're still not educated enough (yet) to expose it, but we can access it by running some port forwarding
+magic:
+
+```
+kubectl port-forward sample-app 8080:8080
+```
+Now you should be able to go to http://localhost:8080/ in your web browser and see some results.
+
+## Task: Check the logs
+
+If something fails or whatever other reason, you can check your app's logs by doing:
+
+```
+kubectl logs -f sample-app
+```
+
