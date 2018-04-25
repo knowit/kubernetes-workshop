@@ -20,4 +20,28 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
+        livenessProbe:
+          httpGet:
+            path: /healthy
+            port: 8080
+        readinessProbe:
+          httpGet:
+            path: /healthy
+            port: 8080
+        volumeMounts:
+        - name: greatestconfig
+          mountPath: /config/greatestconfig.yml
+          readOnly: true
+          subPath: greatestconfig.yml
+        - name: supersecret
+          mountPath: "/secrets"
+          readOnly: true
+      volumes:
+      - name: supersecret
+        secret:
+          secretName: mysecret
+      - name: greatestconfig
+        configMap:
+          defaultMode: 0600
+          name: myconfigmap
 

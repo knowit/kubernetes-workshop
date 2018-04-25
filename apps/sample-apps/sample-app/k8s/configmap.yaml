@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: myconfigmap
+  labels:
+    app: sample-app
+data:
+  greatestconfig.yml: |-
+    - module: myawesomemodule
+      start_at_boot: true
+
