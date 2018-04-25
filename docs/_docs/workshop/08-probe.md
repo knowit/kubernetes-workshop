@@ -1,6 +1,6 @@
 ---
-title: 06 - Readiness and liveness probe
-permalink: /docs/06-probe/
+title: 08 - Readiness and liveness probe
+permalink: /docs/08-probe/
 ---
 
 # Readiness and liveness probe
