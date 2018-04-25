@@ -5,8 +5,7 @@ permalink: /docs/03-node/
 
 # Node
 
-A node is a machine. It runs the docker containers (within
-[podss]({{ site.baseurl }}{% link _docs/workshop/02-pod.md %}))
+A node is a machine. It runs the docker containers (within [pods](02-pod.md)).
 
 To list nodes in the cluster:
 
@@ -22,10 +21,6 @@ nodes.
 ## Task
 
 Find out the IP of the kubernetes master and one of the kubernetes nodes.
-
-Hey guys, I just this problem with Node v4.1.1.
-Apparently you can't `require` files that don't exist!
-plz fix.
 
 <details>
  <summary>Solution</summary>
