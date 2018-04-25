@@ -1,6 +1,6 @@
 ---
-title: 04 - Pod
-permalink: /docs/04-pod/
+title: 05 - Pod
+permalink: /docs/05-pod/
 ---
 
 A Pod is a group of docker (or other) containers. Think of a pod as a microservice. A microservice can for
@@ -34,5 +34,5 @@ spec:
     command: ['sh', '-c', 'echo Hello Kubernetes! && sleep 3600']
 ```
 
-After we have shown you [Deployments]({{ site.baseurl }}{% link _docs/workshop/05-deploy.md %}), we're ready
+After we have shown you [Deployments]({{ site.baseurl }}{% link _docs/workshop/07-deploy.md %}), we're ready
 to deploy pods to our cluster!

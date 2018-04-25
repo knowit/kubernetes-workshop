@@ -1,6 +1,6 @@
 ---
-title: 06 - Readiness and liveness probe
-permalink: /docs/06-probe/
+title: 08 - Readiness and liveness probe
+permalink: /docs/08-probe/
 ---
 
 # Readiness and liveness probe
@@ -21,22 +21,13 @@ Both readiness and liveness probes are optional. Without them, the kubelet will 
 
 ## Task
 
-Extend your deployment to include readiness and liveness probes. The sample application has endpoints at ***/healthy*** and ***/nonhealthy***, that return HTTP 200 and HTTP 418, respectively. Use these endpoints to either make your container seem to be in a good state or bad state.
-
 <details>
   <summary>Solution</summary>
   <div markdown="1">
 
-### Solution
+### markdown owkr?
 
-```yaml
-livenessProbe:
-  httpGet:
-    path: /healthy
-readinessProbe:
-  httpGet:
-    path: /healthy
-```
+**hopefully**
 
-  </div>
+  </div>
 </details>
