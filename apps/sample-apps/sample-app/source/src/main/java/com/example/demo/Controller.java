@@ -60,7 +60,7 @@ public class Controller {
     @RequestMapping("/secret")
     ResponseEntity<String> secret() {
         try {
-            String content = new String(Files.readAllBytes(Paths.get("/secrets/supersecret.yml")));
+            String content = new String(Files.readAllBytes(Paths.get("/secrets/supersecret.txt")));
             return new ResponseEntity<>(content, HttpStatus.OK);
         } catch (IOException e) {
             e.printStackTrace();
