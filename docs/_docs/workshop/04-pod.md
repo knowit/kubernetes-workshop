@@ -33,3 +33,6 @@ spec:
     image: busybox
     command: ['sh', '-c', 'echo Hello Kubernetes! && sleep 3600']
 ```
+
+After we have shown you [Deployments]({{ site.baseurl }}{% link _docs/workshop/05-deploy.md %}), we're ready
+to deploy pods to our cluster!
