@@ -30,8 +30,12 @@ Certifications for you:
 * [Certified Kubernetes Application Developer (CKAD) Program](https://www.cncf.io/certification/expert/cka/ckad/)
 * [Certified Kubernetes Administrator (CKA) Program](https://www.cncf.io/certification/expert/cka/)
 
-## Links:
+## Getting started links:
+* [CloudNativeFoundation](https://www.cncf.io/)
+* [Kubernetes.io](https://kubernetes.io/)
 * [Amazon Elastic Container Service for Kubernetes](https://aws.amazon.com/eks/)
 * [K8S on IBM Container Service](ttps://www.ibm.com/cloud/container-service)
 * [K8S on Azure Container Service](https://azure.microsoft.com/en-us/services/container-service/)
 * [K8S on Oracle Cloud Infrastructure](https://cloud.oracle.com/en_US/containers/engine/features)
+* [Draft.sh](https://draft.sh/)
+* [Helm.sh](https://helm.sh/)
