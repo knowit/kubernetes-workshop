@@ -1,12 +1,12 @@
 ---
-title: 03 - Node
-permalink: /docs/03-node/
+title: 04 - Node
+permalink: /docs/04-node/
 ---
 
 # Node
 
 A node is a machine. It runs the docker containers (within
-[pods]({{ site.baseurl }}{% link _docs/workshop/04-pod.md %})
+[pods]({{ site.baseurl }}{% link _docs/workshop/05-pod.md %})
 )
 
 To list nodes in the cluster:
@@ -52,7 +52,7 @@ Here I see this line:
 `flannel.alpha.coreos.com/public-ip=192.168.1.29`
 
 It's a bit more cryptic than the output for `kubectl get node`, but we include this solution so you know
-that `kubectl describe` can provide info about a node (or any resource, like `kubectl get pod my-pod`). 
+that `kubectl describe` can provide info about a node (or any resource, like `kubectl get pod my-pod`).
 `kubectl describe` is usually gathers information from more sources (like the events) than just the YAML
 description.
 
