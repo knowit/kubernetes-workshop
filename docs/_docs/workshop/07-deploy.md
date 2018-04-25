@@ -44,6 +44,7 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
+
 ```
 
 ## Task: Create deployment
@@ -54,9 +55,8 @@ Create a deployment of our sample app.
 # Watch results
 watch kubectl get deployment
 
-# In a new terminal, run
-cd kubernetes-workshop/apps/sample-apps/sample-app/k8s
-kubectl apply -f deployment.yaml
+# Put the content in the YAML above into a file, my_deployment.yaml
+kubectl apply -f my_deployment.yaml
 ```
 Switch back to first terminal, and observe that the deployment is created.
 
@@ -97,10 +97,10 @@ Awesome, Kubernetes is auto creating a new pod since the first was killed.
 
 ## Task: Create 3 replicas
 
-In `deployment.yaml`, modify `replicas: 1` to `replicas: 3`. Then do:
+In `my_deployment.yaml`, modify `replicas: 1` to `replicas: 3`. Then do:
 
 ```
-kubectl apply -f deployment.yaml
+kubectl apply -f my_deployment.yaml
 ```
 
 Watch the `watch` output, and enjoy watching Kubernetes scaling up our app!
@@ -112,5 +112,5 @@ Watch the `watch` output, and enjoy watching Kubernetes scaling up our app!
 Change replicas back 1. Then
 
 ```
-kubectl delete -f deployment.yaml
+kubectl delete -f my_deployment.yaml
 ```
