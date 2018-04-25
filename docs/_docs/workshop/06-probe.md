@@ -30,12 +30,36 @@ Extend your deployment to include readiness and liveness probes. The sample appl
 ### Solution
 
 ```yaml
-livenessProbe:
-  httpGet:
-    path: /healthy
-readinessProbe:
-  httpGet:
-    path: /healthy
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-app-deployment
+  labels:
+    app: sample-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample-app
+  template:
+    metadata:
+      labels:
+        app: sample-app
+    spec:
+      containers:
+      - name: sample-app
+        image: ubuntu-k8s-1.local:30603/sample-app
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        livenessProbe:
+          httpGet:
+            path: /healthy
+            port: 8080
+        readinessProbe:
+          httpGet:
+            path: /healthy
+            port: 8080
 ```
 
   </div>
