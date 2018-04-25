@@ -69,7 +69,7 @@ Insert this content:
 
 ```
 {
-  "insecure-registries" : ["ubuntu-k8s-1:30603"]
+  "insecure-registries" : ["ubuntu-k8s-1.local:30603"]
 }
 ```
 
