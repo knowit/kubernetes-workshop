@@ -5,7 +5,7 @@ permalink: /docs/05-pod/
 
 See http://192.168.1.71:30827/docs/concepts/workloads/pods/pod/
 
-![text](../../img/pods.png)
+
 
 A Pod is a group of docker (or other) containers. Think of a pod as a microservice. A microservice can for
 instance consist of two containers, one for app logic, and one container for MySQL (for instance).
