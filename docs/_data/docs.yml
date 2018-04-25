@@ -8,8 +8,8 @@
   - 02-kubectl
   - 03-node
   - 04-pod
-  - 05-probe
-  - 06-deployment
+  - 05-deployment
+  - 06-probe
   - 07-service
   - 08-service-discovery
   - 09-ingress
