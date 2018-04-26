@@ -22,7 +22,7 @@ Fire up a pod running the `nginx` image and a service that exposes the pod.
  <div markdown="1">
 
 ```
-kubectl create deployment my-nginx --image=ubuntu-k8s-1.local:nginx-curl
+kubectl create deployment my-nginx --image=ubuntu-k8s-1.local:30603/nginx-curls
 kubectl expose deployment my-nginx --port 8085 --target-port 80 # Your pod name will be different. Use kubectl get pods to get pod name.
 ```
 
