@@ -1,0 +1,2 @@
+curl --data-binary "@mariadb-3.0.3.tgz" ubuntu-k8s-1:30654/api/charts
+

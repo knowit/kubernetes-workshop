@@ -35,16 +35,37 @@ Helm has been installed to our Kubernets cluster already, but you need to initia
 
 Then we need to add a repository we have setup in our cluster:
 
-`helm add repo myrepo http://TODO`
+`helm repo add myrepo http://ubuntu-k8s-1:30654`
 
-Then we can install a chart:
+A repository is a collection of charts.
 
-`helm install myrepo/mariadb`
+Let's see if we can find the nginx chart:
 
+`helm search nginx`
 
-TODO find out url above
+```
+NAME            VERSION DESCRIPTION                                       
+myrepo/nginx            0.1.0   A basic NGINX HTTP server 
+```
 
-TODO download charts to our chart repo
+Yup, there it is. Let's install it:
+
+`helm install myrepo/nginx`
+
+Then run `kubectl get po`, `kubectl get svc` and `kubectl get configmap` to see that helm has installed
+various resources for nginx.
+
+Let's look at the running charts:
+
+```
+$ helm ls
+NAME                  REVISION  UPDATED                   STATUS          CHART             NAMESPACE  
+original-bird         1         Thu Apr 26 19:08:52 2018  DEPLOYED        nginx-0.1.0       yngvar     
+```
+
+When you're done, delete the chart:
+
+`helm delete original-bird`
 
 ## Repository browser
 
