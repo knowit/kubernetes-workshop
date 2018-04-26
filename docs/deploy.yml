@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: k8s-workshop-docs
-        image: ubuntu-k8s-1.local:30603/k8s-workshop-standalone:1
+        image: ubuntu-k8s-1.local:30603/k8s-workshop-standalone:2
         ports:
         - containerPort: 80
