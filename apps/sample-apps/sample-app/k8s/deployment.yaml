@@ -18,6 +18,13 @@ spec:
       - name: sample-app
         image: ubuntu-k8s-1.local:30603/sample-app
         imagePullPolicy: Always
+        env:
+          - name: MY_VERSION
+            value: superversion
+          - name: MY_OTHER_ENDPOINT_ADDRESS
+            value: http://localhost:8080
+          - name: MY_POD_NAMESPACE
+            value: "I dont know"
         ports:
         - containerPort: 8080
         livenessProbe:
