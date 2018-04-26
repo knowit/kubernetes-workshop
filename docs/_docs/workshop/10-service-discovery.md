@@ -21,8 +21,6 @@ Fire up a pod running the `nginx` image and a service that exposes the pod.
  <summary>Solution</summary>
  <div markdown="1">
 
-### Solution
-
 ```
 kubectl create deployment my-nginx --image=ubuntu-k8s-1.local:nginx-curl
 kubectl expose deployment my-nginx --port 8085 --target-port 80 # Your pod name will be different. Use kubectl get pods to get pod name.
@@ -189,6 +187,8 @@ kubectl exec -it my-nginx-7d4b689dcb-2j57k sh
 # Now in the pod, run
 $ curl http://hello-nginx.sample-namespace:8086
 ```
+
+Then you should a reply from the nginx welcome page.
 
 </div>
 </details>
