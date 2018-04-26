@@ -4,7 +4,7 @@ permalink: /docs/03-namespace/
 ---
 ***TODO: Move to: BEFORE pod.md***
 
-Namespaces can be used in many different ways; to separate the cluter by environment,
+Namespaces can be used in many different ways; to separate the cluster by environment,
 to provide a space/resources for your users, to provide scoping for names(resource names must be unique per namespace).  
 We have provided a namespace for each user today, and you will each work separate from each other in the beginning at least.
 

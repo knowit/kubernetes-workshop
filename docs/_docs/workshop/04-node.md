@@ -3,6 +3,7 @@ title: 04 - Node
 permalink: /docs/04-node/
 ---
 
+See http://ubuntu-k8s-3:30827/docs/concepts/architecture/nodes/
 
 A node is a machine. It runs the docker containers (within
 [pods]({{ site.baseurl }}{% link _docs/workshop/05-pod.md %})
@@ -12,7 +13,7 @@ To list nodes in the cluster:
 
 `kubectl get nodes`
 
-Try to more details about a node:
+Try to get more details about a node:
 
 `kubectl describe node ubuntu-k8s-1`
 
@@ -29,10 +30,12 @@ Find out the IP of the kubernetes master and one of the kubernetes nodes.
 
 ### Solution 1: kubectl get node
 
-OK let's find the master.
+OK, let's find the master:
+
 `kubectl get nodes`
 
 The node with ROLES "master" seems to be the master. Let's find its IP.
+
 `kubectl get node ubuntu-k8s-1 -o yaml`
 
 Among the output, I see:
@@ -48,11 +51,12 @@ So, that's the ip.
 `kubectl describe node ubuntu-k8s-1`
 
 Here I see this line:
+
 `flannel.alpha.coreos.com/public-ip=192.168.1.29`
 
 It's a bit more cryptic than the output for `kubectl get node`, but we include this solution so you know
 that `kubectl describe` can provide info about a node (or any resource, like `kubectl get pod my-pod`).
-`kubectl describe` is usually gathers information from more sources (like the events) than just the YAML
+`kubectl describe` usually gathers information from more sources (like "events") than just the YAML
 description.
 
  </div>

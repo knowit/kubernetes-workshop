@@ -3,6 +3,8 @@ title: 06 - Label
 permalink: /docs/06-label/
 ---
 
+Docs: http://ubuntu-k8s-3:30827/docs/concepts/overview/working-with-objects/labels/
+
 Labels are key value pairs that describe resources in kubernetes. Labels should be used to identify and describe useful and important attributes for the resources.
 
 Example of some good labels that describe some useful properties about a pod:

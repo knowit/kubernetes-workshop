@@ -1,11 +1,19 @@
 ---
-title: 15 - PersistentVolumeClaim
-permalink: /docs/15-persistentvolumeclaim/
+title: 14 - PersistentVolume
+permalink: /docs/14-persistentvolume/
 ---
 
-A PersistentVolumeClaim is a claim for a PersistentVolume (PVC) from a storage provider. A Kubernetes cluster can be set up with a lot of different storage providers (see "Storage classes" in documentation for details). Some examples are AzureDisk, NFS and GCEPersistentDisk, and they have varying properties, such as performance.
+A PersistentVolume (PV) is a place where you can store stuff. It can be mounted into a pod, so your
+application use it as storage. I doesn't disappear when the pod is deleted. In other words, it's persistent.
 
-With a PersistentVolumeClaim, your app can request to just get for instance 10GB of space without caring about the details of the volume that the Kubernetes cluster can provide.
+PersistentVolumes are created by PersistentVolumeClaims (PVC).
+
+A PersistentVolumeClaim is a claim for a PersistentVolume from a storage provider. A Kubernetes cluster
+can be set up with a lot of different storage providers (see "Storage classes" in documentation for details).
+Some examples are AzureDisk, NFS and GCEPersistentDisk, and they have varying properties, such as performance.
+
+With a PersistentVolumeClaim, your app can request to just get for instance 10GB of space without caring about
+the details of the volume that the Kubernetes cluster can provide.
 
 ## Task: Create a PersistentVolumeClaim
 

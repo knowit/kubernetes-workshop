@@ -18,8 +18,7 @@
   - 12-configmap
   - 13-secret
   - 14-persistentvolume
-  - 15-persistentvolumeclaim
-  - 16-helm
+  - 15-helm
 - title: Contribute to site
   docs:
   - contribute
