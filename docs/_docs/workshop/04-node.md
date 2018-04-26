@@ -3,7 +3,6 @@ title: 04 - Node
 permalink: /docs/04-node/
 ---
 
-# Node
 
 A node is a machine. It runs the docker containers (within
 [pods]({{ site.baseurl }}{% link _docs/workshop/05-pod.md %})
