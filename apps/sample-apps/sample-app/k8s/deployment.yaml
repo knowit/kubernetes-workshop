@@ -36,6 +36,8 @@ spec:
         - name: supersecret
           mountPath: "/secrets"
           readOnly: true
+        - name: supremepersistence
+          mountPath: /mydata
       volumes:
       - name: supersecret
         secret:
@@ -44,4 +46,6 @@ spec:
         configMap:
           defaultMode: 0600
           name: myconfigmap
-
+      - name: supremepersistence
+        hostPath:
+        path: /tmp/sample-app-data
