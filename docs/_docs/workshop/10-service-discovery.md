@@ -17,7 +17,7 @@ Let's try this. We'll use your existing service to curl from, and fire up one ne
 
 ## Task: Create service in same namespace
 
-Fire up a pod running the `ubuntu-k8s-1.local:30603/nginx-curl` image and a service that exposes the pod.
+Fire up a pod running the image `ubuntu-k8s-1.local:30603/nginx-curl` and a service that exposes the pod.
 
 <details>
  <summary>Solution</summary>

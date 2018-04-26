@@ -34,14 +34,26 @@ spec:
       storage: 10Mi
 ```
 
-In your deployment.yaml, request a PersistentVolume to be mounted from the PersistentVolumeClaim:
+In your deployment.yaml, add a volume from the claim:
 
 ```yaml
 ...
-    volumes:
-    - name: supremepersistence
-      persistentVolumeClaim:
-        claimName: my-claim
+      volumes:
+      - name: supremepersistence
+        persistentVolumeClaim:
+          claimName: my-claim
+...
+```
+
+and then mount the volume at a path:
+
+
+
+```yaml
+...
+      volumeMounts:
+        - name: supremepersistence
+          mountPath: /mydata
 ...
 ```
 

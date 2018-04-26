@@ -7,6 +7,8 @@ Docs: http://ubuntu-k8s-1.local:30827/docs/concepts/services-networking/ingress/
 
 Until now we have only created deployments and services that are accessible from inside the cluster. In a real world scenario, you might also want to expose your services to the rest of the world (i.e. the internet).
 
+To do this now out of scope for this guide, but the theory is as follows.
+
 An Ingress is a collection of rules that allow an inbound request to our cluster to reach services. The Ingress can be configured to give services externally-reachable URLs, load balance traffic, terminate SSL, offer name based virtual hosting, and more.
 
 For any Ingress' to work, the cluster needs an Ingress controller. The Ingress controller is basically a reverse proxy, forwarding requests from the master node to the internal network of the kubelets that run the containers. The most common Ingress controller uses Nginx as the backend.
