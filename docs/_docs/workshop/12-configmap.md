@@ -3,7 +3,7 @@ title: 12 - ConfigMap
 permalink: /docs/12-configmap/
 ---
 
-# ConfigMap
+Docs: http://ubuntu-k8s-1.local:30827/docs/tasks/configure-pod-container/configure-pod-configmap/
 
 A ConfigMap allows the storage of configuration outside of the container image. This provides portability for containers. ConfigMaps can be used to store environment variables or to populate volumes inside the container.
 

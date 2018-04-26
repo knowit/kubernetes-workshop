@@ -3,6 +3,8 @@ title: 10 - Service discovery
 permalink: /docs/10-service-discovery/
 ---
 
+Docs: http://ubuntu-k8s-1.local:30827/docs/concepts/services-networking/service/#discovering-services
+
 By service discovery, we mean your app's possibility to communicate with a Kubernetes Service.
 
 In your app code, you can reach other services by their service name. Kubernetes' DNS makes this possible. So for instance you could reach a web server that is exposed through a service by running the command

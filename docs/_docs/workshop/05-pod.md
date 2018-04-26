@@ -3,7 +3,7 @@ title: 05 - Pod
 permalink: /docs/05-pod/
 ---
 
-Docs: http://ubuntu-k8s-3:30827/docs/concepts/workloads/pods/pod/
+Docs: http://ubuntu-k8s-3.local:30827/docs/concepts/workloads/pods/pod/
 
 ![text](../../assets/img/pods.png)
 

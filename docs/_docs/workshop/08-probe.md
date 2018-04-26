@@ -3,7 +3,9 @@ title: 08 - Readiness and liveness probe
 permalink: /docs/08-probe/
 ---
 
-# Readiness and liveness probe
+## Readiness and liveness probe
+
+Docs: http://ubuntu-k8s-1.local:30827/docs/concepts/workloads/pods/pod-lifecycle/#container-probes
 
 The readiness and liveness probe are diagnostic tools used to verify the state of a container. The probes work by either
 

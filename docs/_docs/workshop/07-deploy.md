@@ -3,7 +3,7 @@ title: 07 - Deployment
 permalink: /docs/07-deployment/
 ---
 
-Docs: http://ubuntu-k8s-3:30827/docs/concepts/workloads/controllers/deployment/#use-case
+Docs: http://ubuntu-k8s-3.local:30827/docs/concepts/workloads/controllers/deployment/#use-case
 
 ![text](../../assets/img/deployment.png)
 
