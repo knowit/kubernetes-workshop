@@ -23,6 +23,7 @@ Create a secret and mount it into a file in the container at ***/secrets/superse
 ### Solution, Creating the secret from a file
 
 ```bash
+echo -n 'my_supersecret' > ./supersecret.txt
 kubectl --namespace=mynamespace create secret generic mysecret --from-file=./supersecret.txt
 ```
 
