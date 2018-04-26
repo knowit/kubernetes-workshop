@@ -12,59 +12,46 @@ A ConfigMap allows the storage of configuration outside of the container image. 
 Create a configuration file inside the container using a ConfigMap. Mount the file at ***/config/greatestconfig.yml***. The enpoint ***/configmap*** in the sample app can then be used to view contents of the ConfigMap.
 
 <details>
-  <summary>Solution</summary>
+  <summary>Step-by-step</summary>
   <div markdown="1">
 
-### Solution, ConfigMap
+### Step 1, ConfigMap
 
 ```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: myconfigmap
+  name: ## give it a name
   labels:
-    app: sample-app
+    ## and a label
 data:
   greatestconfig.yml: |-
     - module: myawesomemodule
       start_at_boot: true
 ```
 
-### Solution, Mounting the ConfigMap to a file inside the container
+### Step 2, In your previous deployment file, add the following
 
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
-metadata:
-  name: sample-app-deployment
-  labels:
-    app: sample-app
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: sample-app
-  template:
-    metadata:
-      labels:
-        app: sample-app
-    spec:
+...
       containers:
       - name: sample-app
         image: ubuntu-k8s-1.local:30603/sample-app
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
         volumeMounts:
-        - name: greatestconfig
+        - name: # Name of the volume you want to mount
           mountPath: /config/greatestconfig.yml
           readOnly: true
           subPath: greatestconfig.yml
       volumes:
-      - name: greatestconfig
+      - name: # Give the volume a name
         configMap:
           defaultMode: 0600
-          name: myconfigmap
+          name: # reference the configmap name
 ```
   </div>
 </details>
