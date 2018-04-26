@@ -22,7 +22,7 @@ These `Roles` are applied to users (or groups) by using a `RoleBinding`.
 
 
 
-K8s docs: [RBAC reference ](http://ubuntu-k8s-3.local:30827/docs/admin/authorization/rbac/)
+K8s docs: http://ubuntu-k8s-3.local:30827/docs/admin/authorization/rbac/
 ## Task 1
 
 List all the namespaces in the cluster

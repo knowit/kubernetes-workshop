@@ -3,7 +3,7 @@ title: 04 - Node
 permalink: /docs/04-node/
 ---
 
-Docs: http://ubuntu-k8s-3:30827/docs/concepts/architecture/nodes/
+Docs: http://ubuntu-k8s-3.local:30827/docs/concepts/architecture/nodes/
 
 A node is a machine. It runs the docker containers (within
 [pods]({{ site.baseurl }}{% link _docs/workshop/05-pod.md %})
