@@ -47,5 +47,5 @@ spec:
           defaultMode: 0600
           name: myconfigmap
       - name: supremepersistence
-        hostPath:
-        path: /tmp/sample-app-data
+        persistentVolumeClaim:
+          claimName: my-claim
