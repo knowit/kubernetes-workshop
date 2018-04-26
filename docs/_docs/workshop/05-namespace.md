@@ -1,6 +1,6 @@
 ---
-title: 03 - Namespace
-permalink: /docs/03-namespace/
+title: 05 - Namespace
+permalink: /docs/05-namespace/
 ---
 ***TODO: Move to: BEFORE pod.md***
 

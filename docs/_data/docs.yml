@@ -6,9 +6,9 @@
   docs:
   - 01-intro
   - 02-kubectl
-  - 03-namespace
-  - 04-node
-  - 05-pod
+  - 03-node
+  - 04-pod
+  - 05-namespace
   - 06-label
   - 07-deployment
   - 08-probe

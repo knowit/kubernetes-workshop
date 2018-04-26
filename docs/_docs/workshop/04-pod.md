@@ -1,6 +1,6 @@
 ---
-title: 05 - Pod
-permalink: /docs/05-pod/
+title: 04 - Pod
+permalink: /docs/04-pod/
 ---
 
 Docs: http://ubuntu-k8s-3.local:30827/docs/concepts/workloads/pods/pod/

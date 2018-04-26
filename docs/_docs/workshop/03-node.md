@@ -1,12 +1,12 @@
 ---
-title: 04 - Node
-permalink: /docs/04-node/
+title: 03 - Node
+permalink: /docs/03-node/
 ---
 
 Docs: http://ubuntu-k8s-3.local:30827/docs/concepts/architecture/nodes/
 
 A node is a machine. It runs the docker containers (within
-[pods]({{ site.baseurl }}{% link _docs/workshop/05-pod.md %})
+[pods]({{ site.baseurl }}{% link _docs/workshop/04-pod.md %})
 )
 
 To list nodes in the cluster:
