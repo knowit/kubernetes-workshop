@@ -2,7 +2,6 @@
 title: 05 - Namespace
 permalink: /docs/05-namespace/
 ---
-***TODO: Move to: BEFORE pod.md***
 
 Namespaces can be used in many different ways; to separate the cluster by environment,
 to provide a space/resources for your users, to provide scoping for names(resource names must be unique per namespace).  
