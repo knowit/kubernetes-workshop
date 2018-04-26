@@ -16,6 +16,14 @@ helm init --service-account tiller --tiller-namespace=default
 helm install stable/nginx-ingress --set rbac.create=true --set controller.service.type=ClusterIP --tiller-namespace=default
 ```
 
+### Setup a nginx for students to reach in step 10-service-discovery.
+
+```
+kubectl create namespace sample-namespace
+kubectl create deployment hello-nginx --image=ubuntu-k8s-1.local:nginx-curl --namespace sample-namespace
+kubectl expose deployment my-nginx --port 8086 --target-port 80 --namespace sample-namespace
+```
+
 ## For students
 
 ### Access our fileshare

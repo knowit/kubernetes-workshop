@@ -38,8 +38,8 @@ Expose your deployment (pods) with a service.
 
 ### Solution 1: Just do it
 
-- Change the version labels in the deployment file
-- kubectl apply -f deployment.yaml ..
+- Change the version labels in the deployment file you created in a earlier step
+- kubectl apply -f my_deployment.yaml
 - kubectl expose [pod-name]
 
  </div>

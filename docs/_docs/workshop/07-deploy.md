@@ -104,13 +104,3 @@ kubectl apply -f my_deployment.yaml
 ```
 
 Watch the `watch` output, and enjoy watching Kubernetes scaling up our app!
-
-## Task: Clean up
-
-... so we don't mess up the rest of our tutorial.
-
-Change replicas back 1. Then
-
-```
-kubectl delete -f my_deployment.yaml
-```
