@@ -17,7 +17,7 @@ Let's try this. We'll use your existing service to curl from, and fire up one ne
 
 ## Task: Create service in same namespace
 
-Fire up a pod running the `nginx` image and a service that exposes the pod.
+Fire up a pod running the `ubuntu-k8s-1.local:30603/nginx-curl` image and a service that exposes the pod.
 
 <details>
  <summary>Solution</summary>
@@ -119,18 +119,37 @@ Commercial support is available at
 * Connection #0 to host my-nginx left intact
 ```
 
-In other words, you were able to do a HTTP request to `nginx`, which were resolved by the Kubernetes DNS.
+In other words, you were able to do a HTTP request to `http://my-nginx:8085`, which were resolved by the
+Kubernetes DNS.
 
-## Do a request the other way around
+## Task: Do a request the other way around
 
-We just did a request from our own service to the nginx-service. Let's do it the other way around.
+We just did a request from our own service to the nginx-service. Now, try to do a request from the
+nginx-pod to the service you exposed in the previous section about Services.
+
+<details>
+ <summary>Solution</summary>
+ <div markdown="1">
+
+```
+kubectl get svc
+
+NAME         TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE
+my-nginx     ClusterIP   10.110.55.166    <none>        8085/TCP       10m
+sample-app   NodePort    10.100.205.241   <none>        80:32163/TCP   9d
+```
+
+Okay, the service is exposed on port 80. Let's call that from the nginx pod:
 
 ```
 kubectl exec -it my-nginx-7d4b689dcb-2j57k sh
-curl -vvv http://sample-app:8085 # To check the name of your service and the port, run: kubectl get svc
+curl -vvv http://sample-app:80
 ```
 
 It should produce whatever welcome page that is in the sample app.
+
+</div>
+</details>
 
 By the way, when we fire up a new pod, all services in the same namespace are injected as environmental variables in the pod's containers. To see this, run (in the same pod as above):
 
