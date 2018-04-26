@@ -3,7 +3,7 @@ title: 07 - Deployment
 permalink: /docs/07-deployment/
 ---
 
-See http://192.168.1.71:30827/docs/concepts/workloads/controllers/deployment/#use-case
+Docs: http://ubuntu-k8s-3.local:30827/docs/concepts/workloads/controllers/deployment/#use-case
 
 ![text](../../assets/img/deployment.png)
 
@@ -13,13 +13,56 @@ A couple of useful features of a Deployment is:
 * A deployment ensures that your pod always is running. If it crashes or stops responding, Kubernetes will
 deploy a new pod and kill the old one.
 * You can scale up your app to handle more load. For instance, you can set the number of replications of a pod
-to 3. Then Kubernetes will create 3 copies of your pod (and ensure that they're always running), and then load
+to 3. Then Kubernetes will create a total of three copies of your pod (and ensure that they're always running), and then load
 balance every request between those 3 pods.
 * You can rollback a deployment to a previous version.
 
 ## YAML
 
 A deployment looks like this:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: # Some name
+  labels:
+    app: sample-app
+spec:
+  replicas: # Number of replicas here
+  selector:
+    matchLabels:
+      app: # Put a label here for your app
+  template:
+    metadata:
+      labels:
+        app: # Put the same label here
+    spec:
+      containers:
+      - name: sample-app
+        image: ubuntu-k8s-1.local:30603/sample-app
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+
+```
+
+## Task: Create deployment
+
+Create a deployment using the pod from the previous steps.
+
+<details>
+ <summary>Solution</summary>
+ <div markdown="1">
+
+```
+# Watch results
+watch kubectl get deployment
+
+# Put the content in the YAML below into a file, my_deployment.yaml
+kubectl apply -f my_deployment.yaml
+```
+Switch back to first terminal, and observe that the deployment is created.
 
 ```yaml
 apiVersion: apps/v1
@@ -47,21 +90,19 @@ spec:
 
 ```
 
-## Task: Create deployment
-
-Create a deployment of our sample app.
-
-```
-# Watch results
-watch kubectl get deployment
-
-# Put the content in the YAML above into a file, my_deployment.yaml
-kubectl apply -f my_deployment.yaml
-```
-Switch back to first terminal, and observe that the deployment is created.
+ </div>
+</details>
 
 
 ## Task: Delete a pod in the deployment
+
+* Delete a pod in the deployment you just created.
+* Watch it get recreated automatically.
+
+<details>
+ <summary>Solution</summary>
+ <div markdown="1">
+
 
 Stop the `watch` command from above, and instead run
 
@@ -94,6 +135,9 @@ sample-app-deployment-864bcb76f-pg9jk   0/1       ContainerCreating   0         
 ```
 
 Awesome, Kubernetes is auto creating a new pod since the first was killed.
+
+ </div>
+</details>
 
 ## Task: Create 3 replicas
 

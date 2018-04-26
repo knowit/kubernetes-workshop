@@ -3,6 +3,7 @@ title: 09 - Service
 permalink: /docs/09-service/
 ---
 
+Docs: http://ubuntu-k8s-1.local:30827/docs/concepts/services-networking/service/
 
 Pods may live where ever they want, and replicate or go down at any time during the deployment lifetime. New IPs are assigned, and wil lead to problems when trying to connect to other pods in the cluster.
 

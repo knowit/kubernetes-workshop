@@ -3,15 +3,17 @@ title: 08 - Readiness and liveness probe
 permalink: /docs/08-probe/
 ---
 
-# Readiness and liveness probe
+## Readiness and liveness probe
+
+Docs: http://ubuntu-k8s-1.local:30827/docs/concepts/workloads/pods/pod-lifecycle/#container-probes
 
 The readiness and liveness probe are diagnostic tools used to verify the state of a container. The probes work by either
 
 1) execute a command inside the container. A return value of 0 indicates the container is in a good state.
 
-2) execute a HTTP request to an endpoint inside the containter. A status code of equal and above 200 and below 400 indicates the container is in a good state.
+2) execute a HTTP request to an endpoint inside the containter. A status code between 200 and 400 indicates the container is in a good state.
 
-3) execute a TCP connection to a port on the containers IP. An open port indicates that the container is in a good state.
+3) execute a TCP connection to a port on the container's IP. An open port indicates that the container is in a good state.
 
 The readiness probe indicates that the container is ready to service requests. Before the container is in a ready state, the kubelet will not direct any requests from any service to the container.
 
@@ -26,8 +28,6 @@ Extend your deployment to include readiness and liveness probes. The sample appl
 <details>
   <summary>Solution</summary>
   <div markdown="1">
-
-### Solution
 
 ```yaml
 apiVersion: apps/v1
@@ -62,5 +62,5 @@ spec:
             port: 8080
 ```
 
-  </div>
+</div>
 </details>

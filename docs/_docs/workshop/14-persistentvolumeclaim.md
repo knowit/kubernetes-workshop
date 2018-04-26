@@ -3,6 +3,8 @@ title: 14 - PersistentVolume
 permalink: /docs/14-persistentvolume/
 ---
 
+Docs: http://ubuntu-k8s-1.local:30827/docs/concepts/storage/persistent-volumes/
+
 A PersistentVolume (PV) is a place where you can store stuff. It can be mounted into a pod, so your
 application use it as storage. I doesn't disappear when the pod is deleted. In other words, it's persistent.
 
@@ -32,14 +34,26 @@ spec:
       storage: 10Mi
 ```
 
-In your deployment.yaml, request a PersistentVolume to be mounted from the PersistentVolumeClaim:
+In your deployment.yaml, add a volume from the claim:
 
 ```yaml
 ...
-    volumes:
-    - name: supremepersistence
-      persistentVolumeClaim:
-        claimName: my-claim
+      volumes:
+      - name: supremepersistence
+        persistentVolumeClaim:
+          claimName: my-claim
+...
+```
+
+and then mount the volume at a path:
+
+
+
+```yaml
+...
+      volumeMounts:
+        - name: supremepersistence
+          mountPath: /mydata
 ...
 ```
 

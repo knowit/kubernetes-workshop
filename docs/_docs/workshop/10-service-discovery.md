@@ -3,6 +3,8 @@ title: 10 - Service discovery
 permalink: /docs/10-service-discovery/
 ---
 
+Docs: http://ubuntu-k8s-1.local:30827/docs/concepts/services-networking/service/#discovering-services
+
 By service discovery, we mean your app's possibility to communicate with a Kubernetes Service.
 
 In your app code, you can reach other services by their service name. Kubernetes' DNS makes this possible. So for instance you could reach a web server that is exposed through a service by running the command
@@ -15,15 +17,15 @@ Let's try this. We'll use your existing service to curl from, and fire up one ne
 
 ## Task: Create service in same namespace
 
-Fire up a pod running the `nginx` image and a service that exposes the pod.
+Fire up a pod running the image `ubuntu-k8s-1.local:30603/nginx-curl` and a service that exposes the pod.
 
 <details>
  <summary>Solution</summary>
  <div markdown="1">
 
 ```
-kubectl create deployment my-nginx --image=ubuntu-k8s-1.local:30603/nginx-curls
-kubectl expose deployment my-nginx --port 8085 --target-port 80 # Your pod name will be different. Use kubectl get pods to get pod name.
+kubectl create deployment my-nginx --image=ubuntu-k8s-1.local:30603/nginx-curl
+kubectl expose deployment my-nginx --port 8085 --target-port 80
 ```
 
  </div>
@@ -117,18 +119,37 @@ Commercial support is available at
 * Connection #0 to host my-nginx left intact
 ```
 
-In other words, you were able to do a HTTP request to `nginx`, which were resolved by the Kubernetes DNS.
+In other words, you were able to do a HTTP request to `http://my-nginx:8085`, which were resolved by the
+Kubernetes DNS.
 
-## Do a request the other way around
+## Task: Do a request the other way around
 
-We just did a request from our own service to the nginx-service. Let's do it the other way around.
+We just did a request from our own service to the nginx-service. Now, try to do a request from the
+nginx-pod to the service you exposed in the previous section about Services.
+
+<details>
+ <summary>Solution</summary>
+ <div markdown="1">
+
+```
+kubectl get svc
+
+NAME         TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE
+my-nginx     ClusterIP   10.110.55.166    <none>        8085/TCP       10m
+sample-app   NodePort    10.100.205.241   <none>        80:32163/TCP   9d
+```
+
+Okay, the service is exposed on port 80. Let's call that from the nginx pod:
 
 ```
 kubectl exec -it my-nginx-7d4b689dcb-2j57k sh
-curl -vvv http://sample-app:8085 # To check the name of your service and the port, run: kubectl get svc
+curl -vvv http://sample-app:80
 ```
 
 It should produce whatever welcome page that is in the sample app.
+
+</div>
+</details>
 
 By the way, when we fire up a new pod, all services in the same namespace are injected as environmental variables in the pod's containers. To see this, run (in the same pod as above):
 
@@ -172,7 +193,7 @@ TERM=xterm
 
 ## Task: Do a request to a service in another namespace
 
-Just pick any of the other students' services, or use one that we should (but may have forgotton) to deploy in the namespace `sample-namespace`. To find services in other namespaces, run:
+Just pick any of the other students' services, or use one that we should (but may have forgotton) to deploy in the namespace `default`. To find services in other namespaces, run:
 
 `kubectl get svc --all-namespaces`
 
@@ -185,7 +206,7 @@ Just pick any of the other students' services, or use one that we should (but ma
 kubectl exec -it my-nginx-7d4b689dcb-2j57k sh
 
 # Now in the pod, run
-$ curl http://hello-nginx.sample-namespace:8086
+$ curl http://my-nginx.default:8085
 ```
 
 Then you should a reply from the nginx welcome page.

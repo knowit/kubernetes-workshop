@@ -35,7 +35,7 @@ Helm has been installed to our Kubernets cluster already, but you need to initia
 
 Then we need to add a repository we have setup in our cluster:
 
-`helm repo add myrepo http://ubuntu-k8s-1:30654`
+`helm repo add myrepo http://ubuntu-k8s-1.local:30654`
 
 A repository is a collection of charts.
 

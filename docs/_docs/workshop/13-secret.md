@@ -3,7 +3,7 @@ title: 13 - Secret
 permalink: /docs/13-secret/
 ---
 
-# Secret
+Docs: http://ubuntu-k8s-1.local:30827/docs/concepts/configuration/secret/
 
 Objects of type secret are intended to hold sensitive information, such as passwords, OAuth tokens, and ssh keys.
 
