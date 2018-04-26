@@ -63,7 +63,7 @@ sample-app   1/1       Running   0          48s
 
 OK, it's deployed, so let's access our app, i.e. open it in a web browser.
 
-We're still not educated enough (yet) to expose it, but we can access it by running some port forwarding
+We're still not educated enough (yet) to make it accessible a proper way, but we can access it by running some port forwarding
 magic:
 
 ```
