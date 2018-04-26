@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-workshop-docs-deployment
+spec:
+  selector:
+    matchLabels:
+      app: workshop-docs
+  replicas: 1
+  template: # create pods using pod definition in this template
+    metadata:
+      # unlike pod-nginx.yaml, the name is not included in the meta data as a unique name is
+      # generated from the deployment name
+      labels:
+        app: workshop-docs
+    spec:
+      containers:
+      - name: k8s-workshop-docs
+        image: ubuntu-k8s-1.local:30603/k8s-workshop-standalone:1
+        ports:
+        - containerPort: 80
