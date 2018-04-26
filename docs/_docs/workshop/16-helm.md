@@ -46,3 +46,12 @@ TODO find out url above
 
 TODO download charts to our chart repo
 
+## Repository browser
+
+There's a bunch of ready charts at http://kubeapps.com:
+
+![text](../../assets/img/kubeapps.png)
+
+You can install your own "kubeapps", that is, a repository. Then you have a very simple way of browsing
+the various applications in your organization.
+
