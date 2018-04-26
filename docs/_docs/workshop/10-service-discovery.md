@@ -24,8 +24,8 @@ Fire up a pod running the `nginx` image and a service that exposes the pod.
  <div markdown="1">
 
 ```
-kubectl create deployment my-nginx --image=ubuntu-k8s-1.local:30603/nginx-curls
-kubectl expose deployment my-nginx --port 8085 --target-port 80 # Your pod name will be different. Use kubectl get pods to get pod name.
+kubectl create deployment my-nginx --image=ubuntu-k8s-1.local:30603/nginx-curl
+kubectl expose deployment my-nginx --port 8085 --target-port 80
 ```
 
  </div>
@@ -174,7 +174,7 @@ TERM=xterm
 
 ## Task: Do a request to a service in another namespace
 
-Just pick any of the other students' services, or use one that we should (but may have forgotton) to deploy in the namespace `sample-namespace`. To find services in other namespaces, run:
+Just pick any of the other students' services, or use one that we should (but may have forgotton) to deploy in the namespace `default`. To find services in other namespaces, run:
 
 `kubectl get svc --all-namespaces`
 
@@ -187,7 +187,7 @@ Just pick any of the other students' services, or use one that we should (but ma
 kubectl exec -it my-nginx-7d4b689dcb-2j57k sh
 
 # Now in the pod, run
-$ curl http://hello-nginx.sample-namespace:8086
+$ curl http://my-nginx.default:8085
 ```
 
 Then you should a reply from the nginx welcome page.
