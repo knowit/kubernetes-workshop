@@ -25,16 +25,26 @@ Which will match each pod with the label `app`:`sample-app`.
 > To view the labels of a resource deployed to the cluster use the extra flag `--show-labels`. E.g. `kubectl get po --show-labels`
 
 ## Task 1
-
-Edit a pod, and change the label. Verify by using the flag `--show-labels`
+Deploy the Pod from the previous section again.
+Edit the pod using `kubectl`, and change the label. Verify by using the flag `--show-labels`. Alternatively you can change the yaml file befire redeploying. Try both ways !
 
 <details>
  <summary>Solution</summary>
  <div markdown="1">
 
-### Solution: Try to port forward
+### Solution: Labels and pods
 
-- `kubectl port-forward [pod-name] --namespace [namespace]`
+ - `kubectl edit [pod-name]` opens a vim editor, change the label there.
+ - Or just edit the .yaml file in your favourite editor before redeploying.
+ - Verify by `kubectl get po --show-labels`
+
+ ```yaml
+ kind: Pod
+ metadata:
+   name: myapp-pod
+   labels:
+     newLabel: helloWorld
+```
 
  </div>
 </details>
