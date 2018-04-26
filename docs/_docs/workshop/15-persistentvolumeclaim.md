@@ -3,11 +3,11 @@ title: 15 - PersistentVolumeClaim
 permalink: /docs/15-persistentvolumeclaim/
 ---
 
-A PersistentVolumeClaim is a claim for a PersistentVolume from a storage provider. A Kubernetes cluster can be set up with a lot of different storage providers (see "Storage classes" in documentation for details). Some examples are AzureDisk, NFS and GCEPersistentDisk, and they have varying properties, such as performance.
+A PersistentVolumeClaim is a claim for a PersistentVolume (PVC) from a storage provider. A Kubernetes cluster can be set up with a lot of different storage providers (see "Storage classes" in documentation for details). Some examples are AzureDisk, NFS and GCEPersistentDisk, and they have varying properties, such as performance.
 
 With a PersistentVolumeClaim, your app can request to just get for instance 10GB of space without caring about the details of the volume that the Kubernetes cluster can provide.
 
-## Task: Create a PersistentVolumeClaim, and verify that it works
+## Task: Create a PersistentVolumeClaim
 
 Let's make a PersistentVolumeClaim, requesting 10Mb for our app. Create a file, `pvc.yaml` with the contents:
 
@@ -55,25 +55,56 @@ Now we can apply our updated deployment.yaml:
 Since the deployment has been updated since last time we applied it, Kubernetes should restart the pod in the
 deployment.
 
-```
-kubectl get pv maven-repo-claim
-```
-
-Sample output:
+Let's verify that a PersistentVolume has been created as the claim requested:
 
 ```
-NAME            STATUS    VOLUME           	  CAPACITY   ACCESSMODES   STORAGECLASS   AGE
-task-pv-claim   Bound     maven-repo-volume   30Gi       RWO           manual         30s
+kubectl get pv
+NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS    CLAIM                               STORAGECLASS   REASON    AGE
+pvc-10a0ecc2-4962-11e8-978c-e4b318337de0   10Mi       RWO            Delete           Bound     guybrush/my-claim                   hostpath                 15m
+...
 ```
 
-And:
+## Task: Verify that the PersistentVolumeClaim works
+
+You can do this by
+* writing to a file in the now mounted volume in the pod
+* delete the deployment
+* verify that the file still exists when a new pod is started 
+
+<details>
+  <summary>Solution</summary>
+  <div markdown="1">
+
+Write to a file in the peristed volume:
 
 ```
-kubectl get pv maven-repo-volume
+kubectl get po
+kubectl exec -it sample-app-deployment-7756ccb788-vflmz sh
+/ # cd mydata
+/mydata # ls
+/mydata # echo hello there > hello
+/mydata # exit
 ```
 
+Delete the deployment:
+
 ```
-NAME             CAPACITY   ACCESSMODES   RECLAIMPOLICY   STATUS    CLAIM                   	STORAGECLASS   REASON    AGE
-task-pv-volume   30Gi       RWO           Retain          Bound     default/maven-repo-volume   manual                   2m
+kubectl delete deployment
 ```
 
+Wait for the new pod to start (check with `kubectl get po`), then:
+
+```
+kubectl exec -it sample-app-deployment-a9w84f98n-fsdfm sh
+/ # cd mydata
+/mydata # ls
+hello
+/mydata # cat hello
+hello there
+/mydata # exit
+```
+
+Success! The file survived eventhough the pod was deleted. This is how our apps get persistence.
+
+</div>
+</details>
