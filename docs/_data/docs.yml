@@ -19,7 +19,7 @@
   - 13-secret
   - 14-persistentvolume
   - 15-persistentvolumeclaim
-  - 16-namespace
+  - 16-helm
 - title: Contribute to site
   docs:
   - contribute
