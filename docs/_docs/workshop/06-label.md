@@ -2,3 +2,49 @@
 title: 06 - Label
 permalink: /docs/06-label/
 ---
+
+Labels are key value pairs that describe resources in kubernetes. Labels should be used to identify and describe useful and important attributes for the resources.
+
+Example of some good labels that describe some useful properties about a pod:
+- `environment`:`dev`, `environment`:`prod`
+- `version`:`v10.2`, `version`:`v11.0`
+
+The reason we want to assign proper labels to our resources (pods especially) is to utilise the various `selectors` that are specified in many control resources.
+
+A selector defines a set of labels and values, and tries to select the resources that matches the defined selector.
+
+For example the selector in `Deployment` (which is the next topic) defines its selector as:
+
+```YAML
+selector:
+  matchLabels:
+    app: sample-app
+```
+Which will match each pod with the label `app`:`sample-app`.
+
+> To view the labels of a resource deployed to the cluster use the extra flag `--show-labels`. E.g. `kubectl get po --show-labels`
+
+## Task 1
+Deploy the Pod from the previous section again.
+Edit the pod using `kubectl`, and change the label. Verify by using the flag `--show-labels`. Alternatively you can change the yaml file befire redeploying. Try both ways !
+
+<details>
+ <summary>Solution</summary>
+ <div markdown="1">
+
+### Solution: Labels and pods
+
+ - `kubectl edit [pod-name]` opens a vim editor, change the label there.
+ - Or just edit the .yaml file in your favourite editor before redeploying.
+ - Verify by `kubectl get po --show-labels`
+
+ ```yaml
+ kind: Pod
+ metadata:
+   name: myapp-pod
+   labels:
+     newLabel: helloWorld
+```
+
+ </div>
+</details>

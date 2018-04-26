@@ -1,5 +1,7 @@
 # Kubernetes workshop
 
+Check out or github page [here](https://knowit.github.io/kubernetes-workshop/)
+
 ## For masters
 
 ### Install helm
