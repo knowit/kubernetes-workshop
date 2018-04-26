@@ -22,43 +22,45 @@ Inspecting a service reveals that the service type is `ClusterIp`
 
 There are 3 main types of services: `ClusterIp`, `NodePort`, `LoadBalancer`
 - `ClusterIp` Pods accessed within the cluster only
-- `NodePort` Each node is assigned a port and the pods is accessed with the
-ip from the node (where the pod lives) + the node port. E.g. `ubuntu-k8s-2.local:30042`
-- `LoadBalancer` The cloud provider automatically provisions a LB for your service,
-not applicable in this scenario.
+- `NodePort` Each node is assigned a port and the pods is accessed with the ip from the node (where the pod lives) + the node port (ip:NodePort). E.g. `ubuntu-k8s-2.local:30042`
+- `LoadBalancer` The cloud provider automatically provisions a LB for your service, not applicable in this scenario.
 
 
 ## Task 1
 
-Expose your deployment (pods) with a service.
+Expose your deployment (pods) with a NodePort service. Visit the url
 
 <details>
  <summary>Solution</summary>
  <div markdown="1">
 
-### Solution 1: Just do it
+### Solution 1: Exposing a pod with service
 
-- Change the version labels in the deployment file you created in a earlier step
-- kubectl apply -f my_deployment.yaml
-- kubectl expose [pod-name]
-
+- `kubectl expose [pod-name] --port 80 --targetPort 8080 --type NodePort`
+- `kubectl get svc` # Note the node port number
+- `kubectl get po -owide ` # Check which node the pods are located
+- Access the pod with the browser on: `node:NodePort`, e.g. `ubuntu-k8s-1.local:34567`
  </div>
 </details>
 
 ## Task 2
-Deploy a new version of your application, and expose it with a sercvice.
+Deploy a new version of your application, and expose it with a service.
 Edit the service so that the pods it defines are of both the old and the new version.
 By doing multiple curl call to the service, the response should vary between v1 and v2.
+*You might need to scale the deployments up to 3 to get the desired result*
 
 <details>
  <summary>Solution</summary>
  <div markdown="1">
 
-### Solution 2: kubectl describe node
+### Solution 2: versioning
 
-- kubectl edit svc pod-name
+- Change the deployment name and version.
+- `kubectl apply -f deployment.yaml` to deploy the new version
+- `kubectl expose [pod-name] ... ` as the last task  
+- `kubectl edit svc [svc-name]`
 under the `selector tag`, remove all other tags other than `k8s-app: ...`
-this will select all pods with the `k8s-app` label.
+this will select all pods with the `k8s-app:my-app` label which should be both versions.
 
  </div>
 </details>
