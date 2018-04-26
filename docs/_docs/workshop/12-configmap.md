@@ -7,64 +7,86 @@ Docs: http://ubuntu-k8s-1.local:30827/docs/tasks/configure-pod-container/configu
 
 A ConfigMap allows the storage of configuration outside of the container image. This provides portability for containers. ConfigMaps can be used to store environment variables or to populate volumes inside the container.
 
-## Task
+A configmap can either be created manually by specifying a yaml file, or by `kubectl create configmap`
+
+
+## Task 1
+
+Create a configmap with `kubectl`. The configmap should contain a literal `MY_OTHER_ENDPOINT_ADDRESS=...`. The value should be a callable service in the cluster, and should be in the form: `http://[service-name].[namespace]:[service-port]`. Example: `MY_OTHER_ENDPOINT_ADDRESS="http://myservice.tord:4000"`
+
+## Task 2
+
+Load the configmap as environment variables in the pod.
+
+<details>
+  <summary>Step-by-step Task 2</summary>
+  <div markdown="1">
+
+- <details>
+  <summary>Use kubectl create configmap </summary>
+  <div markdown="1">
+  `kubectl create configmap my-cool-configmap --from-literal VERSION=v0.1.0 `
+  </div>
+  </details>
+
+- In the deployment yaml file configure the container to use environment from the configmap
+
+```yaml
+containers:
+  - name: {....}
+    envFrom:
+    - configMapRef:
+        name: # name of your configmap
+```  
+</div>
+</details>
+
+
+## Task 3
 
 Create a configuration file inside the container using a ConfigMap. Mount the file at ***/config/greatestconfig.yml***. The enpoint ***/configmap*** in the sample app can then be used to view contents of the ConfigMap.
 
 <details>
-  <summary>Solution</summary>
+  <summary>Step-by-step Task 3</summary>
   <div markdown="1">
 
-### Solution, ConfigMap
+### Step 1, ConfigMap
 
 ```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: myconfigmap
+  name: ## give it a name
   labels:
-    app: sample-app
+    ## and a describing label or two
 data:
   greatestconfig.yml: |-
     - module: myawesomemodule
       start_at_boot: true
 ```
 
-### Solution, Mounting the ConfigMap to a file inside the container
+### Step 2, In your previous deployment file, add the following
 
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
-metadata:
-  name: sample-app-deployment
-  labels:
-    app: sample-app
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: sample-app
-  template:
-    metadata:
-      labels:
-        app: sample-app
-    spec:
+...
       containers:
       - name: sample-app
         image: ubuntu-k8s-1.local:30603/sample-app
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
         volumeMounts:
-        - name: greatestconfig
+        - name: # Name of the volume you want to mount
           mountPath: /config/greatestconfig.yml
           readOnly: true
           subPath: greatestconfig.yml
       volumes:
-      - name: greatestconfig
+      - name: # Give the volume a name
         configMap:
           defaultMode: 0600
-          name: myconfigmap
+          name: # reference the configmap name
 ```
   </div>
 </details>
