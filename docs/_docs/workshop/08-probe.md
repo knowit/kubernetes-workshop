@@ -4,11 +4,13 @@ permalink: /docs/08-probe/
 ---
 {% assign host = site.data.constants.docs.k8s.base-url %}
 {% assign path = '/docs/concepts/workloads/pods/pod-lifecycle/#container-probes' %}
-Official Kubernetes documentation:
+Pod-lifecyle documentation:
 * [Offline]({{host.offline}}{{path}})
 * [Online]({{host.online}}{{path}})
 
-The readiness and liveness probe are diagnostic tools used to verify the state of a container. The probes work by either
+The readiness and liveness probe are diagnostic tools used to verify the state of a container. 
+
+The probes work by either:
 
 1) execute a command inside the container. A return value of 0 indicates the container is in a good state.
 
@@ -24,7 +26,11 @@ Both readiness and liveness probes are optional. Without them, the kubelet will 
 
 ## Task
 
-Extend your deployment to include readiness and liveness probes. The sample application has endpoints at ***/healthy*** and ***/nonhealthy***, that return HTTP 200 and HTTP 418, respectively. Use these endpoints to either make your container seem to be in a good state or bad state.
+Extend your deployment to include readiness and liveness probes. 
+
+The sample application has endpoints at ***/healthy*** and ***/nonhealthy***, that return HTTP 200 and HTTP 418, respectively. 
+
+Use these endpoints to either make your container seem to be in a good state or bad state.
 
 <details>
   <summary>Solution</summary>

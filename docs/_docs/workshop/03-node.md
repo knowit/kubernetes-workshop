@@ -4,7 +4,7 @@ permalink: /docs/03-node/
 ---
 {% assign host = site.data.constants.docs.k8s.base-url %}
 {% assign path = '/docs/concepts/architecture/nodes/' %}
-Official Kubernetes documentation:
+Node documentation:
 * [Offline]({{host.offline}}{{path}})
 * [Online]({{host.online}}{{path}})
 

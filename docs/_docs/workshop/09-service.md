@@ -4,11 +4,9 @@ permalink: /docs/09-service/
 ---
 {% assign host = site.data.constants.docs.k8s.base-url %}
 {% assign path = '/docs/concepts/services-networking/service/' %}
-Official Kubernetes documentation:
+Service documentation:
 * [Offline]({{host.offline}}{{path}})
 * [Online]({{host.online}}{{path}})
-
-Docs: http://ubuntu-k8s-1.local:30827/docs/concepts/services-networking/service/
 
 Pods may live where ever they want, and replicate or go down at any time during the deployment lifetime. New IPs are assigned, and wil lead to problems when trying to connect to other pods in the cluster.
 
@@ -34,7 +32,9 @@ There are 3 main types of services: `ClusterIp`, `NodePort`, `LoadBalancer`
 
 ## Task 1
 
-Expose your deployment (pods) with a NodePort service. Visit the url
+Expose your deployment (pods) with a NodePort service. 
+
+Visit the url where the service runs.
 
 <details>
  <summary>Solution</summary>
@@ -51,8 +51,11 @@ Expose your deployment (pods) with a NodePort service. Visit the url
 
 ## Task 2
 Deploy a new version of your application, and expose it with a service.
+
 Edit the service so that the pods it defines are of both the old and the new version.
+
 By doing multiple curl call to the service, the response should vary between v1 and v2.
+
 *You might need to scale the deployments up to 3 to get the desired result*
 
 <details>

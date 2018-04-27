@@ -4,7 +4,7 @@ permalink: /docs/14-persistentvolume/
 ---
 {% assign host = site.data.constants.docs.k8s.base-url %}
 {% assign path = '/docs/concepts/storage/persistent-volumes/' %}
-Official Kubernetes documentation:
+Persistent-Volume documentation:
 * [Offline]({{host.offline}}{{path}})
 * [Online]({{host.online}}{{path}})
 
@@ -14,8 +14,9 @@ application use it as storage. I doesn't disappear when the pod is deleted. In o
 
 PersistentVolumes are created by PersistentVolumeClaims (PVC).
 
-A PersistentVolumeClaim is a claim for a PersistentVolume from a storage provider. A Kubernetes cluster
-can be set up with a lot of different storage providers (see "Storage classes" in documentation for details).
+A PersistentVolumeClaim is a claim for a PersistentVolume from a storage provider. 
+
+A Kubernetes cluster can be set up with a lot of different storage providers (see "Storage classes" in documentation for details).
 Some examples are AzureDisk, NFS and GCEPersistentDisk, and they have varying properties, such as performance.
 
 With a PersistentVolumeClaim, your app can request to just get for instance 10GB of space without caring about

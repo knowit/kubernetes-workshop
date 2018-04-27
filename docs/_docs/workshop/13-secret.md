@@ -4,7 +4,7 @@ permalink: /docs/13-secret/
 ---
 {% assign host = site.data.constants.docs.k8s.base-url %}
 {% assign path = '/docs/concepts/configuration/secret/' %}
-Official Kubernetes documentation:
+Secret documentation:
 * [Offline]({{host.offline}}{{path}})
 * [Online]({{host.online}}{{path}})
 

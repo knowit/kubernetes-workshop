@@ -4,7 +4,7 @@ permalink: /docs/05-namespace/
 ---
 {% assign host = site.data.constants.docs.k8s.base-url %}
 {% assign path = '/docs/concepts/overview/working-with-objects/namespaces/' %}
-Official Kubernetes documentation:
+Namespace documentation:
 * [Offline]({{host.offline}}{{path}})
 * [Online]({{host.online}}{{path}})
 
@@ -16,7 +16,10 @@ We have provided a namespace for each user today, and you will each work separat
 
 We have used RBAC (Role Based Access Control) to restrict each user into one namespace only.
 RBAC is used by binding a `Role` (which defines some allowed actions) to a `User`.
-You are allowed to watch other namespaces, but not interact as we have set a cluster-wide role for all authenticated users(view). There are 3 main roles that you are free to use:
+
+You are allowed to watch other namespaces, but not interact as we have set a cluster-wide role for all authenticated users(view). 
+
+There are 3 main roles that you are free to use:
 - view (read access only)
 - edit (access to edit and access most resources)
 - admin (access to all resource within a ns)
@@ -25,9 +28,12 @@ These `Roles` are applied to users (or groups) by using a `RoleBinding`.
 
 `Role` -- `RoleBinding` -- `User`
 
+{% assign rbac = '/docs/admin/authorization/rbac/' %}
+RBAC documentation:
+* [Offline]({{host.offline}}{{rbac}})
+* [Online]({{host.online}}{{rbac}})
 
 
-K8s docs: http://ubuntu-k8s-3.local:30827/docs/admin/authorization/rbac/
 ## Task 1
 
 List all the namespaces in the cluster

@@ -4,7 +4,7 @@ permalink: /docs/10-service-discovery/
 ---
 {% assign host = site.data.constants.docs.k8s.base-url %}
 {% assign path = '/docs/concepts/services-networking/service/#discovering-services' %}
-Official Kubernetes documentation:
+Service discovery documentation:
 * [Offline]({{host.offline}}{{path}})
 * [Online]({{host.online}}{{path}})
 

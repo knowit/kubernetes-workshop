@@ -4,7 +4,7 @@ permalink: /docs/11-ingress/
 ---
 {% assign host = site.data.constants.docs.k8s.base-url %}
 {% assign path = '/docs/concepts/services-networking/ingress/' %}
-Official Kubernetes documentation:
+Ingress documentation:
 * [Offline]({{host.offline}}{{path}})
 * [Online]({{host.online}}{{path}})
 

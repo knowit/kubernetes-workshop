@@ -4,7 +4,7 @@ permalink: /docs/12-configmap/
 ---
 {% assign host = site.data.constants.docs.k8s.base-url %}
 {% assign path = '/docs/tasks/configure-pod-container/configure-pod-configmap/' %}
-Official Kubernetes documentation:
+ConfigMap documentation:
 * [Offline]({{host.offline}}{{path}})
 * [Online]({{host.online}}{{path}})
 

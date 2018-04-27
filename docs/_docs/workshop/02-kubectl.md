@@ -5,7 +5,7 @@ permalink: /docs/02-kubectl/
 
 {% assign host = site.data.constants.docs.k8s.base-url %}
 {% assign path = '/docs/reference/kubectl/cheatsheet/' %}
-Official Kubernetes documentation:
+Kubernetes command-line tool cheatsheet:
 * [Offline]({{host.offline}}{{path}})
 * [Online]({{host.online}}{{path}})
 

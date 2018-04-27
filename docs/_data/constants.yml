@@ -3,3 +3,11 @@ docs:
     base-url:
       online: https://kubernetes.io
       offline: http://ubuntu-k8s-3.local:30827
+  docker:
+    base-url:
+      online: https://docs.docker.com
+      offline: #
+  helm:
+    base-url:
+      online: https://docs.helm.sh
+      offline: #
