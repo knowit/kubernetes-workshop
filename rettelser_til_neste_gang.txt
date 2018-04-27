@@ -1,0 +1,5 @@
+watch finnes ikke på mac by default
+
+installasjonsguiden må være mer spesifikk og punktvis
+
+04-pod: endre ordlyd på task 2. bytt rekkefølge på task 2 og 3.
