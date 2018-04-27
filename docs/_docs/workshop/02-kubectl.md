@@ -1,12 +1,18 @@
 ---
-title: 02 - KubeCtl
+title: 02 - Kubectl
 permalink: /docs/02-kubectl/
 ---
 
-# Kubectl
+{% assign host = site.data.constants.docs.k8s.base-url %}
+{% assign path = '/docs/reference/kubectl/cheatsheet/' %}
+Official Kubernetes documentation:
+* [Offline]({{host.offline}}{{path}})
+* [Online]({{host.online}}{{path}})
 
-kubectl is a handy tool for dealing with the Apiserver (api). We are going to
-use this tool extensively during this workshop, so we should get to know it.
+
+The Kubernetes command-line tool, kubectl controls the Kubernetes cluster manager.
+
+We are going to use this tool extensively during this workshop, so we should get to know it.
 
 > To enable autocomplete
 `source <(kubectl completion bash)`

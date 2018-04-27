@@ -2,8 +2,12 @@
 title: 14 - PersistentVolume
 permalink: /docs/14-persistentvolume/
 ---
+{% assign host = site.data.constants.docs.k8s.base-url %}
+{% assign path = '/docs/concepts/storage/persistent-volumes/' %}
+Official Kubernetes documentation:
+* [Offline]({{host.offline}}{{path}})
+* [Online]({{host.online}}{{path}})
 
-Docs: http://ubuntu-k8s-1.local:30827/docs/concepts/storage/persistent-volumes/
 
 A PersistentVolume (PV) is a place where you can store stuff. It can be mounted into a pod, so your
 application use it as storage. I doesn't disappear when the pod is deleted. In other words, it's persistent.

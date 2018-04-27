@@ -2,8 +2,12 @@
 title: 03 - Node
 permalink: /docs/03-node/
 ---
+{% assign host = site.data.constants.docs.k8s.base-url %}
+{% assign path = '/docs/concepts/architecture/nodes/' %}
+Official Kubernetes documentation:
+* [Offline]({{host.offline}}{{path}})
+* [Online]({{host.online}}{{path}})
 
-Docs: http://ubuntu-k8s-3.local:30827/docs/concepts/architecture/nodes/
 
 A node is a machine. It runs the docker containers (within
 [pods]({{ site.baseurl }}{% link _docs/workshop/04-pod.md %})

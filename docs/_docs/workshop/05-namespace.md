@@ -2,6 +2,12 @@
 title: 05 - Namespace
 permalink: /docs/05-namespace/
 ---
+{% assign host = site.data.constants.docs.k8s.base-url %}
+{% assign path = '/docs/concepts/overview/working-with-objects/namespaces/' %}
+Official Kubernetes documentation:
+* [Offline]({{host.offline}}{{path}})
+* [Online]({{host.online}}{{path}})
+
 
 Namespaces can be used in many different ways; to separate the cluster by environment,
 to provide a space/resources for your users, to provide scoping for names(resource names must be unique per namespace).  

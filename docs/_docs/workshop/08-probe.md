@@ -2,10 +2,11 @@
 title: 08 - Readiness and liveness probe
 permalink: /docs/08-probe/
 ---
-
-## Readiness and liveness probe
-
-Docs: http://ubuntu-k8s-1.local:30827/docs/concepts/workloads/pods/pod-lifecycle/#container-probes
+{% assign host = site.data.constants.docs.k8s.base-url %}
+{% assign path = '/docs/concepts/workloads/pods/pod-lifecycle/#container-probes' %}
+Official Kubernetes documentation:
+* [Offline]({{host.offline}}{{path}})
+* [Online]({{host.online}}{{path}})
 
 The readiness and liveness probe are diagnostic tools used to verify the state of a container. The probes work by either
 

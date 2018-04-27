@@ -2,8 +2,11 @@
 title: 06 - Label
 permalink: /docs/06-label/
 ---
-
-Docs: http://ubuntu-k8s-3.local:30827/docs/concepts/overview/working-with-objects/labels/
+{% assign host = site.data.constants.docs.k8s.base-url %}
+{% assign path = '/docs/concepts/overview/working-with-objects/labels/' %}
+Official Kubernetes documentation:
+* [Offline]({{host.offline}}{{path}})
+* [Online]({{host.online}}{{path}})
 
 Labels are key value pairs that describe resources in kubernetes. Labels should be used to identify and describe useful and important attributes for the resources.
 

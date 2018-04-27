@@ -2,6 +2,11 @@
 title: 09 - Service
 permalink: /docs/09-service/
 ---
+{% assign host = site.data.constants.docs.k8s.base-url %}
+{% assign path = '/docs/concepts/services-networking/service/' %}
+Official Kubernetes documentation:
+* [Offline]({{host.offline}}{{path}})
+* [Online]({{host.online}}{{path}})
 
 Docs: http://ubuntu-k8s-1.local:30827/docs/concepts/services-networking/service/
 

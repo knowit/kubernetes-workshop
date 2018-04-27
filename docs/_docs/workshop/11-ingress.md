@@ -2,8 +2,11 @@
 title: 11 - Ingress
 permalink: /docs/11-ingress/
 ---
-
-Docs: http://ubuntu-k8s-1.local:30827/docs/concepts/services-networking/ingress/
+{% assign host = site.data.constants.docs.k8s.base-url %}
+{% assign path = '/docs/concepts/services-networking/ingress/' %}
+Official Kubernetes documentation:
+* [Offline]({{host.offline}}{{path}})
+* [Online]({{host.online}}{{path}})
 
 Until now we have only created deployments and services that are accessible from inside the cluster. In a real world scenario, you might also want to expose your services to the rest of the world (i.e. the internet).
 

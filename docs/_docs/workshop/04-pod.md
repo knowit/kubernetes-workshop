@@ -2,8 +2,12 @@
 title: 04 - Pod
 permalink: /docs/04-pod/
 ---
+{% assign host = site.data.constants.docs.k8s.base-url %}
+{% assign path = '/docs/concepts/workloads/pods/pod/' %}
+Official Kubernetes documentation:
+* [Offline]({{host.offline}}{{path}})
+* [Online]({{host.online}}{{path}})
 
-Docs: http://ubuntu-k8s-3.local:30827/docs/concepts/workloads/pods/pod/
 
 ![text](../../assets/img/pods.png)
 

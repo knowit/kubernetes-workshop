@@ -1,9 +1,13 @@
 ---
-title: 13 - Secret
+title: 13 - Secrets
 permalink: /docs/13-secret/
 ---
+{% assign host = site.data.constants.docs.k8s.base-url %}
+{% assign path = '/docs/concepts/configuration/secret/' %}
+Official Kubernetes documentation:
+* [Offline]({{host.offline}}{{path}})
+* [Online]({{host.online}}{{path}})
 
-Docs: http://ubuntu-k8s-1.local:30827/docs/concepts/configuration/secret/
 
 Objects of type secret are intended to hold sensitive information, such as passwords, OAuth tokens, and ssh keys.
 

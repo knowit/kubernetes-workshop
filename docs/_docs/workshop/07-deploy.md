@@ -2,8 +2,12 @@
 title: 07 - Deployment
 permalink: /docs/07-deployment/
 ---
+{% assign host = site.data.constants.docs.k8s.base-url %}
+{% assign path = '/docs/concepts/workloads/controllers/deployment/#use-case' %}
+Official Kubernetes documentation:
+* [Offline]({{host.offline}}{{path}})
+* [Online]({{host.online}}{{path}})
 
-Docs: http://ubuntu-k8s-3.local:30827/docs/concepts/workloads/controllers/deployment/#use-case
 
 ![text](../../assets/img/deployment.png)
 

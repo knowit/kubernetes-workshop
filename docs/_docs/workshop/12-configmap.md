@@ -2,8 +2,11 @@
 title: 12 - ConfigMap
 permalink: /docs/12-configmap/
 ---
-
-Docs: http://ubuntu-k8s-1.local:30827/docs/tasks/configure-pod-container/configure-pod-configmap/
+{% assign host = site.data.constants.docs.k8s.base-url %}
+{% assign path = '/docs/tasks/configure-pod-container/configure-pod-configmap/' %}
+Official Kubernetes documentation:
+* [Offline]({{host.offline}}{{path}})
+* [Online]({{host.online}}{{path}})
 
 A ConfigMap allows the storage of configuration outside of the container image. This provides portability for containers. ConfigMaps can be used to store environment variables or to populate volumes inside the container.
 

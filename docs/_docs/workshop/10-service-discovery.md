@@ -2,8 +2,11 @@
 title: 10 - Service discovery
 permalink: /docs/10-service-discovery/
 ---
-
-Docs: http://ubuntu-k8s-1.local:30827/docs/concepts/services-networking/service/#discovering-services
+{% assign host = site.data.constants.docs.k8s.base-url %}
+{% assign path = '/docs/concepts/services-networking/service/#discovering-services' %}
+Official Kubernetes documentation:
+* [Offline]({{host.offline}}{{path}})
+* [Online]({{host.online}}{{path}})
 
 By service discovery, we mean your app's possibility to communicate with a Kubernetes Service.
 
