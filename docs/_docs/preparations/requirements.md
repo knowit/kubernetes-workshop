@@ -12,15 +12,15 @@ It is hosted at `ubuntu-k8s-1` and uses FTP.
 
 ## Install kubectl
 
-Get the kubectl binary for your platform from our fileshare. It is located under `tools/k8s/kubectl/<platform>/kubectl`.
+Get the kubectl binary for your platform from our fileshare. It is located under `kubernetes-workshop/tools/k8s/kubectl/<platform>/kubectl`.
 
 Make it executable, place it somewhere, and add that somewhere to `PATH`.
 
 ## Install kubectl configuration
 
-Someone will supply you with a configuration file.
+A kubectl configuration file should have generated for you. It is located at the fileshare under `kube_configs`. Find the onie with your name in the filename.
 
-Place it in a suitable location, such as `~/.kube/workshop_config`.
+Place it at `~/.kube/workshop_config`.
 
 Point the environment variable `KUBECONFIG` to your configuration
 
@@ -36,7 +36,7 @@ kubectl config view
 
 ## (Optional) Install helm binary
 
-Get the helm binary for your platform from our fileshare. It is located under `tools/k8s/helm`.
+Get the helm binary for your platform from our fileshare. It is located under `kubernetes-workshop/tools/k8s/helm`.
 
 Make it executable, place it somewhere, and add that somewhere to `PATH`.
 
