@@ -45,4 +45,4 @@ Run this terminal commando
 ./run.sh
 
 ```
-Open browser `http://localhost` or click []this link](http://localhost)
+Open browser `http://localhost` or click [this link](http://localhost)
