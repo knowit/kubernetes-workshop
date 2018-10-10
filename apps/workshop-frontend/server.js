@@ -23,7 +23,7 @@ app.get('/call-backend', (req, res) => {
   var response = request('GET', process.env.BACKEND_URL);
   console.log("responseponse from backend:");
   console.log(response);
-  res.send(response);
+  res.send(response.body);
 });
 
 // Sample endpoint

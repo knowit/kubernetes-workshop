@@ -4,25 +4,26 @@
 </head>
 <body style="padding-left: 10px">
   <h1>My frontend</h1>
-  <p>The URL to the backend is: <div id="backendUrl">missing backend url</div></p>
+  <p>The URL to the workshop-api is: <div id="backendUrl">missing url</div></p>
   
   <p>How did it get there? This front-end runs on a Node backend, and does a request to the Node backend
     serving this front end to for a specific variable. <a href="/backendurl">See</a> the result for
-  yourself.</p>
+    yourself.</p>
 
   <h2>Run a HTTP request</h2>
 
   <p>Click the button below to do a HTTP request to the URL from the environment variable above.</p>
 
+  <p>
   Specifically, the front-end javascript does a request to its Node backend, which then does does a
-  synchronous request to the workshop-backend. The result is returned to the front-end, and shown below.
+  synchronous request to the workshop-api. The result is returned to the front-end, and shown below.
   </p>
 
   <button id="reqBtn" onclick="doRequest()">Do a GET to above URL</button>
 
   <p>If it doesn't work, open your browser's console for more details.</p>
 
-  <p>Backend answer:</p>
+  <p>API answer:</p>
   <p id="backendAnswer">(nothing received yet)</p>
 
   <script>
