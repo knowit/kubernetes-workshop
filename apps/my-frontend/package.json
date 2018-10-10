@@ -1,0 +1,12 @@
+{
+  "name": "my-frontend",
+  "version": "1.0.0",
+  "description": "Inspiration: https://nodejs.org/en/docs/guides/nodejs-docker-webapp/",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.1"
+  }
+}
