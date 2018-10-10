@@ -31,7 +31,7 @@ Which will match each pod with the label `app`:`sample-app`.
 
 ## Task 1
 Deploy the Pod from the previous section again.
-Edit the pod using `kubectl`, and change the label. Verify by using the flag `--show-labels`. Alternatively you can change the yaml file befire redeploying. Try both ways !
+Edit the pod using `kubectl`, and change the label. Verify by using the flag `--show-labels`. Alternatively you can change the yaml file before redeploying. Try both ways !
 
 <details>
  <summary>Solution</summary>
@@ -39,7 +39,7 @@ Edit the pod using `kubectl`, and change the label. Verify by using the flag `--
 
 ### Solution: Labels and pods
 
- - `kubectl edit [pod-name]` opens a vim editor, change the label there.
+ - `kubectl edit/[pod-name]` opens a editor. Change the label there.
  - Or just edit the .yaml file in your favourite editor before redeploying.
  - Verify by `kubectl get po --show-labels`
 

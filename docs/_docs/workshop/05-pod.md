@@ -39,7 +39,9 @@ kubectl get pod -w
 kubectl run workshop-frontend --image=torklo/workshop-frontend
 ```
 
+NB: watch is not installed on macOS by default. Install it with homebrew: `brew install watch`
 Switch to the terminal, and you should see your pod running! It should like this:
+
 
 ```
 NAME               READY     STATUS    RESTARTS   AGE
