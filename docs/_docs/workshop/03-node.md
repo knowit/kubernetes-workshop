@@ -13,20 +13,16 @@ A node is a machine. It runs the docker containers (within
 [pods]({{ site.baseurl }}{% link _docs/workshop/05-pod.md %})
 )
 
+A Kubernetes cluster consists of one or more nodes. To give your cluster more juice (computing power), you simply add
+more nodes.
+
 To list nodes in the cluster:
 
 `kubectl get nodes`
 
-Try to get more details about a node:
-
-`kubectl describe node ubuntu-k8s-1`
-
-A Kubernetes cluster consists of one or more nodes. To give your cluster more juice (computing power), add
-nodes.
-
 ## Task
 
-Find out the IP of the kubernetes master and one of the kubernetes nodes.
+Find out the IP of one of the kubernetes nodes.
 
 <details>
  <summary>Solution</summary>
@@ -34,32 +30,36 @@ Find out the IP of the kubernetes master and one of the kubernetes nodes.
 
 ### Solution 1: kubectl get node
 
-OK, let's find the master:
+OK, let's find some nodes:
 
 `kubectl get nodes`
 
-The node with ROLES "master" seems to be the master. Let's find its IP.
+Then lets find the IP of one of the nodes
 
-`kubectl get node ubuntu-k8s-1 -o yaml`
+`kubectl get node gke-cluster-1-default-pool-eb6174f5-0xkb -o yaml`
 
 Among the output, I see:
 ```
   addresses:
-  - address: 192.168.1.29
+  - address: 35.234.105.108
 ```
 
-So, that's the ip.
+So, that's the IP.
 
 ### Solution 2: kubectl describe node
 
-`kubectl describe node ubuntu-k8s-1`
+`kubectl describe node gke-cluster-1-default-pool-eb6174f5-0xkb`
 
-Here I see this line:
+Among the output, I see:
+```
+Addresses:
+  InternalIP:	10.156.0.5
+  ExternalIP:	35.234.105.108
+```
 
-`flannel.alpha.coreos.com/public-ip=192.168.1.29`
+So, that's the IP addresses.
 
-It's a bit more cryptic than the output for `kubectl get node`, but we include this solution so you know
-that `kubectl describe` can provide info about a node (or any resource, like `kubectl get pod my-pod`).
+`kubectl describe` can provide info about a node (or any resource, like `kubectl get pod my-pod`).
 `kubectl describe` usually gathers information from more sources (like "events") than just the YAML
 description.
 
