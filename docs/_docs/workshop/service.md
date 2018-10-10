@@ -20,7 +20,7 @@ Services defines which pods to connect by utilizing the labels on the pods.
 > E.g. By creating a service with kubectl we use the `expose` command
 With the following command we create a service accessable by port 80,
 that connects to a pod with the name [pod-name] and container-port 8080.
-`kubectl expose pod [pod-name] --port=80 --targetPort=8080 --type=ClusterIP`
+`kubectl expose pod [pod-name] --port=80 --target-port=8080 --type=ClusterIP`
 
 Inspecting a service reveals that the service type is `LoadBalancer`
 
