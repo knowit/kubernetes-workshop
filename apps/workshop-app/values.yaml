@@ -12,8 +12,11 @@ frontend:
   name: super-frontend
   replicaCount: 1
   image:
-    repository: nginx
-    tag: stable
+    repository: torklo/workshop-frontend
+    tag: latest
   service:
     type: ClusterIP
     port: 80
+  env:
+    - name: BACKEND_URL
+      value: 'http://super-backend'

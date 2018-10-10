@@ -22,6 +22,9 @@ spec:
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.frontend.image.repository }}:{{ .Values.frontend.image.tag }}"
+          envFrom:
+          - configMapRef:
+             name: {{ .Values.frontend.name }}
           ports:
             - name: http
               port: 8080
