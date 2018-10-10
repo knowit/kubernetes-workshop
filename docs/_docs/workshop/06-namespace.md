@@ -51,21 +51,6 @@ List all the namespaces in the cluster
 
 ## Task 2
 
-Try to port-forward a to a pod in a different namespace
-
-<details>
- <summary>Solution</summary>
- <div markdown="1">
-
-### Solution: Try to port forward
-
-- `kubectl port-forward [pod-name] --namespace [namespace]`
-
- </div>
-</details>
-
-## Task 3
-
 Allow another user access to your namespace and get them to access your pods!
 
 
@@ -79,3 +64,22 @@ Allow another user access to your namespace and get them to access your pods!
 
  </div>
 </details>
+
+## Task 3
+
+Try to port-forward from a pod in a different namespace to localhost
+
+<details>
+ <summary>Solution</summary>
+ <div markdown="1">
+
+### Solution: Try to port forward
+
+- `kubectl port-forward [pod-name] --namespace [namespace] 8080:8080`
+
+- `curl localhost:8080`
+
+ </div>
+</details>
+
+
