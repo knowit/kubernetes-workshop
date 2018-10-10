@@ -1,6 +1,6 @@
 ---
-title: 07 - Label
-permalink: /docs/07-label/
+title: 09 - Label
+permalink: /docs/09-label/
 ---
 {% assign host = site.data.constants.docs.k8s.base-url %}
 {% assign path = '/docs/concepts/overview/working-with-objects/labels/' %}

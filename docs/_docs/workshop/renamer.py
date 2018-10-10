@@ -10,15 +10,15 @@ file_order.append("node.md")
 file_order.append("helm.md")
 file_order.append("pod.md")
 file_order.append("namespace.md")
-file_order.append("label.md")
 file_order.append("deploy.md")
+file_order.append("configmap.md")
+file_order.append("label.md")
 file_order.append("probe.md")
 file_order.append("service.md")
 file_order.append("service-discovery.md")
-file_order.append("ingress.md")
-file_order.append("configmap.md")
 file_order.append("secret.md")
 file_order.append("persistentvolumeclaim.md")
+file_order.append("ingress.md")
 
 print(file_order)
 
@@ -42,7 +42,7 @@ for filename in os.listdir("."):
     #print(filename)
     #print(index_of(filename))
     if (index_of(file_without_index) == -1):
-      exit('could not find: ' + filename + " - " + file_without_index)
+      print('could not find: ' + filename + " - " + file_without_index)
 
     current_file_index_without_padding = str(index_of(file_without_index))
     current_file_index = padded_index(current_file_index_without_padding)

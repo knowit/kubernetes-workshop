@@ -1,6 +1,6 @@
 ---
-title: 08 - Deployment
-permalink: /docs/08-deploy/
+title: 07 - Deployment
+permalink: /docs/07-deploy/
 ---
 {% assign host = site.data.constants.docs.k8s.base-url %}
 {% assign path = '/docs/concepts/workloads/controllers/deployment/#use-case' %}

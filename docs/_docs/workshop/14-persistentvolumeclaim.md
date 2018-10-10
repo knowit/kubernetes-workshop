@@ -1,6 +1,6 @@
 ---
-title: 15 - PersistentVolume
-permalink: /docs/15-persistentvolumeclaim/
+title: 14 - PersistentVolume
+permalink: /docs/14-persistentvolumeclaim/
 ---
 {% assign host = site.data.constants.docs.k8s.base-url %}
 {% assign path = '/docs/concepts/storage/persistent-volumes/' %}
