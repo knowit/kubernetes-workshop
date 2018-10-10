@@ -24,11 +24,17 @@ cannot, it probably means we haven't given you access. Ask one of your workshop 
 
 ![google cloud project screenshot](../../assets/img/gcloud-project.png)
 
-You will have been granted access to a namespace (more on namespaces later) on the form firstname-lastname, the same names as in your knowit-email-address.
+You will have been granted access to a namespace (more on namespaces later) which is your email username. If the username contains a `.` it will be substituted for `-`. 
+Example: `tord.kloster@knowit.no` -> `tord-kloster`
 
+## Specify a default namespace: (important)
 To avoid having to specify the namespace in all requests with kubectl, set the namespace preference in the config
 
 `kubectl config set-context $(kubectl config current-context) --namespace=<insert-namespace-name-here>`
+
+The namespace is you email username as described before
+
+
 
 ## Install helm client
 
