@@ -56,6 +56,8 @@ cd kubernetes-workshop/apps/sample-apps/sample-app/k8s
 kubectl apply -f pod.yaml
 ```
 
+NB: watch is not installed on macOS by default. Install it with homebrew: `brew install watch`
+
 Switch to the watch terminal, and you should see your pod running! It should like this:
 
 ```
