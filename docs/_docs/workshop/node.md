@@ -10,7 +10,7 @@ Node documentation:
 
 
 A node is a machine. It runs the docker containers (within
-[pods]({{ site.baseurl }}{% link _docs/workshop/05-pod.md %})
+[pods]({{ site.baseurl }}{% link _docs/workshop/pod.md %})
 )
 
 A Kubernetes cluster consists of one or more nodes. To give your cluster more juice (computing power), you simply add
