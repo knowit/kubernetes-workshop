@@ -1,6 +1,6 @@
 ---
 title: Requirements (online cloud (GCP))
-permalink: /docs/requirements/
+permalink: /docs/requirements-online/
 ---
 
 ## Install gcloud
