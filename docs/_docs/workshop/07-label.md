@@ -39,7 +39,7 @@ Edit the pod using `kubectl`, and change the label. Verify by using the flag `--
 
 ### Solution: Labels and pods
 
- - `kubectl edit [pod-name]` opens a vim editor, change the label there.
+ - `kubectl edit/[pod-name]` opens a editor. Change the label there.
  - Or just edit the .yaml file in your favourite editor before redeploying.
  - Verify by `kubectl get po --show-labels`
 
