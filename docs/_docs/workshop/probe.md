@@ -1,5 +1,5 @@
 ---
-title: 10 - Readiness and liveness probe
+title: Readiness and liveness probe
 permalink: /docs/probe/
 ---
 {% assign host = site.data.constants.docs.k8s.base-url %}

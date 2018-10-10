@@ -1,5 +1,5 @@
 ---
-title: 09 - Label
+title: Label
 permalink: /docs/label/
 ---
 {% assign host = site.data.constants.docs.k8s.base-url %}

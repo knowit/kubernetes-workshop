@@ -1,5 +1,5 @@
 ---
-title: 06 - Namespace
+title: Namespace
 permalink: /docs/namespace/
 ---
 {% assign host = site.data.constants.docs.k8s.base-url %}

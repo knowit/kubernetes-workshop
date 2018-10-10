@@ -1,5 +1,5 @@
 ---
-title: 05 - Pod
+title: Pod
 permalink: /docs/pod/
 ---
 {% assign host = site.data.constants.docs.k8s.base-url %}

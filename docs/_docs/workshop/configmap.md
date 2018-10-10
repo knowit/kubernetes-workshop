@@ -1,5 +1,5 @@
 ---
-title: 08 - ConfigMap
+title: ConfigMap
 permalink: /docs/configmap/
 ---
 {% assign host = site.data.constants.docs.k8s.base-url %}

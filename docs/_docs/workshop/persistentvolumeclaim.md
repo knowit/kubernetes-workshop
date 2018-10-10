@@ -1,5 +1,5 @@
 ---
-title: 14 - PersistentVolume
+title: PersistentVolume
 permalink: /docs/persistentvolumeclaim/
 ---
 {% assign host = site.data.constants.docs.k8s.base-url %}
