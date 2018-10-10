@@ -1,6 +1,6 @@
 ---
-title: Requirements (online cloud (GCP))
-permalink: /docs/requirements/
+title: Requirements (offline cloud)
+permalink: /docs/requirements-offline/
 ---
 
 ## Access our fileshare
@@ -69,6 +69,3 @@ systemctl restart docker
 Click on the Docker icon in the menu bar (the bar on the top of your screen), choose Preferences... and make the Daemon tab look like the image below
 
 ![hello](../../assets/img/docker_insecure_registry_mac.png)
-
-
-
