@@ -3,72 +3,26 @@ title: Requirements (online cloud (GCP))
 permalink: /docs/requirements/
 ---
 
-## Access our fileshare
+## Install gcloud
 
-It is hosted at `ubuntu-k8s-1` and uses FTP.
-
-- Username: ftpuser
-- Password: same as Wifi
+Follow the instructions at https://cloud.google.com/sdk/
 
 ## Install kubectl
 
-Get the kubectl binary for your platform from our fileshare. It is located under `kubernetes-workshop/tools/k8s/kubectl/<platform>/kubectl`.
+Follow the instructions at https://kubernetes.io/docs/tasks/tools/install-kubectl/
 
-Make it executable, place it somewhere, and add that somewhere to `PATH`.
+## Connect to our cluster and install kubectl configuration
 
-## Install kubectl configuration
+* Go to https://console.cloud.google.com/
+* Make sure your logged in user is your Knowit-account (see user icon in upper right)
+* Click "Select a project" in the top, type "kubernetes-workshop-101" and select it.
+* In the navigation menu on the left, go to Kubernetes Engine (under "Compute") -> Clusters. Verify that you
+can see a cluster (i.e. you can see for instance cluster-1, europe-west3-a, 6 vCPUS, and so on). If you
+cannot, it probably means we haven't given you access. Ask one of your workshop holders.
+* Click `Connect` next to the cluster and copy-paste the command under `Command-line access` into a terminal. Execute the command.
 
-A kubectl configuration file should have generated for you. It is located at the fileshare under `kube_configs`. Find the onie with your name in the filename.
+![google cloud project screenshot](../../assets/img/gcloud-project.png)
 
-Place it at `~/.kube/workshop_config`.
+## Install helm client
 
-Point the environment variable `KUBECONFIG` to your configuration
-
-```bash
-export KUBECONFIG=$HOME/.kube/workshop_config
-```
-
-Check with kubectl that the configuration works
-
-```bash
-kubectl config view
-```
-
-## (Optional) Install helm binary
-
-Get the helm binary for your platform from our fileshare. It is located under `kubernetes-workshop/tools/k8s/helm`.
-
-Make it executable, place it somewhere, and add that somewhere to `PATH`.
-
-## Enable insecure registries for Docker
-
-Add `http://ubuntu-k8s-1:30603` as an insecure registry, as described below.
-
-### Linux
-
-```bash
-sudo nano /etc/docker/daemon.json
-```
-
-Insert this content:
-
-```
-{
-  "insecure-registries" : ["ubuntu-k8s-1.local:30603"]
-}
-```
-
-Then:
-
-```bash
-systemctl restart docker
-```
-
-### On macOS
-
-Click on the Docker icon in the menu bar (the bar on the top of your screen), choose Preferences... and make the Daemon tab look like the image below
-
-![hello](../../assets/img/docker_insecure_registry_mac.png)
-
-
-
+Follow the instructions at https://github.com/helm/helm/blob/master/docs/install.md#installing-the-helm-client
