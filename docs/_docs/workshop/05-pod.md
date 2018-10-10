@@ -24,43 +24,26 @@ Containers within a pod share an IP address and port space, and can find each ot
 
 So in your app, your Java code could connect to MySQL on "jdbc:mysql://localhost:3306/db".
 
-## YAML
 
-Pods and other resources in Kubernetes can be described in YAML. Here is the YAML for a Pod:
+## Task: Deploy a pod
 
-```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: myapp-pod
-  labels:
-    app: myapp
-spec:
-  containers:
-  - name: myapp-container
-    image: busybox
-    command: ['sh', '-c', 'echo Hello Kubernetes! && sleep 3600']
-```
-
-Now, let's finally deploy this pod to our cluster, so we can get something up and running!
-
-## Task: Deploy the pod
+In a previous exercise, you deployed a Helm Chart consisting of two pods (one front-end and one back-end). A
+chart is basically just a set of default values for pods (and other resources, like Services). Now we're going
+to deploy a pod manually without Helm.
 
 ```
 # Watch running pods
-watch kubectl get po
+kubectl get pod -w
 
 # Open a new terminal and run the pod
-git clone git@github.com:knowit/kubernetes-workshop.git
-cd kubernetes-workshop/apps/sample-apps/sample-app/k8s
-kubectl apply -f pod.yaml
+kubectl run workshop-frontend --image=torklo/workshop-frontend
 ```
 
-Switch to the watch terminal, and you should see your pod running! It should like this:
+Switch to the terminal, and you should see your pod running! It should like this:
 
 ```
-NAME         READY     STATUS    RESTARTS   AGE
-sample-app   1/1       Running   0          48s
+NAME               READY     STATUS    RESTARTS   AGE
+workshop-frontend  1/1       Running   0          48s
 ```
 
 ## Task: Access the app
@@ -87,4 +70,23 @@ kubectl logs -f sample-app
 
 ```
 kubectl delete -f pod.yaml
+```
+
+
+## YAML
+
+Pods and other resources in Kubernetes can be described in YAML. Here is the YAML for a Pod:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-pod
+  labels:
+    app: myapp
+spec:
+  containers:
+  - name: myapp-container
+    image: busybox
+    command: ['sh', '-c', 'echo Hello Kubernetes! && sleep 3600']
 ```
