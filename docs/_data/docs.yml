@@ -1,7 +1,8 @@
 - title: Preparations
   docs:
   - home
-  - requirements
+  - requirements-online
+  - requirements-offline
 - title: Workshop
   docs:
   - 01-intro
