@@ -47,7 +47,7 @@ Visit the url where the service runs.
 - Paste the ip into a browser and some response should appear
  </div>
 </details>
-<!--
+{% comment %}
 ## Task 2
 Deploy a new version of your application, and expose it with a service.
 
@@ -72,4 +72,4 @@ this will select all pods with the `k8s-app:my-app` label which should be both v
 
  </div>
 </details>
--->
+{% endcomment %}
