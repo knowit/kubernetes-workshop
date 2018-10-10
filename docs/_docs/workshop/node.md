@@ -1,5 +1,5 @@
 ---
-title: 03 - Node
+title: Node
 permalink: /docs/node/
 ---
 {% assign host = site.data.constants.docs.k8s.base-url %}

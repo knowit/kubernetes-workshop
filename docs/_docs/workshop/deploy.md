@@ -1,5 +1,5 @@
 ---
-title: 07 - Deployment
+title: Deployment
 permalink: /docs/deploy/
 ---
 {% assign host = site.data.constants.docs.k8s.base-url %}

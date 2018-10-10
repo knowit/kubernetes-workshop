@@ -1,5 +1,5 @@
 ---
-title: 04 - Helm
+title: Helm
 permalink: /docs/helm/
 ---
 

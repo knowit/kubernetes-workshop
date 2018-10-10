@@ -1,5 +1,5 @@
 ---
-title: 15 - Ingress
+title: Ingress
 permalink: /docs/ingress/
 ---
 {% assign host = site.data.constants.docs.k8s.base-url %}

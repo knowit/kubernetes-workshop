@@ -1,5 +1,5 @@
 ---
-title: 12 - Service discovery
+title: Service discovery
 permalink: /docs/service-discovery/
 ---
 {% assign host = site.data.constants.docs.k8s.base-url %}
