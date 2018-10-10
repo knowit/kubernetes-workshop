@@ -15,7 +15,9 @@ A configmap can either be created manually by specifying a yaml file, or by `kub
 
 ## Task 1
 
-Create a configmap with `kubectl`. The configmap should contain a literal `MY_OTHER_ENDPOINT_ADDRESS=...`. The value should be a callable service in the cluster, and should be in the form: `http://[service-name].[namespace]:[service-port]`. Example: `MY_OTHER_ENDPOINT_ADDRESS="http://myservice.tord:4000"`
+Create a configmap with `kubectl`. The configmap should contain a literal `BACKEND_URL`. The value should be a callable service in the cluster, and should be in the form: `http://[service-name].[namespace]:[service-port]`. Example: `BACKEND_URL="http://super-backend.tord-kloster:80"`
+<details>
+</details>
 
 ## Task 2
 
@@ -44,7 +46,7 @@ containers:
 </div>
 </details>
 
-
+{{ % comment % }}
 ## Task 3
 
 Create a configuration file inside the container using a ConfigMap. Mount the file at ***/config/greatestconfig.yml***. The enpoint ***/configmap*** in the sample app can then be used to view contents of the ConfigMap.
@@ -93,3 +95,5 @@ kind: Deployment
 ```
   </div>
 </details>
+
+{{ % endcomment % }}
