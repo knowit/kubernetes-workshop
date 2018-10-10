@@ -69,5 +69,16 @@ spec:
             port: 8080
 ```
 
+To check that liveness and readiness probes are working, execute
+
+`kubectl describe pod [podname]`
+
+and check the output, e.g.
+
+```
+Liveness:		http-get http://:http/healthy delay=0s timeout=1s period=10s #success=1 #failure=3
+Readiness:		http-get http://:http/healthy delay=0s timeout=1s period=10s #success=1 #failure=3
+```
+
 </div>
 </details>
