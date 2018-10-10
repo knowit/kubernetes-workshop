@@ -10,7 +10,11 @@ const HOST = '0.0.0.0';
 const app = express();
 
 app.get('/backendurl', (req, res) => {
-  res.send(process.env.BACKEND_URL);
+  if (process.env.BACKEND_URL === undefined) {
+    res.send("(not set)");
+  } else {
+    res.send(process.env.BACKEND_URL);
+  }
 });
 
 // Sample endpoint

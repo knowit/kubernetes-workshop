@@ -33,62 +33,49 @@ to deploy a pod manually without Helm.
 
 ```
 # Watch running pods
-kubectl get pod -w
+watch kubectl get pod
 
 # Open a new terminal and run the pod
 kubectl run workshop-frontend --image=torklo/workshop-frontend
 ```
 
-NB: watch is not installed on macOS by default. Install it with homebrew: `brew install watch`
-Switch to the terminal, and you should see your pod running! It should like this:
+NB: watch is not installed on macOS by default. Install it with homebrew: `brew install watch` (or just use
+`kubectl get pod -w`).
+
+Switch to the terminal, and you should see your pod running! It should like this (the pod's name will be
+slightly
+different):
 
 
 ```
-NAME               READY     STATUS    RESTARTS   AGE
-workshop-frontend  1/1       Running   0          48s
+NAME                                 READY     STATUS    RESTARTS   AGE
+workshop-frontend-868bbdb7f7-7fltf   1/1       Running   0          3m
 ```
 
 ## Task: Access the app
 
 OK, it's deployed, so let's access our app, i.e. open it in a web browser.
 
-We're still not educated enough (yet) to make it accessible a proper way, but we can access it by running some port forwarding
-magic:
+We're still not educated enough (yet) to make it accessible a proper way, but we can access it by running some
+port forwarding magic:
 
 ```
-kubectl port-forward sample-app 8080:8080
+kubectl port-forward workshop-frontend-868bbdb7f7-7fltf 8080:8080
 ```
-Now you should be able to go to http://localhost:8080/ in your web browser and see some results.
+
+Now you should be able to go to http://localhost:8080/ in your web browser and see some results. Don't expect
+it to be fully functional, as we're missing a pod for our backend, which is not the scope of this task.
 
 ## Task: Check the logs
 
 If something fails or whatever other reason, you can check your app's logs by doing:
 
 ```
-kubectl logs -f sample-app
+kubectl logs -f workshop-frontend-868bbdb7f7-7fltf
 ```
 
 ## Task: Delete the pod
 
 ```
-kubectl delete -f pod.yaml
-```
-
-
-## YAML
-
-Pods and other resources in Kubernetes can be described in YAML. Here is the YAML for a Pod:
-
-```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: myapp-pod
-  labels:
-    app: myapp
-spec:
-  containers:
-  - name: myapp-container
-    image: busybox
-    command: ['sh', '-c', 'echo Hello Kubernetes! && sleep 3600']
+kubectl delete pod workshop-frontend-868bbdb7f7-7fltf
 ```
