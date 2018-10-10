@@ -20,19 +20,19 @@ Services defines which pods to connect by utilizing the labels on the pods.
 > E.g. By creating a service with kubectl we use the `expose` command
 With the following command we create a service accessable by port 80,
 that connects to a pod with the name [pod-name] and container-port 8080.
-`kubectl expose [pod-name] --port=80 --targetPort=8080`
+`kubectl expose pod [pod-name] --port=80 --targetPort=8080 --type=ClusterIP`
 
-Inspecting a service reveals that the service type is `ClusterIp`
+Inspecting a service reveals that the service type is `LoadBalancer`
 
-There are 3 main types of services: `ClusterIp`, `NodePort`, `LoadBalancer`
+There are 3 main types of services: `NodePort`, `LoadBalancer`
 - `ClusterIp` Pods accessed within the cluster only
-- `NodePort` Each node is assigned a port and the pods is accessed with the ip from the node (where the pod lives) + the node port (ip:NodePort). E.g. `ubuntu-k8s-2.local:30042`
-- `LoadBalancer` The cloud provider automatically provisions a LB for your service, not applicable in this scenario.
+- `NodePort` Pods are exposed with the host IP + port.
+- `LoadBalancer` The cloud provider automatically provisions a LB for your service, creating an external IP.
 
 
 ## Task 1
 
-Expose your deployment (pods) with a NodePort service. 
+Expose your deployment (pods) with a LoadBalancer service.
 
 Visit the url where the service runs.
 
@@ -42,13 +42,12 @@ Visit the url where the service runs.
 
 ### Solution 1: Exposing a pod with service
 
-- `kubectl expose [pod-name] --port 80 --target-port 8080 --type NodePort`
-- `kubectl get svc` # Note the node port number
-- `kubectl get po -owide ` # Check which node the pods are located
-- Access the pod with the browser on: `node:NodePort`, e.g. `ubuntu-k8s-1.local:34567`
+- `kubectl expose deployment --port 80 --target-port 8080 --type LoadBalancer`
+- `kubectl get svc` # Note the EXTERNAL-IP
+- Paste the ip into a browser and some response should appear
  </div>
 </details>
-
+{% comment %}
 ## Task 2
 Deploy a new version of your application, and expose it with a service.
 
@@ -73,3 +72,4 @@ this will select all pods with the `k8s-app:my-app` label which should be both v
 
  </div>
 </details>
+{% endcomment %}
