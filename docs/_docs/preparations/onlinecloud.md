@@ -14,7 +14,8 @@ Follow the instructions at https://kubernetes.io/docs/tasks/tools/install-kubect
 ## Connect to our cluster and install kubectl configuration
 
 * Go to https://console.cloud.google.com/
-* Make sure your logged in user is your Knowit-account (see user icon in upper right)
+* Make sure your logged in user is your Knowit account (see user icon in upper right)
+* Open a terminal, and run `gcloud auth login`. Follow the instructions, and use your Knowit account.
 * Click "Select a project" in the top, type "kubernetes-workshop-101" and select it.
 * In the navigation menu on the left, go to Kubernetes Engine (under "Compute") -> Clusters. Verify that you
 can see a cluster (i.e. you can see for instance cluster-1, europe-west3-a, 6 vCPUS, and so on). If you
