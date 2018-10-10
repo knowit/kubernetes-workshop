@@ -15,7 +15,13 @@ A configmap can either be created manually by specifying a yaml file, or by `kub
 
 ## Task 1
 
-Create a configmap with `kubectl`. The configmap should contain a literal `MY_OTHER_ENDPOINT_ADDRESS=...`. The value should be a callable service in the cluster, and should be in the form: `http://[service-name].[namespace]:[service-port]`. Example: `MY_OTHER_ENDPOINT_ADDRESS="http://myservice.tord:4000"`
+Create a configmap with `kubectl`. The configmap should contain a literal `BACKEND_URL`. The value should be a callable service in the cluster, and should be in the form: `http://[service-name].[namespace]:[service-port]`. Example: `BACKEND_URL="http://super-backend.tord-kloster:80"`
+<details>
+<summary>Step-by-step Task 2</summary>
+<div markdown="1">
+`kubectl create configmap super-configmap --from-literal=BACKEND_URL=testurl`
+</div>
+</details>
 
 ## Task 2
 
@@ -24,13 +30,6 @@ Load the configmap as environment variables in the pod.
 <details>
   <summary>Step-by-step Task 2</summary>
   <div markdown="1">
-
-- <details>
-  <summary>Use kubectl create configmap </summary>
-  <div markdown="1">
-  `kubectl create configmap my-cool-configmap --from-literal VERSION=v0.1.0 `
-  </div>
-  </details>
 
 - In the deployment yaml file configure the container to use environment from the configmap
 
@@ -44,6 +43,7 @@ containers:
 </div>
 </details>
 
+{% comment %}
 
 ## Task 3
 
@@ -93,3 +93,5 @@ kind: Deployment
 ```
   </div>
 </details>
+
+{% endcomment %}
