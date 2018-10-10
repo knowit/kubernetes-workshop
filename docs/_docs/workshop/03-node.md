@@ -10,7 +10,7 @@ Node documentation:
 
 
 A node is a machine. It runs the docker containers (within
-[pods]({{ site.baseurl }}{% link _docs/workshop/04-pod.md %})
+[pods]({{ site.baseurl }}{% link _docs/workshop/05-pod.md %})
 )
 
 To list nodes in the cluster:
