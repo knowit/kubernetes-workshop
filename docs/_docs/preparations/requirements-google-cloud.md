@@ -1,5 +1,5 @@
 ---
-title: Requirements
+title: Requirements (online cloud (GCP))
 permalink: /docs/requirements/
 ---
 
