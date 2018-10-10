@@ -9,8 +9,18 @@ const HOST = '0.0.0.0';
 // App
 const app = express();
 
-app.get('/myvar', (req, res) => {
-  res.send(process.env.MY_VAR);
+app.get('/backendurl', (req, res) => {
+  res.send(process.env.BACKEND_URL);
+});
+
+// Sample endpoint
+app.get('/hello', (req, res) => {
+  res.send("Hello there!");
+});
+
+// Health check
+app.get('/health', (req, res) => {
+  res.send("{ status: 'OK' }");
 });
 
 app.use(express.static('public'))
@@ -18,4 +28,4 @@ app.use(express.static('public'))
 app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);
 
-console.log("My env: " + process.env.MY_VAR);
+console.log("BACKEND_URL: " + process.env.BACKEND_URL);
