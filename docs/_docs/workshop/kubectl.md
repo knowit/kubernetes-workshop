@@ -1,6 +1,6 @@
 ---
 title: 02 - Kubectl
-permalink: /docs/02-kubectl/
+permalink: /docs/kubectl/
 ---
 
 {% assign host = site.data.constants.docs.k8s.base-url %}

@@ -1,6 +1,6 @@
 ---
 title: 01 - Introduction
-permalink: /docs/01-intro/
+permalink: /docs/intro/
 ---
 
 ## Why should you learn kubernetes?

@@ -1,6 +1,6 @@
 ---
 title: 08 - ConfigMap
-permalink: /docs/08-configmap/
+permalink: /docs/configmap/
 ---
 {% assign host = site.data.constants.docs.k8s.base-url %}
 {% assign path = '/docs/tasks/configure-pod-container/configure-pod-configmap/' %}

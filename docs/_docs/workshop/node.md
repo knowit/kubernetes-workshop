@@ -1,6 +1,6 @@
 ---
 title: 03 - Node
-permalink: /docs/03-node/
+permalink: /docs/node/
 ---
 {% assign host = site.data.constants.docs.k8s.base-url %}
 {% assign path = '/docs/concepts/architecture/nodes/' %}

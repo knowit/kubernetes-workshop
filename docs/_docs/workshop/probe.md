@@ -1,6 +1,6 @@
 ---
 title: 10 - Readiness and liveness probe
-permalink: /docs/10-probe/
+permalink: /docs/probe/
 ---
 {% assign host = site.data.constants.docs.k8s.base-url %}
 {% assign path = '/docs/concepts/workloads/pods/pod-lifecycle/#container-probes' %}

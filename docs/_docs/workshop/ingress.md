@@ -1,6 +1,6 @@
 ---
 title: 15 - Ingress
-permalink: /docs/15-ingress/
+permalink: /docs/ingress/
 ---
 {% assign host = site.data.constants.docs.k8s.base-url %}
 {% assign path = '/docs/concepts/services-networking/ingress/' %}
