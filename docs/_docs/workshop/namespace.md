@@ -1,6 +1,6 @@
 ---
-title: 06 - Namespace
-permalink: /docs/06-namespace/
+title: Namespace
+permalink: /docs/namespace/
 ---
 {% assign host = site.data.constants.docs.k8s.base-url %}
 {% assign path = '/docs/concepts/overview/working-with-objects/namespaces/' %}

@@ -5,21 +5,21 @@
   - requirements-offline
 - title: Workshop
   docs:
-  - 01-intro
-  - 02-kubectl
-  - 03-node
-  - 04-helm
-  - 05-pod
-  - 06-namespace
-  - 07-deploy
-  - 08-configmap
-  - 09-label
-  - 10-probe
-  - 11-service
-  - 12-service-discovery
-  - 13-secret
-  - 14-persistentvolumeclaim
-  - 15-ingress
+  - intro
+  - kubectl
+  - node
+  - helm
+  - pod
+  - namespace
+  - deploy
+  - configmap
+  - service
+  - persistentvolumeclaim
+  - probe
+  - label
+  - service-discovery
+  - secret
+  - ingress
 - title: Contribute to site
   docs:
   - contribute

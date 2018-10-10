@@ -1,6 +1,6 @@
 ---
-title: 11 - Service
-permalink: /docs/11-service/
+title: Service
+permalink: /docs/service/
 ---
 {% assign host = site.data.constants.docs.k8s.base-url %}
 {% assign path = '/docs/concepts/services-networking/service/' %}

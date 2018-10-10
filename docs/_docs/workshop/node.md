@@ -1,6 +1,6 @@
 ---
-title: 03 - Node
-permalink: /docs/03-node/
+title: Node
+permalink: /docs/node/
 ---
 {% assign host = site.data.constants.docs.k8s.base-url %}
 {% assign path = '/docs/concepts/architecture/nodes/' %}
@@ -10,7 +10,7 @@ Node documentation:
 
 
 A node is a machine. It runs the docker containers (within
-[pods]({{ site.baseurl }}{% link _docs/workshop/05-pod.md %})
+[pods]({{ site.baseurl }}{% link _docs/workshop/pod.md %})
 )
 
 A Kubernetes cluster consists of one or more nodes. To give your cluster more juice (computing power), you simply add
