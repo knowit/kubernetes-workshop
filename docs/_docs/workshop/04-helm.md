@@ -37,12 +37,12 @@ To start off we need to setup helm:
 `helm init --client-only`
 
 From the workdir, navigate to the helm chart folder:
- `cd apps/helm-charts`
+ `cd apps/helm_charts`
 
 To install a helm chart you should run [helm upgrade](https://docs.helm.sh/helm/helm_upgrade/):
 
-`helm upgrade --install [helm-chart-dir]`
-> Note: helm-chart-dir should be a dir in `helm-charts`
+`helm install [helm-chart-dir]`
+> Note: helm-chart-dir should be a dir in `helm_charts`
 
 Let's look at the running charts:
 
