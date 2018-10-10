@@ -1,6 +1,6 @@
 ---
 title: Requirements (offline cloud)
-permalink: /docs/requirements-offline/
+permalink: /docs/preparations-offline/
 ---
 
 ## Access our fileshare
