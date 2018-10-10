@@ -1,6 +1,6 @@
 ---
-title: 04 - Pod
-permalink: /docs/04-pod/
+title: 05 - Pod
+permalink: /docs/05-pod/
 ---
 {% assign host = site.data.constants.docs.k8s.base-url %}
 {% assign path = '/docs/concepts/workloads/pods/pod/' %}

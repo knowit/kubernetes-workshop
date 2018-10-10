@@ -1,6 +1,6 @@
 ---
-title: 13 - Secrets
-permalink: /docs/13-secret/
+title: 14 - Secrets
+permalink: /docs/14-secret/
 ---
 {% assign host = site.data.constants.docs.k8s.base-url %}
 {% assign path = '/docs/concepts/configuration/secret/' %}

@@ -1,6 +1,6 @@
 ---
-title: 15 - Helm
-permalink: /docs/15-helm/
+title: 04 - Helm
+permalink: /docs/04-helm/
 ---
 
 Kubernetes Helm is a package manager for Kubernetes. With helm you can simply do

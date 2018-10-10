@@ -1,6 +1,6 @@
 ---
-title: 10 - Service discovery
-permalink: /docs/10-service-discovery/
+title: 11 - Service discovery
+permalink: /docs/11-service-discovery/
 ---
 {% assign host = site.data.constants.docs.k8s.base-url %}
 {% assign path = '/docs/concepts/services-networking/service/#discovering-services' %}

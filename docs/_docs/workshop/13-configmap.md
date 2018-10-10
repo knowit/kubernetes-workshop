@@ -1,6 +1,6 @@
 ---
-title: 12 - ConfigMap
-permalink: /docs/12-configmap/
+title: 13 - ConfigMap
+permalink: /docs/13-configmap/
 ---
 {% assign host = site.data.constants.docs.k8s.base-url %}
 {% assign path = '/docs/tasks/configure-pod-container/configure-pod-configmap/' %}
