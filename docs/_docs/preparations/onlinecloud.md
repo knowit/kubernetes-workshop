@@ -24,6 +24,12 @@ cannot, it probably means we haven't given you access. Ask one of your workshop 
 
 ![google cloud project screenshot](../../assets/img/gcloud-project.png)
 
+You will have been granted access to a namespace (more on namespaces later) on the form firstname-lastname, the same names as in your knowit-email-address.
+
+To avoid having to specify the namespace in all requests with kubectl, set the namespace preference in the config
+
+`kubectl config set-context $(kubectl config current-context) --namespace=<insert-namespace-name-here>`
+
 ## Install helm client
 
 Follow the instructions at https://github.com/helm/helm/blob/master/docs/install.md#installing-the-helm-client
