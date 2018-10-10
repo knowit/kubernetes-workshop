@@ -19,7 +19,7 @@ different configuration, you would need one YAML file per configuration. In cont
 helm install stable/mongodb --set mongodbUsername=root --set mongodbPassword=foo
 ```
 
-or 
+or
 
 ```
 helm install stable/mongodb -f values.yaml
@@ -29,31 +29,20 @@ to configure the Mongodb chart.
 
 ## Task: Setup Helm and install a chart
 
-Helm has been installed to our Kubernets cluster already, but you need to initialize Helm by running
+We do not host our own charts repository, but you should be able to install a chart
+from the git repo.
+
+To start off we need to setup helm:
 
 `helm init --client-only`
 
-Then we need to add a repository we have setup in our cluster:
+From the workdir, navigate to the helm chart folder:
+ `cd apps/helm-charts`
 
-`helm repo add myrepo http://ubuntu-k8s-1.local:30654`
+To install a helm chart you should run [helm upgrade](https://docs.helm.sh/helm/helm_upgrade/):
 
-A repository is a collection of charts.
-
-Let's see if we can find the nginx chart:
-
-`helm search nginx`
-
-```
-NAME            VERSION DESCRIPTION                                       
-myrepo/nginx            0.1.0   A basic NGINX HTTP server 
-```
-
-Yup, there it is. Let's install it:
-
-`helm install myrepo/nginx`
-
-Then run `kubectl get po`, `kubectl get svc` and `kubectl get configmap` to see that helm has installed
-various resources for nginx.
+`helm upgrade --install [helm-chart-dir]`
+> Note: helm-chart-dir should be a dir in `helm-charts`
 
 Let's look at the running charts:
 
@@ -65,14 +54,10 @@ original-bird         1         Thu Apr 26 19:08:52 2018  DEPLOYED        nginx-
 
 When you're done, delete the chart:
 
-`helm delete original-bird`
+`helm delete --purge original-bird`
 
 ## Repository browser
 
 There's a bunch of ready charts at http://kubeapps.com:
 
 ![text](../../assets/img/kubeapps.png)
-
-It's possible to install your own "kubeapps", that is, a repository. Then you have a very simple way of 
-browsing the various applications in your organization.
-

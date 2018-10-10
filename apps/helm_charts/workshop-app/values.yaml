@@ -17,3 +17,6 @@ frontend:
   service:
     type: ClusterIP
     port: 80
+  env:
+    - name: BACKEND_URL
+      value: 'http://super-backend'
