@@ -77,6 +77,10 @@ kubectl logs -f workshop-frontend-868bbdb7f7-7fltf
 
 ## Task: Delete the pod
 
+When creating a pod, a deployment is also created automatically (more under Deployment in this guide).
+
+To delete the pod, we actually need to delete its deployment:
+
 ```
-kubectl delete pod workshop-frontend-868bbdb7f7-7fltf
+kubectl delete deploy workshop-frontend
 ```

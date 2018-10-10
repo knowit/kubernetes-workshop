@@ -23,6 +23,9 @@ balance every request between those 3 pods.
 
 ## YAML
 
+Previous in this tutorial we created a pod using `kubectl run`. It's also possible to create any resource 
+(pod, deployment, etc) using YAML, which is what we will do here.
+
 A deployment looks like this:
 
 ```yaml
@@ -44,16 +47,27 @@ spec:
     spec:
       containers:
       - name: sample-app
-        image: ubuntu-k8s-1.local:30603/sample-app
+        image: nginx
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
-
+        env:
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
 ```
+
+The `env` part is not required, we're just using that for our example to inject the pod's name and its
+namespaces to the docker container's environment variables.
 
 ## Task: Create deployment
 
-Create a deployment using the pod from the previous steps.
+Create a deployment using the docker image `torklo/workshop-api`, which should be exposed at port 8080.
 
 <details>
  <summary>Solution</summary>
@@ -63,8 +77,8 @@ Create a deployment using the pod from the previous steps.
 # Watch results
 watch kubectl get deployment
 
-# Put the content in the YAML below into a file, my_deployment.yaml
-kubectl apply -f my_deployment.yaml
+# Put the content in the YAML below into a file, workshop-api-deployment.yaml
+kubectl apply -f workshop-api-deployment.yaml
 ```
 Switch back to first terminal, and observe that the deployment is created.
 
@@ -72,26 +86,34 @@ Switch back to first terminal, and observe that the deployment is created.
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sample-app-deployment
+  name: workshop-api-deployment
   labels:
-    app: sample-app
+    app: workshop-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: sample-app
+      app: workshop-api
   template:
     metadata:
       labels:
-        app: sample-app
+        app: workshop-api
     spec:
       containers:
-      - name: sample-app
-        image: ubuntu-k8s-1.local:30603/sample-app
+      - name: workshop-frontend
+        image: torklo/workshop-api
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
-
+        env:
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
 ```
 
  </div>
@@ -118,14 +140,14 @@ Now, this command should output something like:
 
 
 ```
-NAME                                     READY     STATUS    RESTARTS   AGE
-sample-app-deployment-7776c6b654-sshv8   1/1       Running   0          1m
+NAME                                       READY     STATUS    RESTARTS   AGE
+workshop-api-deployment-68d5f769c5-pqr2h   1/1       Running   0          1m
 ```
 
 Delete the listed pod. In this example, the command is:
 
 ```
-kubectl delete po sample-app-deployment-7776c6b654-sshv8
+kubectl delete po workshop-api-deployment-68d5f769c5-pqr2h
 ```
 
 and watch the `watch` output.
@@ -134,8 +156,8 @@ You should see something like this:
 
 ```
 NAME                                    READY     STATUS              RESTARTS   AGE
-sample-app-deployment-864bcb76f-9c7gn   0/1       Terminating         0          1m
-sample-app-deployment-864bcb76f-pg9jk   0/1       ContainerCreating   0          <invalid>
+workshop-api-deployment-864bcb76f-9c7gn   0/1       Terminating         0          1m
+workshop-api-deployment-864bcb76f-pg9jk   0/1       ContainerCreating   0          <invalid>
 ```
 
 Awesome, Kubernetes is auto creating a new pod since the first was killed.
@@ -145,10 +167,10 @@ Awesome, Kubernetes is auto creating a new pod since the first was killed.
 
 ## Task: Create 3 replicas
 
-In `my_deployment.yaml`, modify `replicas: 1` to `replicas: 3`. Then do:
+In `workshop-api-deployment.yaml`, modify `replicas: 1` to `replicas: 3`. Then do:
 
 ```
-kubectl apply -f my_deployment.yaml
+kubectl apply -f workshop-api-deployment.yaml
 ```
 
 Watch the `watch` output, and enjoy watching Kubernetes scaling up our app!
