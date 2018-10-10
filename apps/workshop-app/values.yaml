@@ -1,0 +1,19 @@
+backend:
+  name: super-backend
+  replicaCount: 1
+  image:
+    repository: torklo/workshop-api
+    tag: latest
+  service:
+    type: ClusterIP
+    port: 80
+
+frontend:
+  name: super-frontend
+  replicaCount: 1
+  image:
+    repository: nginx
+    tag: stable
+  service:
+    type: ClusterIP
+    port: 80
