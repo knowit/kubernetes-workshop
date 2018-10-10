@@ -42,7 +42,7 @@ Visit the url where the service runs.
 
 ### Solution 1: Exposing a pod with service
 
-- `kubectl expose [pod-name] --port 80 --targetPort 8080 --type NodePort`
+- `kubectl expose [pod-name] --port 80 --target-port 8080 --type NodePort`
 - `kubectl get svc` # Note the node port number
 - `kubectl get po -owide ` # Check which node the pods are located
 - Access the pod with the browser on: `node:NodePort`, e.g. `ubuntu-k8s-1.local:34567`
