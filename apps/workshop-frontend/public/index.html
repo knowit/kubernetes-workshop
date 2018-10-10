@@ -1,23 +1,29 @@
 <html>
-<body>
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css ">
+</head>
+<body style="padding-left: 10px">
   <h1>My frontend</h1>
-  <p>The URL to the backend is: <input id="backendUrl" value="missing backend url"></p>
+  <p>The URL to the backend is: <div id="backendUrl">missing backend url</div></p>
   
-  <p>How did it get there? This front-end runs node, and node looks for a specific environment variable.</p>
+  <p>How did it get there? This front-end runs on a Node backend, and does a request to the Node backend
+    serving this front end to for a specific variable. <a href="/backendurl">See</a> the result for
+  yourself.</p>
 
   <h2>Run a HTTP request</h2>
-  <p>Click the button below to do a request to the backend:</p>
+
+  <p>Click the button below to do a HTTP request to the URL from the environment variable above.</p>
+
+  Specifically, the front-end javascript does a request to its Node backend, which then does does a
+  synchronous request to the workshop-backend. The result is returned to the front-end, and shown below.
+  </p>
+
   <button id="reqBtn" onclick="doRequest()">Do a GET to above URL</button>
 
   <p>If it doesn't work, open your browser's console for more details.</p>
 
   <p>Backend answer:</p>
   <p id="backendAnswer">(nothing received yet)</p>
-
-  <br/>
-
-  <p>To verify that running a HTTP request works, type /hello in the box
-  above, and do a request. (It runs a request to the Node server running this front-end.)</p>
 
   <script>
     getBackendUrl();
@@ -31,7 +37,7 @@
         if (httpRequest.readyState === XMLHttpRequest.DONE) {
           if (httpRequest.status === 200) {
             console.log("Found backend URL: " + httpRequest.responseText);
-            document.getElementById("backendUrl").value = httpRequest.responseText;
+            document.getElementById("backendUrl").innerHTML = httpRequest.responseText;
           } else {
             alert('There was a problem getting the backend URL.');
             console.log(httpRequest);
@@ -43,10 +49,8 @@
     }
 
     function doRequest() {
-      var backendUrl = document.getElementById("backendUrl").value;
-
       httpRequest = new XMLHttpRequest()
-      httpRequest.open('GET', backendUrl)
+      httpRequest.open('GET', "/call-backend")
 
       httpRequest.onreadystatechange = function(){
         // Process the server response here.
