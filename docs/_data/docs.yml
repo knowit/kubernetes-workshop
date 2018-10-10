@@ -11,15 +11,15 @@
   - 04-helm
   - 05-pod
   - 06-namespace
-  - 07-label
-  - 08-deploy
-  - 09-probe
-  - 10-service
-  - 11-service-discovery
-  - 12-ingress
-  - 13-configmap
-  - 14-secret
-  - 15-persistentvolumeclaim
+  - 07-deploy
+  - 08-configmap
+  - 09-label
+  - 10-probe
+  - 11-service
+  - 12-service-discovery
+  - 13-secret
+  - 14-persistentvolumeclaim
+  - 15-ingress
 - title: Contribute to site
   docs:
   - contribute
