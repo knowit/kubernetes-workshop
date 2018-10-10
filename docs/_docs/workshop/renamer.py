@@ -33,6 +33,7 @@ def index_of(file_to_find):
 def padded_index(i):
   return i.rjust(2).replace(' ', '0')
 
+
 for filename in os.listdir("."):
   #print("index: " + str(index_of(filename)))
   file_without_index = filename[3:]
