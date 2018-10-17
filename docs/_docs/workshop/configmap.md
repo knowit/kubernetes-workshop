@@ -21,7 +21,7 @@ Create a configmap with `kubectl`. The configmap should contain a literal `BACKE
 <div markdown="1">
 
 ```
-kubectl create configmap super-configmap --from-literal=BACKEND_URL=http://workshop-api-deployment:yngvar-kristiansen:80
+kubectl create configmap super-configmap --from-literal=BACKEND_URL=http://workshop-api-deployment.yngvar-kristiansen:80
 ```
 
 
@@ -30,7 +30,54 @@ kubectl create configmap super-configmap --from-literal=BACKEND_URL=http://works
 
 ## Task 2
 
-Load the configmap as environment variables in the pod.
+Load the configmap as environment variables in the front-end pod.
+
+We previously made the front end deployment using a `kubectl create deployment` comm The deployment for the front-end is by now the current YAML:
+
+```yaml
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+  creationTimestamp: null
+  generation: 1
+  labels:
+    app: ez-frontend
+  name: ez-frontend
+  selfLink: /apis/extensions/v1beta1/namespaces/yngvar-kristiansen/deployments/ez-frontend
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: ez-frontend
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: ez-frontend
+    spec:
+      containers:
+      - image: torklo/workshop-frontend
+        imagePullPolicy: Always
+        name: workshop-frontend
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status: {}
+```
 
 <details>
   <summary>Solution</summary>
@@ -43,8 +90,15 @@ containers:
   - name: {....}
     envFrom:
     - configMapRef:
-        name: # name of your configmap
-```  
+        name: super-configmap # name of your configmap
+```
+
+```
+kubectl apply -f workshop-frontend-deployment.yaml # or whatever you called the yaml file earlier
+```
+
+Now all your 3 pods in your deployment should be restarted by Kubernetes.
+
 </div>
 </details>
 
