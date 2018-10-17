@@ -3,6 +3,10 @@ title: Requirements (online cloud (GCP))
 permalink: /docs/requirements-online/
 ---
 
+## For Windows users
+
+None of the instructions in this workshop has been tested on Windows. Everything should work, but as nothing is guaranteed in life, we advise that you either bring a non-Windows machine for the workshop, or install a virtual machine with your favorite Linux distro on it (if you have no favorite distro you should install Ubuntu).
+
 ## Install gcloud
 
 Follow the instructions at <https://cloud.google.com/sdk/>
