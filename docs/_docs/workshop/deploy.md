@@ -11,7 +11,7 @@ Deployment documentation:
 
 ![text](../../assets/img/deployment.png)
 
-A Deployment is the result of someone deploying a Pod to the cluster. 
+A Deployment is the result of someone deploying a Pod to the cluster.
 
 A couple of useful features of a Deployment is:
 * A deployment ensures that your pod always is running. If it crashes or stops responding, Kubernetes will
@@ -23,7 +23,7 @@ balance every request between those 3 pods.
 
 ## YAML
 
-Previous in this tutorial we created a pod using `kubectl run`. It's also possible to create any resource 
+Previous in this tutorial we created a pod using `kubectl run`. It's also possible to create any resource
 (pod, deployment, etc) using YAML, which is what we will do here.
 
 A deployment looks like this:
@@ -180,3 +180,14 @@ yorself, open your front end, and click the button to do a request. (By this tim
 configured to do requests against the backend.)''
 
 You should see thath each response is different, because it is a different pod that responds.
+
+## Task: Create a deployment for the front end
+Create a new deployment that uses the image: `torklo/workshop-frontend`
+You can creat a new yaml file from scratch if you want. Altough real dev oppers use `kubectl create deployment` (`--help` for more information)
+<details>
+<div>
+`kubectl create deployment --image=torklo/workshop-api ez-frontend`
+
+You should save the generated deployment as a yaml file: `kubectl get deployment ez-frontend -o yaml > frontend-deployment.yaml`
+</div>
+</details>
