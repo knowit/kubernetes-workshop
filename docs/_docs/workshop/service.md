@@ -42,7 +42,7 @@ Visit the url where the service runs.
 
 ### Solution 1: Exposing a pod with service
 
-- `kubectl expose deployment ez-frontend-6568db974c-wfpfm --port 80 --target-port 8080 --type LoadBalancer`
+- `kubectl expose deployment ez-frontend --port 80 --target-port 8080 --type LoadBalancer`
 - `kubectl get svc` # Note the EXTERNAL-IP
 - Paste the ip into a browser and some response should appear
  </div>
