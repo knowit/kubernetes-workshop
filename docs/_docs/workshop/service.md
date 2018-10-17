@@ -32,9 +32,10 @@ There are 3 main types of services: `NodePort`, `LoadBalancer`
 
 ## Task 1
 
-Expose your deployment (pods) with a LoadBalancer service.
+Expose your frontend deployment with a LoadBalancer service.
+Expose your backend deployment with a ClusterIP service.
 
-Visit the url where the service runs.
+Visit the IP where the frontend service runs.
 
 <details>
  <summary>Solution</summary>
@@ -44,7 +45,7 @@ Visit the url where the service runs.
 
 - `kubectl expose deployment ez-frontend --port 80 --target-port 8080 --type LoadBalancer`
 - `kubectl get svc` # Note the EXTERNAL-IP
-- Paste the ip into a browser and some response should appear
+- Paste the ip into a browser and some response should appear once the loadbalancer is created.
  </div>
 </details>
 {% comment %}
