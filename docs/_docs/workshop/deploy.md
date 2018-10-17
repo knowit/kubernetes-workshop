@@ -186,7 +186,7 @@ Create a new deployment that uses the image: `torklo/workshop-frontend`
 You can creat a new yaml file from scratch if you want. Altough real dev oppers use `kubectl create deployment` (`--help` for more information)
 
 <details>
-<div>
+<div markdown="1">>
 `kubectl create deployment --image=torklo/workshop-api ez-frontend`
 
 You should save the generated deployment as a yaml file: `kubectl get deployment ez-frontend -o yaml > frontend-deployment.yaml`
