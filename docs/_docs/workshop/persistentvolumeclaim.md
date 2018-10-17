@@ -22,11 +22,11 @@ With a PersistentVolumeClaim your app can request, for instance, 10GB of space. 
 Default Persistent Volume on GCP does not allow multiple pods to mount a PVC at a time. Access mode must be `ReadWriteOnce` which means that you will have to scale your deployment down to 1 for as long as you are doing this task. 
 If you use more than one replica, only one will be able to start successfully.
 
-So, in your deployment.yaml (either one, for example for the workshop-api / backend), edit replicas to be 3:
+So, in your deployment.yaml (either one, for example for the workshop-api / backend), edit replicas to be 1:
 
 ```yaml
 spec:
-  replicas: 3
+  replicas: 1
 ```
 
 ## Task: Create a PersistentVolumeClaim
