@@ -15,7 +15,7 @@ The Kubernetes command-line tool, kubectl controls the Kubernetes cluster manage
 We are going to use this tool extensively during this workshop, so we should get to know it.
 
 > To enable autocomplete
-`source <(kubectl completion bash)`
+`source <(kubectl completion bash) # bash is the standard shell on macOS and Linux. can be changed to zsh`
 
 > Use `kubectl -h` if you are stuck
 

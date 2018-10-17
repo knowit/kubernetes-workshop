@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: sample-app
-        image: ubuntu-k8s-1.local:30603/sample-app
+        image: torklo/workshop-api:latest
         imagePullPolicy: Always
         env:
           - name: MY_VERSION
@@ -27,6 +27,9 @@ spec:
             valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
+        envFrom:
+        - configMapRef:
+            name: iver-conf
         ports:
         - containerPort: 8080
         livenessProbe:
@@ -38,23 +41,9 @@ spec:
             path: /healthy
             port: 8080
         volumeMounts:
-        - name: greatestconfig
-          mountPath: /config/greatestconfig.yml
-          readOnly: true
-          subPath: greatestconfig.yml
-        - name: supersecret
-          mountPath: "/secrets"
-          readOnly: true
-        - name: supremepersistence
-          mountPath: /mydata
+        - name: persypersist
+          mountPath: /iverdata
       volumes:
-      - name: supersecret
-        secret:
-          secretName: mysecret
-      - name: greatestconfig
-        configMap:
-          defaultMode: 0600
-          name: myconfigmap
-      - name: supremepersistence
+      - name: persypersist
         persistentVolumeClaim:
           claimName: my-claim
