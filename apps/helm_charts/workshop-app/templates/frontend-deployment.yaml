@@ -38,3 +38,11 @@ spec:
             httpGet:
               path: /health
               port: http
+          volumeMounts:
+            - name: {{ .Values.frontend.name }}-volume
+              mountPath: /secrets
+              readOnly: true
+      volumes:
+      - name: {{ .Values.frontend.name }}-volume
+        secret:
+          secretName: {{ .Values.frontend.name }}-secret

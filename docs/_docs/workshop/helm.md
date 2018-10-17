@@ -27,6 +27,10 @@ helm install stable/mongodb -f values.yaml
 
 to configure the Mongodb chart.
 
+> To enable autocomplete
+`source <(helm completion bash) # bash is the standard shell on macOS and Linux. can be changed to zsh`
+
+
 ## Task: Setup Helm and install a chart
 
 We do not host our own charts repository, but you should be able to install a chart

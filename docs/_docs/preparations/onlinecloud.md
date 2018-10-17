@@ -34,8 +34,10 @@ To avoid having to specify the namespace in all requests with kubectl, set the n
 
 The namespace is you email username as described before
 
-
-
 ## Install helm client
 
 Follow the instructions at <https://github.com/helm/helm/blob/master/docs/install.md#installing-the-helm-client>
+
+## Clone the workshop repository
+
+`git clone https://github.com/knowit/kubernetes-workshop.git`
