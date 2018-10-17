@@ -27,7 +27,8 @@ helm install stable/mongodb -f values.yaml
 
 to configure the Mongodb chart.
 
-> To enable autocomplete
+To enable autocomplete
+
 `source <(helm completion bash) # bash is the standard shell on macOS and Linux. can be changed to zsh`
 
 
@@ -40,29 +41,21 @@ To start off we need to setup helm:
 
 ```
 helm init --client-only
-helm repo update
 ```
 
-Then install nginx:
+Then install a chart from our git repo:
 
 ```
-helm repo add bitnami https://charts.bitnami.com/bitnami
-helm install bitnami/nginx
+cd apps/helm_charts
+helm install workshop-app
 ```
 
-We see `Pending` under `EXTERNAL-IP`, which means that Google's load balancer is exposing Nginx out on the
-Internet. Wait for it to return an IP:
-
-`watch kubectl get svc`
-
-Then open your browser on the IP that appears. It should show an Nginx landing page. 
-
-Also, let's look at the running charts:
+Let's look at the running charts:
 
 ```
 $ helm ls
-NAME            REVISION  UPDATED       STATUS    CHART       APP VERSION NAMESPACE         
-virtuous-alpaca 1         Wed Oct 1...  DEPLOYED  nginx-1.1.0 1.14.0      yngvar-kristiansen
+NAME            REVISION  UPDATED       STATUS    CHART              APP VERSION NAMESPACE         
+virtuous-alpaca 1         Wed Oct 1...  DEPLOYED  workshop-app-0.1.0 1.0         yngvar-kristiansen
 ```
 
 When you're done, delete the chart:
