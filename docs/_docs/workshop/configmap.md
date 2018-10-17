@@ -31,7 +31,7 @@ Load the configmap as environment variables in the pod.
   <summary>Step-by-step Task 2</summary>
   <div markdown="1">
 
-- In the deployment yaml file configure the container to use environment from the configmap
+- In the deployment yaml file configure the container to use environment from the configmap. Re-apply the yaml file as you did in the `deployment` section.  
 
 ```yaml
 containers:
