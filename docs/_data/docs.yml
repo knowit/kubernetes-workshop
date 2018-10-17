@@ -19,7 +19,7 @@
   - label
   - service-discovery
   - secret
-  - ingress
+  #- ingress
 - title: Contribute to site
   docs:
   - contribute

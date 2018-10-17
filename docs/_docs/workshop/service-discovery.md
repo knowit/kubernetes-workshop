@@ -11,8 +11,16 @@ Service discovery documentation:
 By service discovery, we mean your app's possibility to communicate with a Kubernetes Service.
 
 In your app code, you can reach other services by their service name. Kubernetes' DNS makes this possible. So for instance you could reach a web server that is exposed through a service by running the command
-`curl http://someservice` in a container in a pod. To reach a service outside the current namespace, run
-`curl http://someservice.somenamespace`.
+
+```
+curl http://someservice
+```
+
+in a container in a pod. To reach a service outside the current namespace, run
+
+```
+curl http://someservice.somenamespace
+```
 
 (FYI, curl is a tool to transfer data for instance using HTTP.)
 
@@ -20,14 +28,14 @@ Let's try this. We'll use your existing service to curl from, and fire up one ne
 
 ## Task: Create service in same namespace
 
-Fire up a pod running the image `ubuntu-k8s-1.local:30603/nginx-curl` and a service that exposes the pod.
+Fire up a pod running the image `yngvark/nginx-curl` and a service that exposes the pod.
 
 <details>
  <summary>Solution</summary>
  <div markdown="1">
 
 ```
-kubectl create deployment my-nginx --image=ubuntu-k8s-1.local:30603/nginx-curl
+kubectl create deployment my-nginx --image=yngvark/nginx-curl
 kubectl expose deployment my-nginx --port 8085 --target-port 80
 ```
 
