@@ -38,7 +38,7 @@ Use `kubectl` to view the config you have been given. Look for information about
  <summary>Solution</summary>
  <div markdown="1">
 
-### Solution 1: View Config
+### Solution: View Config
 
 - `kubectl config view`
 
@@ -48,4 +48,15 @@ Use `kubectl` to view the config you have been given. Look for information about
 
 ## Task 2
 
-Use `kubectl explain ` to get some info on a resource (e.g. `Pod`)
+Use `kubectl explain ` to get some info on a resource (e.g. `pod`)
+
+<details>
+ <summary>Solution</summary>
+ <div markdown="2">
+
+### Solution: View Config
+
+- `kubectl explain service`
+
+ </div>
+</details>  
