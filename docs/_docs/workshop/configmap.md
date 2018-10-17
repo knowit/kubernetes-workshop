@@ -21,7 +21,7 @@ Create a configmap with `kubectl`. The configmap should contain a literal `BACKE
 <div markdown="1">
 
 ```
-kubectl create configmap super-configmap --from-literal=BACKEND_URL=http://workshop-api-deployment.yngvar-kristiansen:80
+kubectl create configmap super-configmap --from-literal=BACKEND_URL=http://workshop-api-deployment.yngvar-kristiansen
 ```
 
 
@@ -107,6 +107,8 @@ Now all your 3 pods in your deployment should be restarted by Kubernetes.
 The Kubernetes cluster automatically loadbalances pods that are replicated. To see for
 yorself, open your front end, and click the button to do a request. (By this time in the guide it should be
 configured to do requests against the backend.)
+
+To find the URL
 
 You should see that each response is different, because it is a different pod that responds.
 
