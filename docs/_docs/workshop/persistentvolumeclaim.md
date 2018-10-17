@@ -95,7 +95,7 @@ pvc-10a0ecc2-4962-11e8-978c-e4b318337de0   10Mi       RWO            Delete     
 
 You can do this by
 * writing to a file in the now mounted volume in the pod
-* delete the deployment
+* delete the pod
 * verify that the file still exists when a new pod is started
 
 <details>
