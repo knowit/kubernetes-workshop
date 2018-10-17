@@ -8,7 +8,7 @@ Pod-lifecyle documentation:
 * [Offline]({{host.offline}}{{path}})
 * [Online]({{host.online}}{{path}})
 
-The readiness and liveness probe are diagnostic tools used to verify the state of a container. 
+The readiness and liveness probe are diagnostic tools used to verify the state of a container.
 
 The probes work by either:
 
@@ -26,9 +26,9 @@ Both readiness and liveness probes are optional. Without them, the kubelet will 
 
 ## Task
 
-Extend your deployment to include readiness and liveness probes. 
+Extend your deployment to include readiness and liveness probes.
 
-The sample application has endpoints at ***/healthy*** and ***/nonhealthy***, that return HTTP 200 and HTTP 418, respectively. 
+The sample application has endpoints at ***/healthy*** and ***/nonhealthy***, that return HTTP 200 and HTTP 418, respectively.
 
 Use these endpoints to either make your container seem to be in a good state or bad state.
 
@@ -55,7 +55,7 @@ spec:
     spec:
       containers:
       - name: sample-app
-        image: ubuntu-k8s-1.local:30603/sample-app
+        image: torklo/workshop-api:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080

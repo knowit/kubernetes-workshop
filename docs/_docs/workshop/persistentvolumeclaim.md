@@ -14,13 +14,9 @@ application use it as storage. I doesn't disappear when the pod is deleted. In o
 
 PersistentVolumes are created by PersistentVolumeClaims (PVC).
 
-A PersistentVolumeClaim is a claim for a PersistentVolume from a storage provider. 
+A PersistentVolumeClaim is a claim for a PersistentVolume from a storage provider.
 
-A Kubernetes cluster can be set up with a lot of different storage providers (see "Storage classes" in documentation for details).
-Some examples are AzureDisk, NFS and GCEPersistentDisk, and they have varying properties, such as performance.
-
-With a PersistentVolumeClaim, your app can request to just get for instance 10GB of space without caring about
-the details of the volume that the Kubernetes cluster can provide.
+With a PersistentVolumeClaim your app can request, for instance, 10GB of space. And it will automagically provision a volume that can be used without any concern of what the underlying technology is.
 
 ## Task: Create a PersistentVolumeClaim
 
@@ -39,12 +35,14 @@ spec:
       storage: 10Mi
 ```
 
-In your deployment.yaml, add a volume from the claim:
+In your `deployment.yaml`, add a volume from the claim:
 
 ```yaml
 ...
+    spec:
+      ...
       volumes:
-      - name: supremepersistence
+      - name: my-persistent-volume
         persistentVolumeClaim:
           claimName: my-claim
 ...
@@ -56,8 +54,10 @@ and then mount the volume at a path:
 
 ```yaml
 ...
+    containers:
+      ...
       volumeMounts:
-        - name: supremepersistence
+        - name: my-persistent-volume
           mountPath: /mydata
 ...
 ```
@@ -85,7 +85,7 @@ deployment.
 Let's verify that a PersistentVolume has been created as the claim requested:
 
 ```
-kubectl get pv
+kubectl get pvc
 NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS    CLAIM                               STORAGECLASS   REASON    AGE
 pvc-10a0ecc2-4962-11e8-978c-e4b318337de0   10Mi       RWO            Delete           Bound     guybrush/my-claim                   hostpath                 15m
 ...
@@ -96,7 +96,7 @@ pvc-10a0ecc2-4962-11e8-978c-e4b318337de0   10Mi       RWO            Delete     
 You can do this by
 * writing to a file in the now mounted volume in the pod
 * delete the deployment
-* verify that the file still exists when a new pod is started 
+* verify that the file still exists when a new pod is started
 
 <details>
   <summary>Solution</summary>
@@ -113,10 +113,10 @@ kubectl exec -it sample-app-deployment-7756ccb788-vflmz sh
 /mydata # exit
 ```
 
-Delete the deployment:
+Delete the pod:
 
 ```
-kubectl delete deployment
+kubectl delete pod sample-app-deployment-7756ccb788-vflmz
 ```
 
 Wait for the new pod to start (check with `kubectl get po`), then:
@@ -131,7 +131,7 @@ hello there
 /mydata # exit
 ```
 
-Success! The file survived eventhough the pod was deleted. This is how our apps get persistence.
+Success! The file survived even though the pod was deleted. This is how our apps get persistence.
 
 </div>
 </details>

@@ -1,6 +1,7 @@
 'use strict';
 
 const express = require('express');
+const request = require('sync-request');
 
 // Constants
 const PORT = 8080;
@@ -15,6 +16,14 @@ app.get('/backendurl', (req, res) => {
   } else {
     res.send(process.env.BACKEND_URL);
   }
+});
+
+// Sample endpoint
+app.get('/call-backend', (req, res) => {
+  var response = request('GET', process.env.BACKEND_URL);
+  console.log("responseponse from backend:");
+  console.log(response);
+  res.send(response.body);
 });
 
 // Sample endpoint

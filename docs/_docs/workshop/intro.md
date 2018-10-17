@@ -26,7 +26,7 @@ Platforms that try to hide Kubernetes under an abstraction layer, however, have 
 
 Check out the software conformance [page](https://www.cncf.io/certification/software-conformance)
 
-### Certifications for you:
+### Certifications for you
 * [Certified Kubernetes Application Developer (CKAD) Program](https://www.cncf.io/certification/expert/cka/ckad/)
 * [Certified Kubernetes Administrator (CKA) Program](https://www.cncf.io/certification/expert/cka/)
 
