@@ -175,12 +175,6 @@ kubectl apply -f workshop-api-deployment.yaml
 
 Watch the `watch` output, and enjoy watching Kubernetes scaling up our app!
 
-Bonus demonstration: The Kubernetes cluster automatically loadbalances pods that are replicated. To see for
-yorself, open your front end, and click the button to do a request. (By this time in the guide it should be
-configured to do requests against the backend.)''
-
-You should see thath each response is different, because it is a different pod that responds.
-
 ## Task: Create a deployment for the front end
 Create a new deployment that uses the image: `torklo/workshop-frontend`
 You can creat a new yaml file from scratch if you want. Altough real dev oppers use `kubectl create deployment` (`--help` for more information)
