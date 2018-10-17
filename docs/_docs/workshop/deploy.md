@@ -184,6 +184,7 @@ You should see thath each response is different, because it is a different pod t
 ## Task: Create a deployment for the front end
 Create a new deployment that uses the image: `torklo/workshop-frontend`
 You can creat a new yaml file from scratch if you want. Altough real dev oppers use `kubectl create deployment` (`--help` for more information)
+
 <details>
 <div>
 `kubectl create deployment --image=torklo/workshop-api ez-frontend`
