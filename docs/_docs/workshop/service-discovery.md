@@ -42,11 +42,11 @@ kubectl expose deployment my-nginx --port 8085 --target-port 80
  </div>
 </details>
 
-## Do a request a to a service
+## Do a request to a service
 
 Now that we have two services, they can reach each other. From your original pod, let's see if we can reach the new nginx (which is a web server). To do that, we have to get into the running docker container in the pod and run curl. The steps are:
 
-`kubectl exec -it sample-app-6755d84575-gdmw8 sh`
+`kubectl exec -it [pod-name] sh`
 
 Your name will be a bit different, use `kubectl get po` to find your pod.
 
@@ -204,7 +204,7 @@ TERM=xterm
 
 ## Task: Do a request to a service in another namespace
 
-Just pick any of the other students' services, or use one that we should (but may have forgotton) to deploy in the namespace `default`. To find services in other namespaces, run:
+Just pick any of the other students' services, or use one that we should, but may have forgotton to, deploy in the namespace `default`. To find services in other namespaces, run:
 
 `kubectl get svc --all-namespaces`
 
@@ -220,7 +220,7 @@ kubectl exec -it my-nginx-7d4b689dcb-2j57k sh
 $ curl http://my-nginx.default:8085
 ```
 
-Then you should a reply from the nginx welcome page.
+Then you should get a reply from the nginx welcome page.
 
 </div>
 </details>
