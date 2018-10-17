@@ -32,7 +32,7 @@ kubectl create configmap super-configmap --from-literal=BACKEND_URL=http://works
 
 Load the configmap as environment variables in the front-end pod.
 
-We previously made the front end deployment using a `kubectl create deployment` comm The deployment for the front-end is by now the current YAML:
+The deployment for the front-end is by now the current YAML:
 
 ```yaml
 apiVersion: extensions/v1beta1
