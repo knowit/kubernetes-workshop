@@ -9,8 +9,7 @@ Kubernetes Helm is a package manager for Kubernetes. With helm you can simply do
 helm install stable/mongodb
 ```
 
-to deploy the MongoDB in the current namespace. A package in Helm is called a Chart, by the way. You can find
-existing charts on <https://hub.kubeapps.com/>.
+to deploy the MongoDB in the current namespace. A package in Helm is called a Chart, by the way.
 
 Without helm, you would need to run `kubectl apply -f .` in a directory containing all the YAML files needed
 for your application to run. And if you want to deploy your app to different namespaces, but with slightly
@@ -35,30 +34,39 @@ from the git repo.
 
 To start off we need to setup helm:
 
-`helm init --client-only`
+```
+helm init --client-only
+helm repo update
+```
 
-From the workdir, navigate to the helm chart folder:
- `cd apps/helm_charts`
+Then install nginx:
 
-To install a helm chart you should run [helm install](https://docs.helm.sh/helm/helm_install):
+```
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm install bitnami/nginx
+```
 
-`helm install [helm-chart-dir]`
-> Note: helm-chart-dir should be a dir in `helm_charts`
+We see `Pending` under `EXTERNAL-IP`, which means that Google's load balancer is exposing Nginx out on the
+Internet. Wait for it to return an IP:
 
-Let's look at the running charts:
+`watch kubectl get svc`
+
+Then open your browser on the IP that appears. It should show an Nginx landing page. 
+
+Also, let's look at the running charts:
 
 ```
 $ helm ls
-NAME                  REVISION  UPDATED                   STATUS          CHART             NAMESPACE  
-original-bird         1         Thu Apr 26 19:08:52 2018  DEPLOYED        nginx-0.1.0       yngvar     
+NAME            REVISION  UPDATED       STATUS    CHART       APP VERSION NAMESPACE         
+virtuous-alpaca 1         Wed Oct 1...  DEPLOYED  nginx-1.1.0 1.14.0      yngvar-kristiansen
 ```
 
 When you're done, delete the chart:
 
-`helm delete --purge original-bird`
+`helm delete --purge virtuous-alpaca`
 
 ## Repository browser
 
-There's a bunch of ready charts at http://kubeapps.com:
+There's a bunch of ready charts at <http://kubeapps.com>:
 
 ![text](../../assets/img/kubeapps.png)
