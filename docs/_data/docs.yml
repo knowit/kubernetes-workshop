@@ -12,8 +12,8 @@
   - pod
   - namespace
   - deploy
-  - configmap
   - service
+  - configmap
   - persistentvolumeclaim
   - probe
   - label
