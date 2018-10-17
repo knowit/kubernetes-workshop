@@ -133,7 +133,7 @@ Kubernetes DNS.
 
 ## Task: Do a request to a service in another namespace
 
-Just pick any of the other students' services, or use one that we should, but may have forgotton to, deploy in the namespace `default`. To find services in other namespaces, run:
+Just pick any of the other students' services, or use one that we should, but may have forgotten to, deploy in the namespace `default`. To find services in other namespaces, run:
 
 `kubectl get svc --all-namespaces`
 
