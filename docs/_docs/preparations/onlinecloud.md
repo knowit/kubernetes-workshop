@@ -5,15 +5,15 @@ permalink: /docs/requirements-online/
 
 ## Install gcloud
 
-Follow the instructions at https://cloud.google.com/sdk/
+Follow the instructions at <https://cloud.google.com/sdk/>
 
 ## Install kubectl
 
-Follow the instructions at https://kubernetes.io/docs/tasks/tools/install-kubectl/
+Follow the instructions at <https://kubernetes.io/docs/tasks/tools/install-kubectl/>
 
 ## Connect to our cluster and install kubectl configuration
 
-* Go to https://console.cloud.google.com/
+* Go to <https://console.cloud.google.com/>
 * Make sure your logged in user is your Knowit account (see user icon in upper right)
 * Open a terminal, and run `gcloud auth login`. Follow the instructions, and use your Knowit account.
 * Click "Select a project" in the top, type "kubernetes-workshop-101" and select it.
@@ -24,7 +24,7 @@ cannot, it probably means we haven't given you access. Ask one of your workshop 
 
 ![google cloud project screenshot](../../assets/img/gcloud-project.png)
 
-You will have been granted access to a namespace (more on namespaces later) which is your email username. If the username contains a `.` it will be substituted for `-`. 
+You will have been granted access to a namespace (more on namespaces later) which is your email username (the part before the @). If the username contains a `.` it will be substituted for `-`. 
 Example: `tord.kloster@knowit.no` -> `tord-kloster`
 
 ## Specify a default namespace: (important)
@@ -38,4 +38,4 @@ The namespace is you email username as described before
 
 ## Install helm client
 
-Follow the instructions at https://github.com/helm/helm/blob/master/docs/install.md#installing-the-helm-client
+Follow the instructions at <https://github.com/helm/helm/blob/master/docs/install.md#installing-the-helm-client>

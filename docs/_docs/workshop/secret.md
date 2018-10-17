@@ -52,7 +52,7 @@ spec:
     spec:
       containers:
       - name: sample-app
-        image: ubuntu-k8s-1.local:30603/sample-app
+        image: torklo/workshop-frontend
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
@@ -72,6 +72,13 @@ spec:
         configMap:
           defaultMode: 0600
           name: myconfigmap
+```
+
+Now open a shell in your pod and check if there are any secrets there
+
+```
+kubectl exec -it [pod-name] sh
+cat /secrets/*
 ```
 
   </div>
