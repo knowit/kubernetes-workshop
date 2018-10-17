@@ -18,7 +18,7 @@ The reason we want to assign proper labels to our resources (pods especially) is
 
 A selector defines a set of labels and values, and tries to select the resources that matches the defined selector.
 
-For example the selector in `Deployment` (which is the next topic) defines its selector as:
+For example the selector in `Deployment` defines its selector as:
 
 ```YAML
 selector:
