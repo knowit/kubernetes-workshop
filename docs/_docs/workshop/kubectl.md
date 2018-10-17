@@ -52,7 +52,7 @@ Use `kubectl explain ` to get some info on a resource (e.g. `pod`)
 
 <details>
  <summary>Solution</summary>
- <div markdown="2">
+ <div markdown="1">
 
 ### Solution: View Config
 
