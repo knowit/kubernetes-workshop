@@ -44,7 +44,7 @@ kubectl expose deployment my-nginx --port 8085 --target-port 80
 
 ## Do a request to a service
 
-Now that we have two services, they can reach each other. From your original pod, let's see if we can reach the new nginx (which is a web server). To do that, we have to get into the running docker container in the pod and run curl. The steps are:
+Now that we have two services, they can reach each other. From your one of your pods created earlier in this workshop, let's see if we can reach the new nginx (which is a web server). To do that, we have to get into the running docker container in the pod and run curl. The steps are:
 
 `kubectl exec -it [pod-name] sh`
 
