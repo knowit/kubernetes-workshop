@@ -15,7 +15,7 @@ The Kubernetes command-line tool, kubectl controls the Kubernetes cluster manage
 We are going to use this tool extensively during this workshop, so we should get to know it.
 
 > To enable autocomplete
-`source <(kubectl completion bash)`
+`source <(kubectl completion bash) # bash is the standard shell on macOS and Linux. can be changed to zsh`
 
 > Use `kubectl -h` if you are stuck
 
@@ -38,7 +38,7 @@ Use `kubectl` to view the config you have been given. Look for information about
  <summary>Solution</summary>
  <div markdown="1">
 
-### Solution 1: View Config
+### Solution: View Config
 
 - `kubectl config view`
 
@@ -48,4 +48,15 @@ Use `kubectl` to view the config you have been given. Look for information about
 
 ## Task 2
 
-Use `kubectl explain ` to get some info on a resource (e.g. `Pod`)
+Use `kubectl explain ` to get some info on a resource (e.g. `pod`)
+
+<details>
+ <summary>Solution</summary>
+ <div markdown="1">
+
+### Solution: View Config
+
+- `kubectl explain service`
+
+ </div>
+</details>  

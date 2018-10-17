@@ -9,7 +9,8 @@ Kubernetes Helm is a package manager for Kubernetes. With helm you can simply do
 helm install stable/mongodb
 ```
 
-to deploy the MongoDB in the current namespace. A package in Helm is called a Chart, by the way.
+to deploy the MongoDB in the current namespace. A package in Helm is called a Chart, by the way. You can find
+existing charts on <https://hub.kubeapps.com/>.
 
 Without helm, you would need to run `kubectl apply -f .` in a directory containing all the YAML files needed
 for your application to run. And if you want to deploy your app to different namespaces, but with slightly
@@ -26,6 +27,10 @@ helm install stable/mongodb -f values.yaml
 ```
 
 to configure the Mongodb chart.
+
+> To enable autocomplete
+`source <(helm completion bash) # bash is the standard shell on macOS and Linux. can be changed to zsh`
+
 
 ## Task: Setup Helm and install a chart
 
