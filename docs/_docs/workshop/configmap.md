@@ -97,7 +97,7 @@ containers:
 kubectl apply -f workshop-frontend-deployment.yaml # or whatever you called the yaml file earlier
 ```
 
-Now all your 3 pods in your deployment should be restarted by Kubernetes.
+Now your pod in your deployment should be restarted by Kubernetes.
 
 </div>
 </details>
