@@ -69,7 +69,8 @@ namespaces to the docker container's environment variables.
 
 ## Task: Create deployment
 
-Create a deployment using the docker image `torklo/workshop-api`, which should be exposed at port 8080.
+Create a deployment using the docker image `torklo/workshop-api`. Its name should be
+`workshop-api-deployment`, and it should be exposed at port 8080.
 
 <details>
  <summary>Solution</summary>
