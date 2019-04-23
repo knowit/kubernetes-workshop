@@ -28,7 +28,7 @@ cannot, it probably means we haven't given you access. Ask one of your workshop 
 
 ![google cloud project screenshot](../../assets/img/gcloud-project-dotkom.png)
 
-You will have been granted access to a namespace (more on namespaces later) which is your email username (the part before the @). If the username contains a `.` it will be substituted for `-`. 
+You will have been granted access to a namespace (more on namespaces later) which is your email username (the part before the @). If your username contains a `.` it will be substituted with a `-`. 
 Example: `tord.kloster@knowit.no` -> `tord-kloster`
 
 ## Specify a default namespace: (important)
