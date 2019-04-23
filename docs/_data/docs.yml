@@ -10,10 +10,10 @@
   - node
   - helm
   - pod
-  - namespace
   - deploy
   - service
   - configmap
+  - namespace
   - persistentvolumeclaim
   - probe
   - label
