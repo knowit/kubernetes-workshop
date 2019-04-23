@@ -58,5 +58,4 @@ spec:
               mountPath: /mydata
       volumes:
       - name: {{ .Values.backend.name }}-volume
-        persistentVolumeClaim:
-          claimName: {{ .Values.backend.name }}-pvc
+        emptyDir: {}

@@ -5,7 +5,7 @@ backend:
     repository: torklo/workshop-api
     tag: latest
   service:
-    type: LoadBalancer
+    type: ClusterIP
     port: 80
 
 frontend:
