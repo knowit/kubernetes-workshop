@@ -5,7 +5,9 @@ permalink: /docs/pod/
 {% assign host = site.data.constants.docs.k8s.base-url %}
 {% assign path = '/docs/concepts/workloads/pods/pod/' %}
 Pod documentation:
+{% comment %}
 * [Offline]({{host.offline}}{{path}})
+{% endcomment %}
 * [Online]({{host.online}}{{path}})
 
 

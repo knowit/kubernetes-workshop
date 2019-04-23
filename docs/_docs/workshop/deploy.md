@@ -5,7 +5,9 @@ permalink: /docs/deploy/
 {% assign host = site.data.constants.docs.k8s.base-url %}
 {% assign path = '/docs/concepts/workloads/controllers/deployment/#use-case' %}
 Deployment documentation:
+{% comment %}
 * [Offline]({{host.offline}}{{path}})
+{% endcomment %}
 * [Online]({{host.online}}{{path}})
 
 

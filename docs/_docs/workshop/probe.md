@@ -5,7 +5,9 @@ permalink: /docs/probe/
 {% assign host = site.data.constants.docs.k8s.base-url %}
 {% assign path = '/docs/concepts/workloads/pods/pod-lifecycle/#container-probes' %}
 Pod-lifecyle documentation:
+{% comment %}
 * [Offline]({{host.offline}}{{path}})
+{% endcomment %}
 * [Online]({{host.online}}{{path}})
 
 The readiness and liveness probe are diagnostic tools used to verify the state of a container.

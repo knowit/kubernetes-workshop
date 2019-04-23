@@ -17,15 +17,21 @@ It is nice if you know what docker is and how to use it. This workshop will not 
 {% assign docker-path = '' %}
 
 Official Kubernetes documentation:
+{% comment %}
 * [Offline]({{host.k8s.base-url.offline}}{{k8s-path}})
+{% endcomment %}
 * [Online]({{host.k8s.base-url.online}}{{k8s-path}})
 
 Official Docker documentation:
+{% comment %}
 * [Offline]({{host.docker.base-url.online}}{{docker-path}})
+{% endcomment %}
 * [Online]({{host.docker.base-url.online}}{{docker-path}})
 
 Official Helm documentation:
+{% comment %}
 * [Offline]({{host.docker.base-url.online}}{{docker-path}})
+{% endcomment %}
 * [Online]({{host.docker.base-url.online}}{{docker-path}})
 
 

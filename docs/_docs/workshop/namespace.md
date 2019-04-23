@@ -5,7 +5,9 @@ permalink: /docs/namespace/
 {% assign host = site.data.constants.docs.k8s.base-url %}
 {% assign path = '/docs/concepts/overview/working-with-objects/namespaces/' %}
 Namespace documentation:
+{% comment %}
 * [Offline]({{host.offline}}{{path}})
+{% endcomment %}
 * [Online]({{host.online}}{{path}})
 
 

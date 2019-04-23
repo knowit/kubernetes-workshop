@@ -5,7 +5,9 @@ permalink: /docs/persistentvolumeclaim/
 {% assign host = site.data.constants.docs.k8s.base-url %}
 {% assign path = '/docs/concepts/storage/persistent-volumes/' %}
 Persistent-Volume documentation:
+{% comment %}
 * [Offline]({{host.offline}}{{path}})
+{% endcomment %}
 * [Online]({{host.online}}{{path}})
 
 

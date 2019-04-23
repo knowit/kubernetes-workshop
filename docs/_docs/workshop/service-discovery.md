@@ -5,7 +5,9 @@ permalink: /docs/service-discovery/
 {% assign host = site.data.constants.docs.k8s.base-url %}
 {% assign path = '/docs/concepts/services-networking/service/#discovering-services' %}
 Service discovery documentation:
+{% comment %}
 * [Offline]({{host.offline}}{{path}})
+{% endcomment %}
 * [Online]({{host.online}}{{path}})
 
 By service discovery, we mean your app's possibility to communicate with a Kubernetes Service.

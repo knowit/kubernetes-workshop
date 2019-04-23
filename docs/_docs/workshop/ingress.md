@@ -5,7 +5,9 @@ permalink: /docs/ingress/
 {% assign host = site.data.constants.docs.k8s.base-url %}
 {% assign path = '/docs/concepts/services-networking/ingress/' %}
 Ingress documentation:
+{% comment %}
 * [Offline]({{host.offline}}{{path}})
+{% endcomment %}
 * [Online]({{host.online}}{{path}})
 
 Until now we have only created deployments and services that are accessible from inside the cluster. In a real world scenario, you might also want to expose your services to the rest of the world (i.e. the internet).
