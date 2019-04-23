@@ -19,35 +19,41 @@ Services maintain a stable IP and defines a set of logical Pods and how to acces
 
 Services defines which pods to connect by utilizing the labels on the pods.
 
-> E.g. By creating a service with kubectl we use the `expose` command
+> E.g. By creating a service with kubectl we can use the `expose` command
 With the following command we create a service accessable by port 80,
 that connects to a pod with the name [pod-name] and container-port 8080.
-`kubectl expose pod [pod-name] --port=80 --target-port=8080 --type=ClusterIP`
+`kubectl expose pod [pod-name] --port=80 --target-port=8080`
 
 Inspecting a service reveals that the service type is `ClusterIP`
 
-There are 3 main types of services: `NodePort`, `LoadBalancer`
-- `ClusterIp` Pods accessed within the cluster only
-- `NodePort` Pods are exposed with the host IP + port.
-- `LoadBalancer` The cloud provider automatically provisions a LB for your service, creating an external IP.
+There are 3 main types of services: `NodePort`, `LoadBalancer` and `ClusterIP`
+- `ClusterIp` Pods accessed within the cluster only.
+- `NodePort` Pods are exposed on all the hosts on a random port.
+- `LoadBalancer` The cloud provider automatically provisions a LB for your service, creating an external IP for the service.
 
 
 ## Task 1
 
-Expose your frontend deployment with a LoadBalancer service.
+Expose your frontend deployment with a NodePort service.
 Expose your backend deployment with a ClusterIP service.
 
-Visit the IP where the frontend service runs.
+Visit the feth a node IP.
+Note down the new service's port, where the frontend service runs
+And test it out.
 
 <details>
  <summary>Solution</summary>
  <div markdown="1">
 
 ### Solution 1: Exposing a pod with service
+Frontend:
+- `kubectl expose deployment ez-frontend --target-port 8080 --type NodePort`
+- `kubectl get svc` # Note the first part of the Port `34567:8080`
+- `kubectl get nodes -o wide` 
+- Paste one of the node ips into a browser followed by the generated port number.
 
-- `kubectl expose deployment ez-frontend --port 80 --target-port 8080 --type LoadBalancer`
-- `kubectl get svc` # Note the EXTERNAL-IP
-- Paste the ip into a browser and some response should appear once the loadbalancer is created.
+Backend:
+- `kubectl expose deployment ez-backend --target-port 8080`
  </div>
 </details>
 {% comment %}
