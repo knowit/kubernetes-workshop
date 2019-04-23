@@ -90,7 +90,7 @@ The Kubernetes cluster automatically loadbalances pods that are replicated. To s
 yorself, open your front end, and click the button to do a request. (By this time in the guide it should be
 configured to do requests against the backend.)
 
-(To find the IP for your front end, run `kubectl get svc`.)
+(To find the host IP, run `kubectl get nodes -owide`. And use `kubectl get svc` to find the nodeport)
 
 You should see that each response is different, because it is a different pod that responds.
 
