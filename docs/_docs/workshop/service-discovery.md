@@ -44,13 +44,11 @@ kubectl expose deployment my-nginx --port 8085 --target-port 80
 
 ## Do a request to a service
 
-Now that we have two services, they can reach each other. From your original pod, let's see if we can reach the new nginx (which is a web server). To do that, we have to get into the running docker container in the pod and run curl. The steps are:
+Now that we have two services, they can reach each other. From your the front end pod created earlier in this workshop, let's see if we can reach the new nginx (which is a web server) with `curl`. 
 
-`kubectl exec -it [pod-name] sh`
+`kubectl exec -it ez-frontend-845bb77cbd-rnj6r bash`
 
-Your name will be a bit different, use `kubectl get po` to find your pod.
-
-We're now in a shell inside the container in the pod. Let's finally try to reach the service we just exposed:
+We're now in a shell inside the container in the pod. Let's now try to reach the service we just exposed:
 
 `curl -vvv http://my-nginx:8085`
 
@@ -133,78 +131,9 @@ Commercial support is available at
 In other words, you were able to do a HTTP request to `http://my-nginx:8085`, which were resolved by the
 Kubernetes DNS.
 
-## Task: Do a request the other way around
-
-We just did a request from our own service to the nginx-service. Now, try to do a request from the
-nginx-pod to the service you exposed in the previous section about Services.
-
-<details>
- <summary>Solution</summary>
- <div markdown="1">
-
-```
-kubectl get svc
-
-NAME         TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE
-my-nginx     ClusterIP   10.110.55.166    <none>        8085/TCP       10m
-sample-app   NodePort    10.100.205.241   <none>        80:32163/TCP   9d
-```
-
-Okay, the service is exposed on port 80. Let's call that from the nginx pod:
-
-```
-kubectl exec -it my-nginx-7d4b689dcb-2j57k sh
-curl -vvv http://sample-app:80
-```
-
-It should produce whatever welcome page that is in the sample app.
-
-</div>
-</details>
-
-By the way, when we fire up a new pod, all services in the same namespace are injected as environmental variables in the pod's containers. To see this, run (in the same pod as above):
-
-```
-env | sort
-```
-
-This should yield something similar like this:
-
-```
-HOME=/root
-HOSTNAME=my-nginx-7d4b689dcb-2j57k
-KUBERNETES_PORT=tcp://10.96.0.1:443
-KUBERNETES_PORT_443_TCP=tcp://10.96.0.1:443
-KUBERNETES_PORT_443_TCP_ADDR=10.96.0.1
-KUBERNETES_PORT_443_TCP_PORT=443
-KUBERNETES_PORT_443_TCP_PROTO=tcp
-KUBERNETES_SERVICE_HOST=10.96.0.1
-KUBERNETES_SERVICE_PORT=443
-KUBERNETES_SERVICE_PORT_HTTPS=443
-MY_NGINX_PORT=tcp://10.99.107.184:8085
-MY_NGINX_PORT_8085_TCP=tcp://10.99.107.184:8085
-MY_NGINX_PORT_8085_TCP_ADDR=10.99.107.184
-MY_NGINX_PORT_8085_TCP_PORT=8085
-MY_NGINX_PORT_8085_TCP_PROTO=tcp
-MY_NGINX_SERVICE_HOST=10.99.107.184
-MY_NGINX_SERVICE_PORT=8085
-NGINX_VERSION=1.13.12-1~stretch
-NJS_VERSION=1.13.12.0.2.0-1~stretch
-PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-PWD=/
-SOURCE_APP_PORT=tcp://10.101.107.43:8085
-SOURCE_APP_PORT_8085_TCP=tcp://10.101.107.43:8085
-SOURCE_APP_PORT_8085_TCP_ADDR=10.101.107.43
-SOURCE_APP_PORT_8085_TCP_PORT=8085
-SOURCE_APP_PORT_8085_TCP_PROTO=tcp
-SOURCE_APP_SERVICE_HOST=10.101.107.43
-SOURCE_APP_SERVICE_PORT=8085
-TERM=xterm
-```
-
 ## Task: Do a request to a service in another namespace
 
-Just pick any of the other students' services, or use one that we should, but may have forgotton to, deploy in the namespace `default`. To find services in other namespaces, run:
+Just pick any of the other students' services, or use one that we should, but may have forgotten to, deploy in the namespace `default`. To find services in other namespaces, run:
 
 `kubectl get svc --all-namespaces`
 

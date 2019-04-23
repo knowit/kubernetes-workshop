@@ -17,18 +17,70 @@ A configmap can either be created manually by specifying a yaml file, or by `kub
 
 Create a configmap with `kubectl`. The configmap should contain a literal `BACKEND_URL`. The value should be a callable service in the cluster, and should be in the form: `http://[service-name].[namespace]:[service-port]`. Example: `BACKEND_URL="http://super-backend.tord-kloster:80"`
 <details>
-<summary>Step-by-step Task 2</summary>
+<summary>Solution</summary>
 <div markdown="1">
-`kubectl create configmap super-configmap --from-literal=BACKEND_URL=testurl`
+
+```
+kubectl create configmap super-configmap --from-literal=BACKEND_URL=http://workshop-api-deployment.yngvar-kristiansen
+```
+
+
 </div>
 </details>
 
 ## Task 2
 
-Load the configmap as environment variables in the pod.
+Load the configmap as environment variables in the front-end pod.
+
+The deployment for the front-end is by now the current YAML:
+
+```yaml
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+  creationTimestamp: null
+  generation: 1
+  labels:
+    app: ez-frontend
+  name: ez-frontend
+  selfLink: /apis/extensions/v1beta1/namespaces/yngvar-kristiansen/deployments/ez-frontend
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: ez-frontend
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: ez-frontend
+    spec:
+      containers:
+      - image: torklo/workshop-frontend
+        imagePullPolicy: Always
+        name: workshop-frontend
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status: {}
+```
 
 <details>
-  <summary>Step-by-step Task 2</summary>
+  <summary>Solution</summary>
   <div markdown="1">
 
 - In the deployment yaml file configure the container to use environment from the configmap. Re-apply the yaml file as you did in the `deployment` section.  
@@ -38,10 +90,27 @@ containers:
   - name: {....}
     envFrom:
     - configMapRef:
-        name: # name of your configmap
-```  
+        name: super-configmap # name of your configmap
+```
+
+```
+kubectl apply -f workshop-frontend-deployment.yaml # or whatever you called the yaml file earlier
+```
+
+Now your pod in your deployment should be restarted by Kubernetes.
+
 </div>
 </details>
+
+## Task 3
+
+The Kubernetes cluster automatically loadbalances pods that are replicated. To see for
+yorself, open your front end, and click the button to do a request. (By this time in the guide it should be
+configured to do requests against the backend.)
+
+(To find the IP for your front end, run `kubectl get svc`.)
+
+You should see that each response is different, because it is a different pod that responds.
 
 {% comment %}
 

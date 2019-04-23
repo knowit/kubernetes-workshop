@@ -18,7 +18,7 @@ The reason we want to assign proper labels to our resources (pods especially) is
 
 A selector defines a set of labels and values, and tries to select the resources that matches the defined selector.
 
-For example the selector in `Deployment` (which is the next topic) defines its selector as:
+For example the selector in `Deployment` defines its selector as:
 
 ```YAML
 selector:
@@ -31,7 +31,7 @@ Which will match each pod with the label `app`:`sample-app`.
 
 ## Task 1
 Deploy the Pod from the previous section again.
-Edit the pod using `kubectl`, and change the label. Verify by using the flag `--show-labels`. Alternatively you can change the yaml file before redeploying. Try both ways !
+Edit the pod using `kubectl`, and change the label. Verify by getting the pods and using `--show-labels`. Alternatively you can change the yaml file before redeploying. Try both ways !
 
 <details>
  <summary>Solution</summary>
@@ -39,9 +39,9 @@ Edit the pod using `kubectl`, and change the label. Verify by using the flag `--
 
 ### Solution: Labels and pods
 
- - `kubectl edit/[pod-name]` opens a editor. Change the label there.
+ - `kubectl edit deployment [deployment-name]` opens a editor. Change the label there.
  - Or just edit the .yaml file in your favourite editor before redeploying.
- - Verify by `kubectl get po --show-labels`
+ - Verify by `kubectl get pod --show-labels`
 
  ```yaml
  kind: Pod

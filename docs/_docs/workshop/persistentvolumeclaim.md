@@ -10,13 +10,24 @@ Persistent-Volume documentation:
 
 
 A PersistentVolume (PV) is a place where you can store stuff. It can be mounted into a pod, so your
-application use it as storage. I doesn't disappear when the pod is deleted. In other words, it's persistent.
+application use it as storage. It doesn't disappear when the pod is deleted. In other words, it's persistent.
 
 PersistentVolumes are created by PersistentVolumeClaims (PVC).
 
 A PersistentVolumeClaim is a claim for a PersistentVolume from a storage provider.
 
 With a PersistentVolumeClaim your app can request, for instance, 10GB of space. And it will automagically provision a volume that can be used without any concern of what the underlying technology is.
+
+## Caveat: 
+Default Persistent Volume on GCP does not allow multiple pods to mount a PVC at a time. Access mode must be `ReadWriteOnce` which means that you will have to scale your deployment down to 1 for as long as you are doing this task. 
+If you use more than one replica, only one will be able to start successfully.
+
+So, in your deployment.yaml (either one, for example for the workshop-api / backend), edit replicas to be 1:
+
+```yaml
+spec:
+  replicas: 1
+```
 
 ## Task: Create a PersistentVolumeClaim
 

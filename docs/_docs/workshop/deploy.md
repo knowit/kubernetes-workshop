@@ -181,8 +181,8 @@ You can creat a new yaml file from scratch if you want. Altough real dev oppers 
 
 <details>
 <div markdown="1">>
-`kubectl create deployment --image=torklo/workshop-api ez-frontend`
+`kubectl create deployment --image=torklo/workshop-frontend ez-frontend`
 
-You should save the generated deployment as a yaml file: `kubectl get deployment ez-frontend -o yaml > frontend-deployment.yaml`
+You should save the generated deployment as a yaml file: `kubectl get deployment ez-frontend -o yaml --export > frontend-deployment.yaml`
 </div>
 </details>
