@@ -53,7 +53,7 @@ Frontend:
 - Paste one of the node ips into a browser followed by the generated port number. `http://1.2.3.4:34567`
 
 Backend:
-- `kubectl expose deployment ez-backend --port 8080`
+- `kubectl expose deployment workshop-api-deployment --port 8080`
  </div>
 </details>
 {% comment %}
