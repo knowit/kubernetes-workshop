@@ -40,29 +40,16 @@ The deployment for the front-end is by now the current YAML:
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  annotations:
-    deployment.kubernetes.io/revision: "1"
-  creationTimestamp: null
-  generation: 1
   labels:
     app: ez-frontend
   name: ez-frontend
-  selfLink: /apis/extensions/v1beta1/namespaces/yngvar-kristiansen/deployments/ez-frontend
 spec:
-  progressDeadlineSeconds: 600
   replicas: 1
-  revisionHistoryLimit: 10
   selector:
     matchLabels:
       app: ez-frontend
-  strategy:
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 1
-    type: RollingUpdate
   template:
     metadata:
-      creationTimestamp: null
       labels:
         app: ez-frontend
     spec:
@@ -70,14 +57,7 @@ spec:
       - image: torklo/workshop-frontend
         imagePullPolicy: Always
         name: workshop-frontend
-        resources: {}
-        terminationMessagePath: /dev/termination-log
-        terminationMessagePolicy: File
-      dnsPolicy: ClusterFirst
       restartPolicy: Always
-      schedulerName: default-scheduler
-      securityContext: {}
-      terminationGracePeriodSeconds: 30
 status: {}
 ```
 
