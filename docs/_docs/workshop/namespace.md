@@ -32,7 +32,9 @@ These `Roles` are applied to users (or groups) by using a `RoleBinding`.
 
 {% assign rbac = '/docs/admin/authorization/rbac/' %}
 RBAC documentation:
+{% comment %}
 * [Offline]({{host.offline}}{{rbac}})
+{% endcomment %}
 * [Online]({{host.online}}{{rbac}})
 
 
@@ -63,7 +65,7 @@ Allow another user access to your namespace and get them to access your pods!
 ### Solution: Allowing Access
 
 - `kubectl create rolebinding [new-rolebinding-name] --user=[username] --clusterrole=[edit|admin]`
-> Username == knowit email
+> Username == Google Cloud user email
  </div>
 </details>
 

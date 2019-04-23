@@ -33,7 +33,9 @@ Important commands for debugging include:
 
 ## Task 1
 
+{% comment %}
 *For the offline workshop:* Aquire the kubeconfig that has been generated for you, and place it at `$HOME/.kube/config`.
+{% endcomment %}
 
 Use `kubectl` to view the config you have been given. Look for information about the cluster, username and context
 
