@@ -32,12 +32,13 @@ There are 3 main types of services: `NodePort`, `LoadBalancer` and `ClusterIP`
 
 ## Task 1
 
-Expose your frontend deployment with a NodePort service.
-Expose your backend deployment with a ClusterIP service.
+Expose your frontend deployment with a NodePort service on port 8080.
+Expose your backend deployment with a ClusterIP service on port 8080.
 
-Visit the feth a node IP.
-Note down the new service's port, where the frontend service runs
-And test it out.
+Find out the NodePort port of your new frontend service.
+
+Then, get the IP of any of the nodes in our cluster, and then open that IP with the NodePort port in a browser.
+This is where the frontend service can be accessed publicly on the Internet.
 
 <details>
  <summary>Solution</summary>
