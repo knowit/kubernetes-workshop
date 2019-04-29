@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: workshop-api-deployment
+  labels:
+    app: workshop-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: workshop-api
+  template:
+    metadata:
+      labels:
+        app: workshop-api
+        ykversion: yngvarsion
+    spec:
+      containers:
+      - name: workshop-frontend
+        image: torklo/workshop-api
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        env:
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        livenessProbe:
+          httpGet:
+            path: /healthy
+            port: 8080
+        readinessProbe:
+          httpGet:
+            path: /healthy
+            port: 8080
+        volumeMounts:
+          - name: my-persistent-volume
+            mountPath: /mydata
+          - name: supersecret
+            mountPath: "/secrets"
+            readOnly: true
+      volumes:
+      - name: my-persistent-volume
+        persistentVolumeClaim:
+          claimName: my-claim
+      - name: supersecret
+        secret:
+          secretName: mysecret
+
+

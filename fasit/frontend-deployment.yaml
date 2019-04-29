@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: ez-frontend
+  name: ez-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ez-frontend
+  template:
+    metadata:
+      labels:
+        app: ez-frontend
+    spec:
+      containers:
+      - image: torklo/workshop-frontend
+        imagePullPolicy: Always
+        name: workshop-frontend
+        envFrom:
+        - configMapRef:
+            name: super-configmap
+      restartPolicy: Always
