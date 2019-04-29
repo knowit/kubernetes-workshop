@@ -84,11 +84,9 @@ kubectl apply -f workshop-frontend-deployment.yaml # or whatever you called the 
 
 Now your pod in your deployment should be restarted by Kubernetes.
 
-After the frontend pod has been restarted, visit the frontend in the browser again. Notice that the following
-has been updated to something similar to:
+After the frontend pod has been restarted, visit the frontend in the browser again. Notice that the frontend now displays the contents of the environment variable:
 
-> The URL to the workshop-api is:
-> http://workshop-api-deployment.my-namespace
+![text](../../assets/img/frontend-with-env.png)
 
 </div>
 </details>
@@ -102,6 +100,8 @@ configured to do requests against the backend.)
 (To find the host IP, run `kubectl get nodes -owide`. And use `kubectl get svc` to find the nodeport)
 
 You should see that each response is different, because it is a different pod that responds.
+
+![text](../../assets/img/frontend-api-answer.png)
 
 {% comment %}
 
