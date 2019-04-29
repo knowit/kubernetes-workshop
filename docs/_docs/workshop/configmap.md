@@ -88,9 +88,6 @@ After the frontend pod has been restarted, visit the frontend in the browser aga
 
 ![text](../../assets/img/frontend-with-env.png)
 
-> The URL to the workshop-api is:
-> http://workshop-api-deployment.my-namespace
-
 </div>
 </details>
 
