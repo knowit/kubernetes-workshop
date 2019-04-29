@@ -50,12 +50,13 @@ Frontend:
 - `kubectl expose deployment ez-frontend --port 80 --type NodePort`
 - `kubectl get svc` # Note the second part of the Port `80:34567`
 - `kubectl get nodes -o wide` 
-- Paste one of the node ips into a browser followed by the generated port number. `http://1.2.3.4:34567`
+- Paste one of the node IPs into a browser followed by the generated port number. `http://1.2.3.4:34567`
 
 Backend:
 - `kubectl expose deployment workshop-api-deployment --port 80`
  </div>
 </details>
+
 {% comment %}
 ## Task 2
 Deploy a new version of your application, and expose it with a service.
