@@ -32,8 +32,8 @@ There are 3 main types of services: `NodePort`, `LoadBalancer` and `ClusterIP`
 
 ## Task 1
 
-Expose your frontend deployment with a NodePort service on port 8080.
-Expose your backend deployment with a ClusterIP service on port 8080.
+Expose your frontend deployment with a NodePort service on port 80.
+Expose your backend deployment with a ClusterIP service on port 80.
 
 Find out the NodePort port of your new frontend service.
 
@@ -47,13 +47,13 @@ publicly on the Internet.
 
 ### Solution 1: Exposing a pod with service
 Frontend:
-- `kubectl expose deployment ez-frontend --port 8080 --type NodePort`
-- `kubectl get svc` # Note the second part of the Port `8080:34567`
+- `kubectl expose deployment ez-frontend --port 80 --type NodePort`
+- `kubectl get svc` # Note the second part of the Port `80:34567`
 - `kubectl get nodes -o wide` 
 - Paste one of the node ips into a browser followed by the generated port number. `http://1.2.3.4:34567`
 
 Backend:
-- `kubectl expose deployment workshop-api-deployment --port 8080`
+- `kubectl expose deployment workshop-api-deployment --port 80`
  </div>
 </details>
 {% comment %}
