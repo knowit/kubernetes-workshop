@@ -47,7 +47,7 @@ publicly on the Internet.
 
 ### Solution 1: Exposing a pod with service
 Frontend:
-- `kubectl expose deployment ez-frontend --port 80 --type NodePort`
+- `kubectl expose deployment ez-frontend --port 80 --target-port 8080 --type NodePort`
 - `kubectl get svc` # Note the second part of the Port `80:34567`
 - `kubectl get nodes -o wide` 
 - Paste one of the node IPs into a browser followed by the generated port number. `http://1.2.3.4:34567`
