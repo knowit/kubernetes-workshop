@@ -101,6 +101,8 @@ configured to do requests against the backend.)
 
 You should see that each response is different, because it is a different pod that responds.
 
+![text](../../assets/img/frontend-api-answer.png)
+
 {% comment %}
 
 ## Task 3
