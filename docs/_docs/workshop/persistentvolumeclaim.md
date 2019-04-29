@@ -48,7 +48,7 @@ spec:
       storage: 10Mi
 ```
 
-In your `deployment.yaml`, add a volume from the claim:
+In your `deployment.yaml` (same deployment you edited above), add a volume from the claim:
 
 ```yaml
 ...
@@ -110,6 +110,8 @@ You can do this by
 * writing to a file in the now mounted volume in the pod
 * delete the pod
 * verify that the file still exists when a new pod is started
+
+Tip: Use `kubectl exec -it my-pod-name-8d77fb47-p529c bash` 
 
 <details>
   <summary>Solution</summary>
