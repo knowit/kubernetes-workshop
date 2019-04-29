@@ -26,7 +26,7 @@ curl http://someservice.somenamespace
 
 (FYI, curl is a tool to transfer data for instance using HTTP.)
 
-Let's try this. We'll use your existing service to curl from, and fire up one new service in the same namespace and one in another workspace.
+Let's try this. We'll use one of your existing pods to curl from, and fire up one new service in the same namespace and one in another workspace.
 
 ## Task: Create service in same namespace
 
