@@ -111,7 +111,7 @@ You can do this by
 * delete the pod
 * verify that the file still exists when a new pod is started
 
-Tip: Use `kubectl exec -it my-pod-name-8d77fb47-p529c bash` 
+Tip: Use `kubectl exec -it my-pod-name-8d77fb47-p529c bash` to open a shell to the pod's container.
 
 <details>
   <summary>Solution</summary>
@@ -121,7 +121,7 @@ Write to a file in the peristed volume:
 
 ```
 kubectl get po
-kubectl exec -it sample-app-deployment-7756ccb788-vflmz sh
+kubectl exec -it sample-app-deployment-7756ccb788-vflmz bash # or 'sh' if bash doesn't work
 / # cd mydata
 /mydata # ls
 /mydata # echo hello there > hello
