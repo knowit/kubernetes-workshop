@@ -37,8 +37,9 @@ Expose your backend deployment with a ClusterIP service on port 8080.
 
 Find out the NodePort port of your new frontend service.
 
-Then, get the IP of any of the nodes in our cluster, and then open that IP with the NodePort port in a browser.
-This is where the frontend service can be accessed publicly on the Internet.
+Then, get the IP of any of the nodes in our cluster, and then open that IP with the frontend
+service's NodePort port in a browser. This is where the frontend service can be accessed
+publicly on the Internet.
 
 <details>
  <summary>Solution</summary>
