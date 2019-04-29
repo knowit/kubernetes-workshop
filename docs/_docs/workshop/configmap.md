@@ -17,7 +17,10 @@ A configmap can either be created manually by specifying a yaml file, or by `kub
 
 ## Task 1
 
-Create a configmap with `kubectl`. The configmap should contain a literal `BACKEND_URL`. The value should be a callable service in the cluster, and should be in the form: `http://[service-name].[namespace]:[service-port]`. Example: `BACKEND_URL="http://super-backend.tord-kloster:80"`
+Create a configmap with `kubectl`. The configmap should contain a literal `BACKEND_URL`. The value should be a callable service in the cluster, and should be in the form: `http://[service-name].[namespace]:[service-port]`.
+
+Example: `BACKEND_URL="http://super-backend.tord-kloster:80"`
+
 <details>
 <summary>Solution</summary>
 <div markdown="1">
@@ -26,6 +29,7 @@ Create a configmap with `kubectl`. The configmap should contain a literal `BACKE
 kubectl create configmap super-configmap --from-literal=BACKEND_URL=http://workshop-api-deployment.yngvar-kristiansen
 ```
 
+(Port 80 is the default, so we don't need to specify it.)
 
 </div>
 </details>
