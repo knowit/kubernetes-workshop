@@ -84,8 +84,9 @@ kubectl apply -f workshop-frontend-deployment.yaml # or whatever you called the 
 
 Now your pod in your deployment should be restarted by Kubernetes.
 
-After the frontend pod has been restarted, visit the frontend in the browser again. Notice that the following
-has been updated to something similar to:
+After the frontend pod has been restarted, visit the frontend in the browser again. Notice that the frontend now displays the contents of the environment variable:
+
+![text](../../assets/img/frontend-with-env.png)
 
 > The URL to the workshop-api is:
 > http://workshop-api-deployment.my-namespace
