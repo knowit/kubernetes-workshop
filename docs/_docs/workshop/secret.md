@@ -30,7 +30,7 @@ Create a secret and mount it into a file in the container at ***/secrets/superse
 
 ```bash
 echo -n 'my_supersecret' > ./supersecret.txt
-kubectl --namespace=mynamespace create secret generic mysecret --from-file=./supersecret.txt
+kubectl create secret generic mysecret --from-file=./supersecret.txt
 ```
 
 ### Solution, Mounting the secret into a file in the container
