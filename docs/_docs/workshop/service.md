@@ -32,8 +32,9 @@ There are 3 main types of services: `NodePort`, `LoadBalancer` and `ClusterIP`
 
 ## Task 1
 
-Expose your frontend deployment with a NodePort service on port 80.
-Expose your backend deployment with a ClusterIP service on port 80.
+Expose your frontend deployment with a NodePort service on port 80, on target-port 8080.
+
+Expose your backend deployment with a ClusterIP service on port 80, on target-port 8080.
 
 Find out the NodePort port of your new frontend service.
 
@@ -53,7 +54,7 @@ Frontend:
 - Paste one of the node IPs into a browser followed by the generated port number. `http://1.2.3.4:34567`
 
 Backend:
-- `kubectl expose deployment workshop-api-deployment --port 80`
+- `kubectl expose deployment workshop-api-deployment --port 80 --target-port 8080`
  </div>
 </details>
 
