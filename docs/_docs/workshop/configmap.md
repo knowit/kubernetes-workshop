@@ -62,7 +62,6 @@ spec:
         imagePullPolicy: Always
         name: workshop-frontend
       restartPolicy: Always
-status: {}
 ```
 
 <details>
