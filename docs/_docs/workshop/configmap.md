@@ -81,13 +81,19 @@ kubectl apply -f workshop-frontend-deployment.yaml # or whatever you called the 
 
 Now your pod in your deployment should be restarted by Kubernetes.
 
+After the frontend pod has been restarted, visit the frontend in the browser again. Notice that the following
+has been updated to something similar to:
+
+> The URL to the workshop-api is:
+> http://workshop-api-deployment.my-namespace
+
 </div>
 </details>
 
 ## Task 3
 
 The Kubernetes cluster automatically loadbalances pods that are replicated. To see for
-yorself, open your front end, and click the button to do a request. (By this time in the guide it should be
+yourself, open your front end, and click the button to do a request. (By this time in the guide it should be
 configured to do requests against the backend.)
 
 (To find the host IP, run `kubectl get nodes -owide`. And use `kubectl get svc` to find the nodeport)
