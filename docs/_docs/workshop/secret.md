@@ -83,5 +83,14 @@ kubectl exec -it [pod-name] sh
 cat /secrets/*
 ```
 
+If the pod won't start, it may be because two pods tries to mount a PVC that is only supposed to be access by one PVC. You can use `kubectl get event` to confirm this:
+
+```
+52s         52s          1       workshop-api-deployment-9c4cfc4c6-c5wgx.1599fdece10a7b4f    Pod                                                          Warning   FailedAttachVolume       attachdetach-controller                                      Multi-Attach error for volume "pvc-c3d75a68-6a96-11e9-8cf6-42010aa601e4" Volume is already used by pod(s) workshop-api-deployment-5cf49764b9-75dct
+```
+
+To fix this, delete any of the running pods manually.
+
+
   </div>
 </details>
