@@ -36,7 +36,7 @@ To avoid having to specify the namespace in all requests with kubectl, set the n
 
 `kubectl config set-context $(kubectl config current-context) --namespace=<insert-namespace-name-here>`
 
-The namespace is you email username as described before. E.g. `kubectl config set-context $(kubectl config current-context) --namespace=tord.kloster`
+The namespace is you email username as described before. E.g. `kubectl config set-context $(kubectl config current-context) --namespace=tord-kloster`
 
 ## Install helm client
 
