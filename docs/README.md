@@ -1,5 +1,8 @@
+## Browse the workshop
 
-## Getting started
+Go here: https://knowit.github.io/kubernetes-workshop/
+
+## Contributing
 
 So you want to contribute to this site? Awsome.
 
